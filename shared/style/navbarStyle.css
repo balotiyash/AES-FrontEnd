@@ -1,0 +1,63 @@
+/*
+    File: shared/style/navbarStyle.css
+    Author: Yash Balotiya
+    Description: This file contains the styling part of the NAVBAR.
+    Created on: 01/10/2024
+    Last Modified: 01/10/2024
+*/
+
+#navbar {
+    width: 100%;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logoDiv {
+    display: flex;
+    align-items: center;
+}
+
+#navLogo {
+    width: 50px;
+}
+
+#logoDiv h1 {
+    font-size: 20px;
+    margin: 0 12px;
+    color: #1230AE;
+}
+
+.navBtns {
+    background-color: transparent;
+    border: none;
+    margin: 0 20px;
+    /* color: grey; */
+}
+
+.fa-circle-user {
+    transform: scale(1.5);
+    color: black;
+}
+
+.dropdown {
+    display: inline;
+}
+
+/* Remove background and border for dropdown-toggle and its states */
+.dropdown-toggle, 
+.dropdown-toggle:hover, 
+.dropdown-toggle:active {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important; 
+    /* Removes any box-shadow (border effect) */
+}
+
+/* Remove background, border, and shadow for dropdown menu */
+.dropdown-menu {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}

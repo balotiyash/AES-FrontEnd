@@ -1,0 +1,88 @@
+/*
+    File: shared/style/loginStyle.css
+    Author: Yash Balotiya
+    Description: This file contains the styling part of the Login Page.
+    Created on: 01/10/2024
+    Last Modified: 01/10/2024
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    max-width: 100vw;
+    height: 100vh;
+}
+
+#mainContainer {
+    max-width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loginSec, #newAccountSec {
+    padding: 20px;
+    width: 30%;
+    height: 75%;
+}
+
+.horizontalDivider {
+    width: 100%;
+    height: 1px;
+    background-color: #B5C0D0;
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+
+.inputDiv {
+    margin: 30px 0;
+}
+
+.inputDetails {
+    display: block;
+    border: none;
+    border-radius: 20px;
+    background-color: #F5F5F7;
+    height: 32px;
+    width: 100%;
+    margin-top: 8px;
+    padding-left: 20px;
+}
+
+#signinDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin-top: 40px; */
+}
+
+#signinBtn {
+    border-radius: 20px;
+    width: 100px;
+}
+
+.greyFont {
+    color: gray;
+}
+
+.verticalDivider {
+    width: 1px;
+    height: 75vh;
+    margin: 0 40px;
+    margin-top: 250px;
+    background-color: #B5C0D0;
+}
+
+#loginBtn {
+    width: 100%;
+    height: 32px;
+    border-radius: 20px;
+    background-color: #F5F5F7;
+    margin-top: 16px;
+    padding: 0;
+}
