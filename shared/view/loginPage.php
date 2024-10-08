@@ -18,7 +18,6 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../style/loginStyle.css">
-    <link rel="stylesheet" href="../style/navbarStyle.css">
 </head>
 
 <body>
