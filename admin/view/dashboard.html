@@ -1,0 +1,123 @@
+<!-- 
+    File: shared/view/dashboard.html
+    Author: Yash Balotiya
+    Description: This File contains all the html5 code of SideBar
+    Created on: 07/10/2024
+    Last Modified: 11/10/2024
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Fontsawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Sidebar -->
+    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
+
+    <!-- Navbar -->
+    <link rel="stylesheet" href="../../shared//style/navbarStyle.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header id="navbar">
+        <!-- Logo -->
+        <div id="logoDiv">
+            <img src="../../assets/images/AES Logo.jpg" alt="AES" id="navLogo">
+            <h1>Analytical Equipment Solutions</h1>
+        </div>
+
+        <div id="navLinksDiv">
+            <button type="button" class="navBtns">Home</button>
+            <button type="button" class="navBtns">Products</button>
+            <button type="button" class="navBtns">View Cart</button>
+            <button type="button" class="navBtns">Contact Us</button>
+            <!-- <button type="button" class="navBtns"><i class="fa-solid fa-circle-user"></i></button> -->
+
+            <!-- Dropdown -->
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-circle-user"></i>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">My Orders</a></li>
+                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item" href="#" style="color: red;">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <header class="sidebar-header">
+                <!-- <button type="button" class="sidebar-burger" onclick="toggleSidebar()">
+                    <img src="../../assets/images/AES Logo.jpg" alt="AES">
+                </button> -->
+                <!-- <button type="button" class="sidebar-burger" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars"></i>
+                </button> -->
+                <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
+                <div class="sidebar-logo">
+                    <p>Welcome, Admin!</p>
+                </div>
+                <!-- <img src="../../assets/images/blocklord-logo.png" class="sidebar-logo" /> -->
+            </header>
+            <nav class="sidebar-nav">
+                <button type="button">
+                    <img src="../../assets/vectors/icon-home.svg" class="logos" />
+                    <span>Home</span>
+                </button>
+                <button type="button">
+                    <img src="../../assets/vectors/icon-settings.svg" class="logos" />
+                    <span style="animation-delay: 0.1s">Settings</span>
+                </button>
+                <button type="button">
+                    <img src="../../assets/vectors/icon-levels.svg" class="logos" />
+                    <span style="animation-delay: 0.2s">Levels</span>
+                </button>
+                <button type="button">
+                    <img src="../../assets/vectors/icon-accounts.svg" class="logos" />
+                    <span style="animation-delay: 0.3s">Accounts</span>
+                </button>
+            </nav>
+            <footer class="sidebar-footer">
+                <button type="button">
+                    <img src="../../assets/vectors/icon-lock.svg" />
+                    <span>Logout</span>
+                </button>
+            </footer>
+        </div>
+    </aside>
+
+    <script type="text/javascript">
+        const toggleSidebar = () => document.body.classList.toggle("open");
+    </script>
+</body>
+
+</html>
