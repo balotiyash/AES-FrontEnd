@@ -6,17 +6,17 @@
  * Last Modified: 11/10/2024
 */
 
-import { LOCALHOST, PORT } from '../../config.js';
+import { IP, PORT } from '../../config.js';
 
-function submitForm(event) {
-    event.preventDefault(); // Prevent form from reloading the page
+document.getElementById("loginForm").addEventListener("submit", () => {
+    // event.preventDefault(); // Prevent form from reloading the page
     console.log('Submitting form...');
 
     const form = document.getElementById('loginForm');
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
 
-    fetch(`http://${LOCALHOST}:${PORT}/public/login`, {
+    fetch(`http://${IP}:${PORT}/public/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -32,12 +32,46 @@ function submitForm(event) {
         })
         .then(data => {
             console.log('Data:', data);
-            if (data.token) {
-                document.cookie = `token=${data.token}; path=/;`;
+            if (data) {
+                document.cookie = `token=${data}; path=/;`;
                 alert('Login successful! Token saved in cookie.');
             } else {
                 alert('Login failed. Token not received.');
             }
         })
         .catch(error => console.error('Error:', error));
-}
+});
+
+// function submitForm(event) {
+//     event.preventDefault(); // Prevent form from reloading the page
+//     console.log('Submitting form...');
+
+//     const form = document.getElementById('loginForm');
+//     const formData = new FormData(form);
+//     const data = Object.fromEntries(formData);
+
+//     fetch(`http://localhost:3000/public/login`, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(data)
+//     })
+//         .then(response => {
+//             console.log('Response received:', response);
+//             if (!response.ok) {
+//                 throw new Error('Network response was not ok');
+//             }
+//             return response.text();
+//         })
+//         .then(data => {
+//             console.log('Data:', data);
+//             if (data) {
+//                 document.cookie = `token=${data}; path=/;`;
+//                 alert('Login successful! Token saved in cookie.');
+//             } else {
+//                 alert('Login failed. Token not received.');
+//             }
+//         })
+//         .catch(error => console.error('Error:', error));
+// }

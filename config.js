@@ -1,2 +1,2 @@
-const LOCALHOST = 'localhost';
-const PORT = 3000
+export const IP = 'localhost';
+export const PORT = 3000
