@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the Login Page.
     Created on: 01/10/2024
-    Last Modified: 01/10/2024
+    Last Modified: 11/10/2024
 */
 
 * {
@@ -26,7 +26,7 @@ body {
     justify-content: center;
 }
 
-#loginSec, #newAccountSec {
+#loginForm, #newAccountSec {
     padding: 20px;
     width: 30%;
     height: 75%;
@@ -79,7 +79,7 @@ body {
     background-color: #B5C0D0;
 }
 
-#loginBtn {
+#createBtn {
     width: 100%;
     height: 32px;
     border-radius: 20px;

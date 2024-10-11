@@ -81,7 +81,7 @@
     <!-- Main Content -->
     <main id="mainContainer">
         <!-- Left Side: Login -->
-        <section id="loginSec">
+        <form id="loginForm">
             <!-- Intro -->
             <div>
                 <b>Registered Customers</b>
@@ -92,13 +92,13 @@
             <!-- Email -->
             <div class="inputDiv">
                 <b>Email</b>
-                <input type="text" class="inputDetails">
+                <input type="text" class="inputDetails" required>
             </div>
 
             <!-- Password -->
             <div class="inputDiv">
                 <b>Password</b>
-                <input type="password" class="inputDetails">
+                <input type="password" class="inputDetails" required>
             </div>
 
             <!-- Checkbox -->
@@ -121,10 +121,10 @@
             <br>
             <!-- Button -->
             <div id="signinDiv">
-                <button type="button" class="btn btn-info" id="signinBtn">Sign In</button>
+                <button type="submit" class="btn btn-info" id="signinBtn" onclick="submitForm(this)">Sign In</button>
                 <a href="#" class="greyFont">Forgot your password?</a>
             </div>
-        </section>
+        </form>
 
         <!-- VerticalDivider -->
         <div class="verticalDivider"></div>
@@ -140,11 +140,14 @@
             </div>
 
             <!-- Button -->
-            <button type="button" class="btn btn-light" id="loginBtn">Create an Account</button>
+            <button type="button" class="btn btn-light" id="createBtn">Create an Account</button>
         </section>
     </main>
 
     <!-- Footer -->
+
+    <!-- Scripts -->
+    <script src="../controller/loginScript.js"></script>
 </body>
 
 </html>
