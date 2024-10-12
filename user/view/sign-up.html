@@ -1,9 +1,9 @@
 <!-- 
-    File: shared/view/loginPage.html
-    Author: Yash Balotiya
-    Description: This page contains all the HTML5 code for the Login Page
-    Created on: 01/10/2024
-    Last Modified: 11/10/2024
+    File: user/view/sign-up.html
+    Author: Nandini Kakaraniya
+    Description: This page contains all the HTML5 code for the Sign-up Page
+    Created on: 11/10/2024
+    Last Modified: 12/10/2024
 -->
 
 <!DOCTYPE html>
@@ -96,21 +96,21 @@
                 </div>
                 <div class="rightdiv">
     
-                    <form class="sign-up-form" action="">
+                    <form class="sign-up-form" id="sign-up-form" onsubmit="return false">
                         
                         <span class="sign-up-heading">Sign Up</span>
                          
                         <div class="input-group mb-3">
                             <span class="input-group-text">First & last name</span>
-                            <input type="text" aria-label="First name" class="form-control">
-                            <input type="text" aria-label="Last name" class="form-control">
+                            <input type="text" aria-label="First name" class="form-control" id="firstname" name="firstname">
+                            <input type="text" aria-label="Last name" class="form-control" id="lastname" name="lastname">
                           </div>
     
                           
                           
                           <div class="input-group mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="username" name="username">
                           </div>
     
     
@@ -119,7 +119,7 @@
     
                           <div class="input-group mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="email" name="email">
                           </div>
     
     
@@ -128,27 +128,27 @@
     
                           <div class="input-group mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-default">Phone No</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="phone" name="phone">
                           </div>
     
                          
     
                           <div class="input-group mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="password" name="password">
                           </div>
     
                          
     
                           <div class="input-group mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-default">Confirm Password</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="confirmPassword" name="confirmPassword">
                           </div>
     
                          
                           
                           <div class="d-grid gap-2">
-                            <button class="btn btn-dark" type="button">Sign Up</button>
+                            <button class="btn btn-dark" type="submit" id="signupBtn">Sign Up</button>
                            
                           </div>
     
@@ -168,7 +168,7 @@
   
     </main>
     <!-- Scripts -->
-    <script type="module" src="../controller/loginScript.js"></script>
+    <script type="module" src="../controller/signupScript.js"></script>
     <!-- Footer -->
 </body>
 
