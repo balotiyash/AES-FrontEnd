@@ -7,23 +7,26 @@
 body {
     max-width: 100vw;
     height: 100vh;
-    background-color: white;
+    background-color: #F7F7F7;
 }
 
 
 .heading{
 
-    padding-top: 35px;
-    padding-left: 120px;
-    padding-bottom: 35px;
+
     font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 26px;
+    position: fixed;
+    top: 35px;
+    left: 120px;
 }
 
 .bodyy{
+    position: relative;
+    top: 110px;
     padding-left: 120px;
-    padding-right: 490px;
+    padding-right: 190px;
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-template-rows: 1fr 1fr 1fr;
@@ -31,9 +34,7 @@ body {
     
 }
 
-main{
-    background-color: #F7F7F7;
-}
+
 
 .card{
    
