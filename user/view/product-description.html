@@ -1,7 +1,7 @@
 <!-- 
-    File: user/view/products-page.html
+    File: user/view/product-description.html
     Author: Yash Balotiya
-    Description: This file contains all the HTML code of products page
+    Description: This file contains all the HTML code of individual product description page
     Created on: 13/10/2024
     Last Modified: 13/10/2024
 -->
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
-    <title>Products - AES</title>
+    <title>Title - AES</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -40,7 +40,7 @@
         rel="stylesheet" />
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../style/products-style.css">
+    <link rel="stylesheet" href="../style/product-description.css">
     <link rel="stylesheet" href="../../shared/style/footerStyle.css">
 </head>
 
@@ -78,7 +78,6 @@
 
     <!-- main section -->
     <main class="main">
-        <!-- Parent Section -->
         <section class="main-sec">
             <!-- Left side -->
             <section class="side-menu-sec">
@@ -111,88 +110,63 @@
 
             <div class="vertical-divider"></div>
 
-            <!-- Right side -->
-            <section class="orders-sec">
-                <h5>Analytical Applications & Instruments for Lab</h5>
-
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
-
+            <!-- right side -->
+            <section class="desc-sec">
+                <div class="part-1">
+                    <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
                     <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
+                        <b>Automatic Hydraulic Press</b>
+                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down transformer for coach power supply.</p>
+                        <p class="in-stock">In stock</p>
+                        <p>Rs. 5000.00</p>
+
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-btn">Add to cart</button>
+
+                            <span class="tally-div">
+                                <p>1</p>
+                                <span class="tally-div-child">
+                                    <button class="tally-btns">-</button>
+                                    <button class="tally-btns">+</button>
+                                </span>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
+                <div class="part-2">
+                    <h5>Customer Reviews</h5>
+                    <div class="review-div">
+                        <p class="profile-icon">P</p>
 
-                    <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
+                        <div>
+                            <b>Pranav Pawar</b>
+                            <div class="star-div">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p>Liked the quality  of the product and service of the company. The pump offers excellent power and precision for construction and DIY projects</p>
+                        </div>
                     </div>
-                </div>
+                    <div class="review-div">
+                        <p class="profile-icon">P</p>
 
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
-
-                    <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
-                    </div>
-                </div>
-
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
-
-                    <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
-                    </div>
-                </div>
-
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
-
-                    <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
-                    </div>
-                </div>
-
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
-
-                    <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
+                        <div>
+                            <b>Pranav Pawar</b>
+                            <div class="star-div">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p>Liked the quality  of the product and service of the company. The pump offers excellent power and precision for construction and DIY projects</p>
+                        </div>
                     </div>
                 </div>
             </section>
+
         </section>
     </main>
 
