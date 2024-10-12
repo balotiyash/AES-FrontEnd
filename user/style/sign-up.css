@@ -1,0 +1,243 @@
+/*
+    File: shared/style/loginStyle.css
+    Author: Yash Balotiya
+    Description: This file contains the styling part of the Login Page.
+    Created on: 01/10/2024
+    Last Modified: 11/10/2024
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    max-width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+#mainContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(70vh ); /* Adjust height to account for header */
+    padding: 150px;
+    background-color: #F7F7F7;
+}
+
+/* Left Section */
+#infoContainer {
+    width: 40%;
+    padding: 20px;
+    /*background-color: #f0f0f0; /* Very light grey */
+    border-radius: 8px;
+}
+
+#infoContainer h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#infoContainer p {
+    font-size: 1.1rem;
+}
+
+/* Right Section - Form */
+#formContainer {
+    width: 50%;
+    padding: 20px;
+}
+
+#formContainer .form-control {
+    margin-bottom: 15px;
+}
+
+#formContainer button {
+    width: 100%;
+}
+
+
+.mainDiv  {
+    width: 98.5vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainSec {
+    display: flex;
+    width: 75%;
+    height: 75%;
+    background-color: #fbfbfb;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+/* Left Side */
+.leftDiv {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    /* padding: 30px; */
+    padding: 0 50px;
+    text-align: left;
+}
+
+.intro1 {
+    color: #4f4f4f;
+    font-size: 50px;
+}
+
+.intro2 {
+    color: #3b71ca;
+    font-size: 50px;
+}
+
+.intro {
+    font-size: 18px;
+}
+
+/* Right SIde */
+.rightDiv {
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+
+.nameInput {
+    margin-bottom: 16px;
+}
+
+.inputTitle {
+    width: 150px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    max-width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+.window{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rectangle{
+    width: 900px;
+    height: 60vh;
+    background-color: #F7F7F7;
+
+    display:flex;
+    box-shadow: 5px 5px 10px #E7E5E5;
+}
+
+.leftdiv{
+    
+    width: 60%;
+    
+
+    display:flex;
+    
+
+
+}
+
+.body-text{
+    font-size: 15px;
+    font-family: montserrat;
+}
+
+.rightdiv{
+    
+    width: 40%;
+    background-color: white;
+    
+    
+}
+
+.info-container{
+    
+    padding: 45px;
+    display: flex;
+   
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sign-up-form{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+
+}
+.sign-up-heading{
+    padding-bottom: 25px;
+    font-size: 20px;
+}
+
+.input-group{
+    
+    display: flex;
+    
+    flex-grow: 1;
+}
+
+.input-group-text{
+    width: 40%;
+    font-size: 11px;
+    font-family: montserrat;
+}
+
+.form-control{
+    max-width: 60%;
+}
+
+.aes{
+    color: #0092DD;
+}
+
+.heading{
+    font-size: 24px;
+    
+}
+
+.wlc-to{
+
+    font-weight: 100;
+    font-size: 30px;
+
+}
