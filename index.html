@@ -39,6 +39,7 @@
 
     <!-- stylesheets -->
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./shared/style/footerStyle.css">
 </head>
 
 <body>
@@ -73,6 +74,7 @@
         </div>
     </header>
 
+    <!-- Main content -->
     <main class="mainDiv">
         <!-- Hero Img -->
         <section class="hero-img-sec">
@@ -83,6 +85,8 @@
 
         <!-- About us & news -->
         <section class="about-news-sec">
+
+            <!-- about us -->
             <div class="about-div">
                 <h5>About Us</h5>
                 <p>Our commitment to quality, integrity, and customer satisfaction is evident in every aspect of our
@@ -94,6 +98,7 @@
                     highest standards in all our operations.</p>
             </div>
 
+            <!-- news & events -->
             <div class="news-div">
                 <h5>News & Events</h5>
                 <ul>
@@ -106,7 +111,10 @@
             </div>
         </section>
 
+        <!-- image slider section -->
         <section class="part-3">
+
+            <!-- image slider -->
             <div class="image-slider">
                 <img src="./assets/images/Automatic Hydraulic Press.jpg" alt="">
                 <img src="./assets/images/Brobe Sonicator.jpg" alt="">
@@ -114,6 +122,7 @@
                 <img src="./assets/images/Gas Flow Meter - VKIT.jpg" alt="">
             </div>
 
+            <!-- why order from us -->
             <div class="why-order-div">
                 <h5>Why order from us?</h5>
                 <br>
@@ -124,8 +133,10 @@
             </div>
         </section>
 
+        <!-- Testimonials -->
         <section class="part-4">
             <h5>Testimonials</h5>
+
             <div class="testimonials-container">
                 <div class="testimonials-div">
                     <div class="review-div">
@@ -138,7 +149,7 @@
                             experience. The website was easy to navigate, and the product descriptions were clear and
                             detailed, helping me make an informed decision.</p>
                     </div>
-                    <!-- Repeat review-divs for other testimonials -->
+                    
                     <div class="review-div">
                         <div>
                             <p class="profile-img">B</p>
@@ -147,6 +158,7 @@
                         <br>
                         <p>Great customer service and fast delivery!</p>
                     </div>
+                    
                     <div class="review-div">
                         <div>
                             <p class="profile-img">C</p>
@@ -155,6 +167,7 @@
                         <br>
                         <p>Quality products and excellent support.</p>
                     </div>
+                    
                     <div class="review-div">
                         <div>
                             <p class="profile-img">D</p>
@@ -163,6 +176,7 @@
                         <br>
                         <p>Highly recommended for industrial equipment!</p>
                     </div>
+                    
                     <div class="review-div">
                         <div>
                             <p class="profile-img">D</p>
@@ -172,62 +186,72 @@
                         <p>Highly recommended for industrial equipment!</p>
                     </div>
                 </div>
+
+                <!-- Navigation buttons -->
                 <button class="nav-button left" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
                 <button class="nav-button right" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer>
+        <!-- Main footer -->
+        <div class="footer">
 
+            <!-- Company profile -->
+            <div class="footer-child-1">
+                <div class="footer-child-2">
+                    <img src="./assets/images/AES Logo.jpg" alt="" class="footer-aes-logo">
+                    <h1>Analytical Equipment<br>Solutions</h1>
+                </div>
+                <p>We Provide Pan India Analytical Instruments Sales & Services</p>
+            </div>
+    
+            <!-- quick links -->
+            <div class="footer-child-3">
+                <b>Quick Links</b>
+                <a href="">Home</a>
+                <a href="">Products</a>
+                <a href="">About Us</a>
+                <a href="">Contact Us</a>
+            </div>
+    
+            <!-- services -->
+            <div class="footer-child-3">
+                <b>Services</b>
+                <a href="">Product Enquiry</a>
+                <a href="">Service Request</a>
+            </div>
+    
+            <!-- contact us -->
+            <div class="footer-child-3">
+                <b>Contact Us</b>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="">official@analyticalequipmentsolutions.com</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="">official@outlook.com</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="">Jamil Nagar, Bhandup (W), Mumbai - 400078</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite section -->
+        <div class="copywrite-div">
+            <p>Copywrite</p>
+            <i class="fa-regular fa-copyright"></i>
+            <p>2024 Analytical Equipment Solutions | AES</p>
+        </div>
     </footer>
 
-    <script>
-        const images = document.querySelectorAll('.image-slider img');
-        let currentIndex = 0;
-
-        function showNextImage() {
-            // Remove active class from the current image
-            images[currentIndex].classList.remove('active');
-
-            // Update the index to the next image
-            currentIndex = (currentIndex + 1) % images.length;
-
-            // Add active class to the new image
-            images[currentIndex].classList.add('active');
-        }
-
-        // Initialize the first image as active
-        images[currentIndex].classList.add('active');
-
-        // Change image every 3 seconds (3000 milliseconds)
-        setInterval(showNextImage, 3000);
-
-    </script>
-
-    <script>
-        currentIndex = 0;
-
-        function moveSlide(direction) {
-            const testimonials = document.querySelectorAll('.review-div');
-            const totalTestimonials = testimonials.length;
-
-            // Update index based on direction
-            currentIndex += direction;
-
-            // Wrap around if at the ends
-            if (currentIndex < 0) {
-                currentIndex = totalTestimonials - 1; // Loop back to the last item
-            } else if (currentIndex >= totalTestimonials) {
-                currentIndex = 0; // Loop back to the first item
-            }
-
-            // Calculate translation
-            const offset = currentIndex * -35; // 35% is the width of each review-div
-            document.querySelector('.testimonials-div').style.transform = `translateX(${offset}%)`;
-        }
-
-    </script>
+    <!-- Scripts -->
+    <script src="./main.js"></script>
 </body>
 
 </html>
