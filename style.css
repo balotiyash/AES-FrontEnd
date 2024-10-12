@@ -1,0 +1,182 @@
+/*
+    File: style.css
+    Author: Yash Balotiya
+    Description: This file contains the styling part of the home Page.
+    Created on: 12/10/2024
+    Last Modified: 12/10/2024
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    max-width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+.mainDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-img-sec {
+    width: 100%;
+    height: 550px;
+    background-image: url('./assets/images/science-lab1.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+
+.hero-img-sec div {
+    width: 25%;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 40px;
+    overflow: hidden;
+}
+
+h5 {
+    color: #0092dd;
+}
+
+.hero-img-sec div p {
+    font-size: 30px;
+    margin: 0;
+    animation: slide-right 0.5s 0.5s forwards; /* Updated animation name */
+    transform: translateX(-100%);
+}
+
+@keyframes slide-right { /* Updated keyframes name */
+    to {
+        transform: translateX(0);
+    }
+}
+
+.about-news-sec, .part-3 {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.about-div, .news-div, .why-order-div {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.news-div {
+    background-color: #f7f7f7;
+    text-align: justify;
+}
+
+.part-3 img {
+    width: 40%;
+    /* height: 300px; */
+}
+
+.part-3 {
+    display: flex; /* Align the image slider and text side by side */
+}
+
+.image-slider {
+    position: relative;
+    width: 60%; /* Adjust as needed */
+    overflow: hidden; /* Hide overflow */
+}
+
+.image-slider img {
+    /* width: 100%; */
+    /* height: auto; */
+     /* Maintain aspect ratio */
+    position: absolute;
+    left: 100px;
+    opacity: 0; /* Start hidden */
+    transition: opacity 1s ease; /* Smooth transition */
+}
+
+.image-slider img.active {
+    opacity: 1; /* Show active image */
+}
+
+.part-4 {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Position for absolute buttons */
+}
+
+.part-4 h5 {
+    margin: 20px 0 20px 30px;
+}
+
+.testimonials-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+    width: 100%; /* Adjust as needed */
+}
+
+.testimonials-div {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth sliding effect */
+    width: 90%; /* Adjust width to fit all reviews */
+    /* padding: 0 30px; */
+}
+
+.review-div {
+    min-width: 35%; /* Width of each testimonial */
+    background-color: #f7f7f7;
+    padding: 30px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    margin: 0 8px;
+}
+
+.nav-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px; /* Adjust icon size */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1; /* Bring buttons above testimonials */
+}
+
+.nav-button.left {
+    left: 10px; /* Move left button outside the testimonials */
+}
+
+.nav-button.right {
+    right: 10px; /* Move right button outside the testimonials */
+}
+
+.profile-img {
+    background-color: #9d9d9d;
+    width: 24px;
+    height: 24px; /* Ensure circular profile */
+    text-align: center;
+    border-radius: 50%;
+}
+
+.footer {
+    width: 100%;
+    height: 30%;
+    background-color: #01204e;
+    margin-top: 40px;
+}

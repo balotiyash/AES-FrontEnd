@@ -3,18 +3,231 @@
     Author: Yash Balotiya
     Description: This is the home page
     Created on: 01/10/2024
-    Last Modified: 11/10/2024
+    Last Modified: 12/10/2024
 -->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Fontsawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Navbar -->
+    <link rel="stylesheet" href="./shared//style/navbarStyle.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
     <title>AES - Analytical Equipment Solutions</title>
-    <link rel="shortcut icon" href="./asset/images/AES Logo.jpg">
+    <link rel="shortcut icon" href="./assets/images/AES Logo.jpg">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    
+    <!-- navbar -->
+    <header id="navbar">
+        <!-- Logo -->
+        <div id="logoDiv">
+            <img src="./assets/images/AES Logo.jpg" alt="AES" id="navLogo">
+            <h1>Analytical Equipment Solutions</h1>
+        </div>
+
+        <div id="navLinksDiv">
+            <button type="button" class="navBtns">Home</button>
+            <button type="button" class="navBtns">Products</button>
+            <button type="button" class="navBtns">View Cart</button>
+            <button type="button" class="navBtns">Contact Us</button>
+            <!-- <button type="button" class="navBtns"><i class="fa-solid fa-circle-user"></i></button> -->
+
+            <!-- Dropdown -->
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-circle-user"></i>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">My Orders</a></li>
+                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item" href="#" style="color: red;">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="mainDiv">
+        <!-- Hero Img -->
+        <section class="hero-img-sec">
+            <div>
+                <p>We Provide Pan India Analytical Instruments Sales & Services</p>
+            </div>
+        </section>
+
+        <!-- About us & news -->
+        <section class="about-news-sec">
+            <div class="about-div">
+                <h5>About Us</h5>
+                <p>Our commitment to quality, integrity, and customer satisfaction is evident in every aspect of our
+                    operations.</p>
+
+                <p>We are driven by a deep commitment to quality, integrity, and customer satisfaction.</p>
+
+                <p>Every project we undertake is a reflection of our dedication to excellence, ensuring that we meet the
+                    highest standards in all our operations.</p>
+            </div>
+
+            <div class="news-div">
+                <h5>News & Events</h5>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="part-3">
+            <div class="image-slider">
+                <img src="./assets/images/Automatic Hydraulic Press.jpg" alt="">
+                <img src="./assets/images/Brobe Sonicator.jpg" alt="">
+                <img src="./assets/images/Gas Detector Sensors.webp" alt="">
+                <img src="./assets/images/Gas Flow Meter - VKIT.jpg" alt="">
+            </div>
+
+            <div class="why-order-div">
+                <h5>Why order from us?</h5>
+                <br>
+                <p>Top-Quality Products: We provide reliable, durable products that meet high standards.</p>
+                <p>Exceptional Customer Service: Our team is dedicated to helping you with any questions or concerns.
+                </p>
+                <p>Tailored Solutions: We offer custom options to fit your specific needs.</p>
+            </div>
+        </section>
+
+        <section class="part-4">
+            <h5>Testimonials</h5>
+            <div class="testimonials-container">
+                <div class="testimonials-div">
+                    <div class="review-div">
+                        <div>
+                            <p class="profile-img">A</p>
+                            <b>Atharv Mirgal</b>
+                        </div>
+                        <br>
+                        <p>I recently purchased industrial equipment from the company, and I couldn’t be happier with my
+                            experience. The website was easy to navigate, and the product descriptions were clear and
+                            detailed, helping me make an informed decision.</p>
+                    </div>
+                    <!-- Repeat review-divs for other testimonials -->
+                    <div class="review-div">
+                        <div>
+                            <p class="profile-img">B</p>
+                            <b>Jane Doe</b>
+                        </div>
+                        <br>
+                        <p>Great customer service and fast delivery!</p>
+                    </div>
+                    <div class="review-div">
+                        <div>
+                            <p class="profile-img">C</p>
+                            <b>John Smith</b>
+                        </div>
+                        <br>
+                        <p>Quality products and excellent support.</p>
+                    </div>
+                    <div class="review-div">
+                        <div>
+                            <p class="profile-img">D</p>
+                            <b>Emily Johnson</b>
+                        </div>
+                        <br>
+                        <p>Highly recommended for industrial equipment!</p>
+                    </div>
+                    <div class="review-div">
+                        <div>
+                            <p class="profile-img">D</p>
+                            <b>Emily Johnson</b>
+                        </div>
+                        <br>
+                        <p>Highly recommended for industrial equipment!</p>
+                    </div>
+                </div>
+                <button class="nav-button left" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-button right" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+
+    <script>
+        const images = document.querySelectorAll('.image-slider img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            // Remove active class from the current image
+            images[currentIndex].classList.remove('active');
+
+            // Update the index to the next image
+            currentIndex = (currentIndex + 1) % images.length;
+
+            // Add active class to the new image
+            images[currentIndex].classList.add('active');
+        }
+
+        // Initialize the first image as active
+        images[currentIndex].classList.add('active');
+
+        // Change image every 3 seconds (3000 milliseconds)
+        setInterval(showNextImage, 3000);
+
+    </script>
+
+    <script>
+        currentIndex = 0;
+
+        function moveSlide(direction) {
+            const testimonials = document.querySelectorAll('.review-div');
+            const totalTestimonials = testimonials.length;
+
+            // Update index based on direction
+            currentIndex += direction;
+
+            // Wrap around if at the ends
+            if (currentIndex < 0) {
+                currentIndex = totalTestimonials - 1; // Loop back to the last item
+            } else if (currentIndex >= totalTestimonials) {
+                currentIndex = 0; // Loop back to the first item
+            }
+
+            // Calculate translation
+            const offset = currentIndex * -35; // 35% is the width of each review-div
+            document.querySelector('.testimonials-div').style.transform = `translateX(${offset}%)`;
+        }
+
+    </script>
 </body>
+
 </html>
