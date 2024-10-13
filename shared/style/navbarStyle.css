@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the NAVBAR.
     Created on: 01/10/2024
-    Last Modified: 01/10/2024
+    Last Modified: 13/10/2024
 */
 
 #navbar {
@@ -44,6 +44,10 @@
 
 .dropdown {
     display: inline;
+}
+
+#dropDownBtn {
+    display: none;
 }
 
 /* Remove background and border for dropdown-toggle and its states */

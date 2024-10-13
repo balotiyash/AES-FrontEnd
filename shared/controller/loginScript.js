@@ -33,8 +33,9 @@ document.getElementById("loginForm").addEventListener("submit", () => {
         .then(data => {
             console.log('Data:', data);
             if (data) {
-                document.cookie = `token=${data}; path=/;`;
-                alert('Login successful! Token saved in cookie.');
+                window.localStorage.setItem("token", data);
+                window.location.href = '../../';
+
             } else {
                 alert('Login failed. Token not received.');
             }
@@ -42,36 +43,3 @@ document.getElementById("loginForm").addEventListener("submit", () => {
         .catch(error => console.error('Error:', error));
 });
 
-// function submitForm(event) {
-//     event.preventDefault(); // Prevent form from reloading the page
-//     console.log('Submitting form...');
-
-//     const form = document.getElementById('loginForm');
-//     const formData = new FormData(form);
-//     const data = Object.fromEntries(formData);
-
-//     fetch(`http://localhost:3000/public/login`, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(data)
-//     })
-//         .then(response => {
-//             console.log('Response received:', response);
-//             if (!response.ok) {
-//                 throw new Error('Network response was not ok');
-//             }
-//             return response.text();
-//         })
-//         .then(data => {
-//             console.log('Data:', data);
-//             if (data) {
-//                 document.cookie = `token=${data}; path=/;`;
-//                 alert('Login successful! Token saved in cookie.');
-//             } else {
-//                 alert('Login failed. Token not received.');
-//             }
-//         })
-//         .catch(error => console.error('Error:', error));
-// }
