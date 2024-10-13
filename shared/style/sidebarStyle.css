@@ -13,6 +13,7 @@ button {
   border: 0;
   padding: 0;
   cursor: pointer;
+  text-align: left;
 }
 
 .sidebar {
@@ -25,6 +26,22 @@ button {
   /* background: #048480; */
   background: white;
   transition: width 0.4s;
+}
+
+.sidebar {
+  position: fixed;
+  top: 60px; /* Adjust this value according to the height of your navbar */
+  bottom: 0; /* Ensure sidebar stretches to the bottom */
+  /* width: 250px; */
+   /* Adjust width as needed */
+  overflow-y: auto; /* Add scroll if content overflows */
+  z-index: 999; /* Ensure sidebar is below navbar */
+}
+
+.fa-chart-simple, .fa-box, .fa-list-check {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
 }
 
 body.open .sidebar {

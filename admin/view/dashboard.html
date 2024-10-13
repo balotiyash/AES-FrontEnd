@@ -37,7 +37,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet" />
+
     <title>Dashboard</title>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="../style/dashboard-style.css">
 </head>
 
 <body>
@@ -76,48 +80,78 @@
     <aside class="sidebar">
         <div class="sidebar-inner">
             <header class="sidebar-header">
-                <!-- <button type="button" class="sidebar-burger" onclick="toggleSidebar()">
-                    <img src="../../assets/images/AES Logo.jpg" alt="AES">
-                </button> -->
-                <!-- <button type="button" class="sidebar-burger" onclick="toggleSidebar()">
-                    <i class="fa-solid fa-bars"></i>
-                </button> -->
                 <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
                 <div class="sidebar-logo">
                     <p>Welcome, Admin!</p>
                 </div>
-                <!-- <img src="../../assets/images/blocklord-logo.png" class="sidebar-logo" /> -->
             </header>
             <nav class="sidebar-nav">
                 <button type="button">
-                    <img src="../../assets/vectors/icon-home.svg" class="logos" />
-                    <span>Home</span>
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Analytical</span>
                 </button>
                 <button type="button">
-                    <img src="../../assets/vectors/icon-settings.svg" class="logos" />
-                    <span style="animation-delay: 0.1s">Settings</span>
+                    <i class="fa-solid fa-box"></i>
+                    <span style="animation-delay: 0.1s">Product Management</span>
                 </button>
                 <button type="button">
-                    <img src="../../assets/vectors/icon-levels.svg" class="logos" />
-                    <span style="animation-delay: 0.2s">Levels</span>
-                </button>
-                <button type="button">
-                    <img src="../../assets/vectors/icon-accounts.svg" class="logos" />
-                    <span style="animation-delay: 0.3s">Accounts</span>
+                    <i class="fa-solid fa-list-check"></i>
+                    <span style="animation-delay: 0.2s">Order Management</span>
                 </button>
             </nav>
-            <footer class="sidebar-footer">
-                <button type="button">
-                    <img src="../../assets/vectors/icon-lock.svg" />
-                    <span>Logout</span>
-                </button>
-            </footer>
         </div>
     </aside>
+
+    <!-- Main -->
+    <main class="main">
+        <h3>Analytics</h3>
+
+        <section class="part-1">
+            <div class="part1-child-1">
+                <div>
+                    <p class="p1-titles">TOTAL PROFITS</p>
+                    <p id="p1-title1">155,820</p>
+                </div>
+
+                <div>
+                    <p class="p1-titles">REACHABLE PROFITS</p>
+                    <p id="p1-title2">136,520</p>
+                </div>
+
+                <div>
+                    <p class="p1-titles">UNREACHABLE PROFITS</p>
+                    <p id="p1-title3">65,568</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="part-2">
+            <div class="p2-child1">
+                <p id="p2-title1">Total SG&A by Country</p>
+                <select name="" id="">
+                    <option value="">1</option>
+                    <option value="">1</option>
+                    <option value="">1</option>
+                </select>
+            </div>
+            <div id="chartContainer1"></div>
+        </section>
+
+        <section class="part-3">
+            <div id="chartContainer2"></div>
+            <div id="chartContainer3"></div>
+        </section>
+        
+        <section class="part-4">
+            <div id="chartContainer4"></div>
+        </section>
+    </main>
 
     <script type="text/javascript">
         const toggleSidebar = () => document.body.classList.toggle("open");
     </script>
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <script src="../controller/dashboard.js"></script>
 </body>
 
 </html>

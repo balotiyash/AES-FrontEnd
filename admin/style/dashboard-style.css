@@ -1,0 +1,129 @@
+/*
+    File: admin/style/dashboard-style.css
+    Author: Yash Balotiya
+    Description: This file contains the styling part of the dashboard page.
+    Created on: 13/10/2024
+    Last Modified: 13/10/2024
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    max-width: 100vw;
+    height: 100vh;
+    /* background-color: white; */
+}
+
+p {
+    margin: 0;
+}
+
+#navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Ensure navbar is above other content */
+}
+
+/* main */
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 110px 75px 40px 150px;
+}
+
+.main section {
+    margin: 10px 0;
+}
+
+/* part 1 */
+.part-1 {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    background-image: url("../../assets/images/team-placeholder-removebg.png");
+    background-repeat: no-repeat;
+    background-position: calc(100% + 20px) calc(100% + 10px);
+    background-size: 100px;
+    padding: 20px;
+}
+
+.part1-child-1 {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.p1-titles {
+    color: gray;
+    font-size: 12px;
+}
+
+#p1-title1, #p1-title2, #p1-title3 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#p1-title2 {
+    color: green;
+}
+
+#p1-title3 {
+    color: red;
+}
+
+/* part 2 */
+.part-2 {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.p2-child1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#p2-title1 {
+    font-size: 24px;
+}
+
+#chartContainer1 {
+    width: 100%;
+    height: 500px;
+}
+
+/* part 3 */
+.part-3 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#chartContainer2 {
+    width: 70%;
+    height: 500px; /* Ensure a height is set */
+}
+
+#chartContainer3 {
+    width: 25%;
+    height: 500px; /* Ensure a height is set */
+}
+
+/* Part 4 */
+.part-4 {
+    width: 100%;
+    margin-top: 20px; /* Add some spacing above this section */
+}
+
+#chartContainer4 {
+    width: 100%;
+    height: 500px; /* Set a height for this chart */
+}

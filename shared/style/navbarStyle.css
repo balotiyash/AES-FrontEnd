@@ -54,7 +54,7 @@
 .dropdown-toggle, 
 .dropdown-toggle:hover, 
 .dropdown-toggle:active {
-    background-color: transparent !important;
+    background-color: white !important;
     border: none !important;
     box-shadow: none !important; 
     /* Removes any box-shadow (border effect) */
@@ -62,7 +62,7 @@
 
 /* Remove background, border, and shadow for dropdown menu */
 .dropdown-menu {
-    background-color: transparent !important;
+    background-color: white !important;
     border: none !important;
     box-shadow: none !important;
 }
