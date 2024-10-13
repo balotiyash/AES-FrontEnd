@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    max-width: 100vw;
+    height: 100vh;
+    background-color: #F7F7F7;
+}
+
+.grey-background{
+    
+    background-color: rgba(197, 197, 197, 0.448); 
+    width: 100px;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 9998; 
+}
+
+
+.heading{
+
+
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    position: fixed;
+    top: 35px;
+    left: 120px;
+}
+
+.bodyy{
+    position: relative;
+    top: 110px;
+    padding-left: 120px;
+    padding-right: 190px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap:20px ;
+    
+    
+}
+
+
+
+.card{
+   
+    max-height: 300px;
+}
+
+ .card-img-top{
+    
+    height: 250px;
+    max-width: 270px;
+}  
+
+.card-text{
+    padding-left: 10px;
+}
+
+.trash-can{
+    position: absolute;
+    top: 25px;
+    right: 26px;
+}
+
+.dot {
+    height: 35px;
+    width: 35px;
+    background-color: #F7F7F7;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .plus-icon{
+    position: fixed;
+    bottom: 60px;
+    right: 70px;
+  }
+
+  .dot2{
+
+    height: 40px;
+    width: 40px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: inline-block;
+
+    position: fixed;
+    bottom: 40px;
+    right: 60px;
+
+  }
