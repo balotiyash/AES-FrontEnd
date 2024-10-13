@@ -1,0 +1,175 @@
+<!-- 
+    File: user/view/sign-up.html
+    Author: Nandini Kakaraniya
+    Description: This page contains all the HTML5 code for the Sign-up Page
+    Created on: 11/10/2024
+    Last Modified: 12/10/2024
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Fontsawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Sidebar -->
+    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
+
+    <!-- Navbar -->
+    <link rel="stylesheet" href="../../shared//style/navbarStyle.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Title -->
+    <title>AES - Analytical Equipment Solutions</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../style/sign-up.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header id="navbar">
+        <!-- Logo -->
+        <div id="logoDiv">
+            <img src="../../assets/images/AES Logo.jpg" alt="AES" id="navLogo">
+            <h1>Analytical Equipment Solutions</h1>
+        </div>
+
+        <div id="navLinksDiv">
+            <button type="button" class="navBtns">Home</button>
+            <button type="button" class="navBtns">Products</button>
+            <button type="button" class="navBtns">View Cart</button>
+            <button type="button" class="navBtns">Contact Us</button>
+            <!-- <button type="button" class="navBtns"><i class="fa-solid fa-circle-user"></i></button> -->
+
+            <!-- Dropdown -->
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-circle-user"></i>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">My Orders</a></li>
+                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item" href="#" style="color: red;">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Main Content -->
+    <main >
+        <div class="window">
+
+            <div class="rectangle">
+    
+                <div class="leftdiv">
+    
+                    <div class="info-container">
+                        <div class="heading"><span class="wlc-to">Welcome to</span> <br><span class="aes">Analytical Equipment Solutions</span> <br><br></div>
+                        <div class="body-text"> Sign up today to explore a wide range of analytical equipment tailored to meet your needs. Join our community and stay updated with the latest innovations. Unlock access to the latest analytical equipment, exclusive offers, and expert support tailored for your business needs.</div>
+               
+                    </div>
+                    
+                </div>
+                <div class="rightdiv">
+    
+                    <form class="sign-up-form" id="sign-up-form" onsubmit="return false">
+                        
+                        <span class="sign-up-heading">Sign Up</span>
+                         
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">First & last name</span>
+                            <input type="text" aria-label="First name" class="form-control" id="firstname" name="firstname">
+                            <input type="text" aria-label="Last name" class="form-control" id="lastname" name="lastname">
+                          </div>
+    
+                          
+                          
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="username" name="username">
+                          </div>
+    
+    
+                          
+    
+    
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="email" name="email">
+                          </div>
+    
+    
+                          
+    
+    
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Phone No</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="phone" name="phone">
+                          </div>
+    
+                         
+    
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="password" name="password">
+                          </div>
+    
+                         
+    
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Confirm Password</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="confirmPassword" name="confirmPassword">
+                          </div>
+    
+                         
+                          
+                          <div class="d-grid gap-2">
+                            <button class="btn btn-dark" type="submit" id="signupBtn">Sign Up</button>
+                           
+                          </div>
+    
+                    </form>
+    
+                    
+    
+                </div>
+    
+            </div>
+    
+        </div>
+                
+  
+
+
+  
+    </main>
+    <!-- Scripts -->
+    <script type="module" src="../controller/signupScript.js"></script>
+    <!-- Footer -->
+</body>
+
+</html>
