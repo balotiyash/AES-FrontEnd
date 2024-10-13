@@ -1,0 +1,185 @@
+/*
+    File: user/style/product-description.css
+    Author: Yash Balotiya
+    Description: This file contains the styling part of the individual product description page
+    Created on: 13/10/2024
+    Last Modified: 13/10/2024
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    max-width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+.main {
+    width: 100%;
+    /* height: 85%; */
+    display: flex;
+    justify-content: center;
+}
+
+/* main section */
+.main-sec {
+    width: 80%;
+    /* height: 100%; */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* left side */
+.side-menu-sec {
+    width: 30%;
+    /* height: 100%; */
+}
+
+.side-menu-div {
+    /* height: 40%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.side-menu-div a {
+    text-decoration: none;
+    color: black;
+    /* margin: px 0; */
+}
+
+.side-menu-div ul li {
+    margin: 12px 0;
+}
+
+.vertical-divider {
+    width: 1px;
+    height: 100%;
+    background-color: #acacac;
+    margin-top: 20px;
+}
+
+/* right side */
+.desc-sec {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    margin-top: 40px;
+}
+
+/* part 1 */
+.part-1 {
+    display: flex;
+    align-items: center;
+}
+
+.product-img {
+    width: 300px;
+    height: 300px;
+}
+
+.product-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 40px;
+    height: 70%;
+}
+
+.product-desc b {
+    margin-bottom: 12px;
+}
+
+.in-stock {
+    color: #65c1f0;
+}
+
+.add-to-cart {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-to-cart-btn {
+    background-color: #65c1f0;
+    border: none;
+    border-radius: 20px;
+    padding: 4px;
+    width: 150px;
+    transition: all 0.2s ease-in-out;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #86d3fa;
+}
+
+.tally-div p {
+    margin: 0;
+    margin-left: 10px;
+}
+
+.tally-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100px;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+}
+
+.tally-div-child {
+    width: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tally-btns {
+    background-color: transparent;
+    border: 1px solid gray;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* part 2 */
+.part-2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.review-div {
+    display: flex;
+    background-color: #f7f7f7;
+    padding: 20px 30px;
+    margin: 10px 0;
+}
+
+.profile-icon {
+    background-color: #d9d9d9;
+    width: 40px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    margin-right: 20px;
+}
+
+.star-div {
+    margin: 8px 0;
+}

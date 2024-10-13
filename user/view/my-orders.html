@@ -1,0 +1,279 @@
+<!-- 
+    File: user/view/my-orders.html
+    Author: Yash Balotiya
+    Description: This file contains all the HTML code of my orders page
+    Created on: 13/10/2024
+    Last Modified: 13/10/2024
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
+    <title>My Orders - AES</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Fontsawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Sidebar -->
+    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
+
+    <!-- Navbar -->
+    <link rel="stylesheet" href="../../shared//style/navbarStyle.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../style/my-orders-style.css">
+    <link rel="stylesheet" href="../../shared/style/footerStyle.css">
+</head>
+
+<body>
+    <!-- navbar -->
+    <header id="navbar">
+        <!-- Logo -->
+        <div id="logoDiv">
+            <img src="../../assets/images/AES Logo.jpg" alt="AES" id="navLogo">
+            <h1>Analytical Equipment Solutions</h1>
+        </div>
+
+        <div id="navLinksDiv">
+            <button type="button" class="navBtns">Home</button>
+            <button type="button" class="navBtns">Products</button>
+            <button type="button" class="navBtns">View Cart</button>
+            <button type="button" class="navBtns">Contact Us</button>
+            <!-- <button type="button" class="navBtns"><i class="fa-solid fa-circle-user"></i></button> -->
+
+            <!-- Dropdown -->
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-circle-user"></i>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">My Orders</a></li>
+                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item" href="#" style="color: red;">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- main section -->
+    <main class="main">
+        <!-- Parent Section -->
+        <section class="main-sec">
+            <!-- Left side -->
+            <section class="side-menu-sec">
+                <div class="side-menu-div">
+                    <a href="" class="active-page">My Orders</a>
+                    <a href="" class="inactive-page">My Profile</a>
+                    <a href="" class="inactive-page">Edit Profile</a>
+                    <button class="logout-btn">Logout</button>
+                </div>
+            </section>
+
+            <div class="vertical-divider"></div>
+
+            <!-- Right side -->
+            <section class="orders-sec">
+                <h5>My Orders</h5>
+
+                <!-- product 1 -->
+                <div class="product-div">
+                    <div class="product-img-div">
+                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
+                        <div class="star-div">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <a href="" class="rate-link">Rate & Review</a>
+                    </div>
+
+                    <div class="product-desc">
+                        <div class="product-title">
+                            <p>Automatic Hydraulic Press</p>
+                            <b>2024/10/13</b>
+                        </div>
+                        <p>Rs. 10000</p>
+                        <p>Qty: 1</p>
+                    </div>
+                </div>
+
+                <!-- product 2 -->
+                <div class="product-div">
+                    <div class="product-img-div">
+                        <img src="../../assets/images/Brobe Sonicator.jpg" alt="" class="product-img">
+                        <div class="star-div">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <a href="" class="rate-link">Rate & Review</a>
+                    </div>
+
+                    <div class="product-desc">
+                        <div class="product-title">
+                            <p>Automatic Hydraulic Press</p>
+                            <b>2024/10/13</b>
+                        </div>
+                        <p>Rs. 10000</p>
+                        <p>Qty: 1</p>
+                    </div>
+                </div>
+
+                <!-- product 3 -->
+                <div class="product-div">
+                    <div class="product-img-div">
+                        <img src="../../assets/images/Gas Detector Sensors.webp" alt="" class="product-img">
+                        <div class="star-div">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <a href="" class="rate-link">Rate & Review</a>
+                    </div>
+
+                    <div class="product-desc">
+                        <div class="product-title">
+                            <p>Automatic Hydraulic Press</p>
+                            <b>2024/10/13</b>
+                        </div>
+                        <p>Rs. 10000</p>
+                        <p>Qty: 1</p>
+                    </div>
+                </div>
+
+                <!-- product 4 -->
+                <div class="product-div">
+                    <div class="product-img-div">
+                        <img src="../../assets/images/Gas Flow Meter - VKIT.jpg" alt="" class="product-img">
+                        <div class="star-div">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <a href="" class="rate-link">Rate & Review</a>
+                    </div>
+
+                    <div class="product-desc">
+                        <div class="product-title">
+                            <p>Automatic Hydraulic Press</p>
+                            <b>2024/10/13</b>
+                        </div>
+                        <p>Rs. 10000</p>
+                        <p>Qty: 1</p>
+                    </div>
+                </div>
+
+                <!-- product 5 -->
+                <div class="product-div">
+                    <div class="product-img-div">
+                        <img src="../../assets/images/GC.png" alt="" class="product-img">
+                        <div class="star-div">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <a href="" class="rate-link">Rate & Review</a>
+                    </div>
+
+                    <div class="product-desc">
+                        <div class="product-title">
+                            <p>Automatic Hydraulic Press</p>
+                            <b>2024/10/13</b>
+                        </div>
+                        <p>Rs. 10000</p>
+                        <p>Qty: 1</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <!-- Main footer -->
+        <div class="footer">
+
+            <!-- Company profile -->
+            <div class="footer-child-1">
+                <div class="footer-child-2">
+                    <img src="../../assets/images/AES Logo.jpg" alt="" class="footer-aes-logo">
+                    <h1>Analytical Equipment<br>Solutions</h1>
+                </div>
+                <p>We Provide Pan India Analytical Instruments Sales & Services</p>
+            </div>
+
+            <!-- quick links -->
+            <div class="footer-child-3">
+                <b>Quick Links</b>
+                <a href="">Home</a>
+                <a href="">Products</a>
+                <a href="">About Us</a>
+                <a href="">Contact Us</a>
+            </div>
+
+            <!-- services -->
+            <div class="footer-child-3">
+                <b>Services</b>
+                <a href="">Product Enquiry</a>
+                <a href="">Service Request</a>
+            </div>
+
+            <!-- contact us -->
+            <div class="footer-child-3">
+                <b>Contact Us</b>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="">official@analyticalequipmentsolutions.com</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="">official@outlook.com</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="">Jamil Nagar, Bhandup (W), Mumbai - 400078</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite section -->
+        <div class="copywrite-div">
+            <p>Copywrite</p>
+            <i class="fa-regular fa-copyright"></i>
+            <p>2024 Analytical Equipment Solutions | AES</p>
+        </div>
+    </footer>
+</body>
+
+</html>
