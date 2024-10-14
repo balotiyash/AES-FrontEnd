@@ -149,7 +149,7 @@ body {
 
 .window{
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -163,6 +163,7 @@ body {
 
     display:flex;
     box-shadow: 5px 5px 10px #E7E5E5;
+    font-family: "Montserrat", sans-serif;
 }
 
 .leftdiv{
