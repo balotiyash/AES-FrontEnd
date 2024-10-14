@@ -110,7 +110,7 @@ body {
     justify-content: space-between;
 }
 
-.add-to-cart-btn {
+#add-to-cart-btn {
     background-color: #65c1f0;
     border: none;
     border-radius: 20px;
@@ -120,17 +120,18 @@ body {
     text-align: center;
 }
 
-.add-to-cart-btn:hover {
+#add-to-cart-btn:hover {
     background-color: #86d3fa;
 }
 
-.tally-div p {
+#tally-div p {
     margin: 0;
     margin-left: 10px;
 }
 
-.tally-div {
-    display: flex;
+#tally-div {
+    /* display: flex; */
+    display: none;
     justify-content: space-around;
     align-items: center;
     width: 100px;

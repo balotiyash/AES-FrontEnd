@@ -95,31 +95,134 @@ async function fetchProductDetails() {
 }
 
 // Fetch and display product add to cart or inc dec
-    async function fetchCartDetails() {
-        const token = window.localStorage.getItem("token");
+async function fetchCartDetails() {
+    const token = window.localStorage.getItem("token");
 
-        try {
-            const response = await fetch(`http://${IP}:${PORT}/cart/items`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-            });
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/cart/items`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
 
-            if (!response.ok) {
-                throw new Error('Failed to fetch product details');
+        if (!response.ok) {
+            throw new Error('Failed to fetch product details');
+        }
+
+        const products = await response.json();
+        console.log('Fetched cart details:', products);
+
+        let count = 0;
+
+        for (let i = 0; i < products.length; i++) {
+            if (products[i].product_id == product_id) {
+                console.log("Found")
+                count = products[i].quantity;
+                item_id = products[i].item_id;
+
+                document.getElementById("add-to-cart-btn").style.display = "none";
+                document.getElementById("tally-div").style.display = "flex";
+                break; // Exit the loop once the product is found
+            } else {
+                console.log("Not Found");
+            }
+        }
+
+        const cartQnty = document.getElementById("cartQnty");
+        cartQnty.innerHTML = count;
+        
+        document.getElementById("incBtn").addEventListener("click", () => {
+            count++;
+            quantity = count;
+            updateCart();
+            cartQnty.innerHTML = count;
+        });
+        
+        document.getElementById("decBtn").addEventListener("click", () => {
+            count--;
+            if (count <= 0) {
+                document.getElementById("add-to-cart-btn").style.display = "block";
+                document.getElementById("tally-div").style.display = "none";
             }
 
-            const product = await response.json();
-            console.log('Fetched cart details:', product);
+            quantity = count;
+            updateCart();
+            cartQnty.innerHTML = count;
+        });
 
-            
-        } catch (error) {
-            console.error('Error fetching product details:', error);
-        }
+    } catch (error) {
+        console.error('Error fetching product details:', error);
     }
+}
+
+// add to cart
+async function addToCart() {
+    const token = window.localStorage.getItem("token");
+    const formdata = {
+        product_id: product_id,
+    }
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/cart/add-to-cart`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(formdata)
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch product details');
+        }
+
+        const data = await response.text();
+        console.log('Add to cart:', data);
+
+        fetchCartDetails();
+
+    } catch (error) {
+        console.error('Error fetching product details:', error);
+    }
+}
+
+let item_id = "";
+let quantity = 0;
+
+// Update Quantity
+async function updateCart() {
+    const token = window.localStorage.getItem("token");
+    const formdata = {
+        product_id: product_id,
+        item_id: item_id,
+        quantity: quantity
+    }
+
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/cart/update-quantity`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(formdata)
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch product details');
+        }
+
+        const data = await response.text();
+        console.log('Update Cart:', data);
+
+    } catch (error) {
+        console.error('Error fetching product details:', error);
+    }
+}
 
 fetchAndDisplayProducts();
 fetchProductDetails();
 fetchCartDetails();
+
+document.getElementById("add-to-cart-btn").addEventListener("click", addToCart);
