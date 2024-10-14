@@ -3,12 +3,11 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the footer.
     Created on: 13/10/2024
-    Last Modified: 13/10/2024
+    Last Modified: 15/10/2024
 */
 
 .footer {
     width: 100%;
-    /* height: 30%; */
     background-color: #01204e;
     margin-top: 40px;
     display: flex;
@@ -36,7 +35,6 @@
 }
 
 .footer-child-1 p {
-    /* color: #9d9d9d; */
     margin: 20px 0 0 0;
 }
 
@@ -57,7 +55,7 @@
 
 .footer-child-3 a:hover {
     text-decoration: underline;
-    color: #ffffff; /* Change to a more visible color on hover */
+    color: #ffffff;
 }
 
 .copywrite-div {

@@ -3,13 +3,13 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the shipping Page.
     Created on: 13/10/2024
-    Last Modified: 13/10/2024
+    Last Modified: 15/10/2024
 */
 
 * {
     margin: 0;
     padding: 0;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -21,7 +21,6 @@ body {
 /* Main section */
 .mainSection {
     width: 100%;
-    /* height: 70%; */
     display: flex;
     justify-content: center;
 }
@@ -34,7 +33,8 @@ body {
 }
 
 /* left side */
-.payment-mode-sec, .summary-sec {
+.payment-mode-sec,
+.summary-sec {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -55,7 +55,8 @@ body {
     align-items: center;
 }
 
-.gray-bar, .blue-bar {
+.gray-bar,
+.blue-bar {
     width: 23%;
     height: 4px;
 }
@@ -68,7 +69,8 @@ body {
     background-color: #65c1f0;
 }
 
-.payment-step-1, .payment-step-2 {
+.payment-step-1,
+.payment-step-2 {
     width: 5%;
     border-radius: 50%;
     text-align: center;
@@ -87,7 +89,8 @@ body {
     display: flex;
 }
 
-.map-lable-1, .map-lable-2 {
+.map-lable-1,
+.map-lable-2 {
     position: relative;
 }
 
@@ -111,7 +114,8 @@ body {
     margin: 8px 0;
 }
 
-.input-div input, .input-div select {
+.input-div input,
+.input-div select {
     border: 1px solid #acacac;
     border-radius: 20px;
     padding: 4px 20px;
@@ -119,9 +123,7 @@ body {
 }
 
 /* right side */
-.summary-sec
-
-.summary-child-1 {
+.summary-sec .summary-child-1 {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -153,6 +155,7 @@ body {
     border-radius: 20px;
     padding: 4px 0;
     transition: all 0.2s ease-in-out;
+    border: none;
 }
 
 .checkout-btn:hover {

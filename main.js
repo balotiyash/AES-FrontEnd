@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the home page (index).
  * Created on: 13/10/2024
- * Last Modified: 14/10/2024
+ * Last Modified: 15/10/2024
 */
 
 // Image Auto Slider
@@ -55,8 +55,8 @@ document.getElementById("loginBtn").addEventListener("click", () => {
     window.location.href = './shared/view/loginPage.html';
 });
 
+// Logout button
 document.getElementById("logoutBtn").addEventListener("click", () => {
-    console.log('Logging out...');
     window.localStorage.removeItem("token");
     window.location.reload();
 });

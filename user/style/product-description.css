@@ -3,13 +3,13 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the individual product description page
     Created on: 13/10/2024
-    Last Modified: 14/10/2024
+    Last Modified: 15/10/2024
 */
 
 * {
     margin: 0;
     padding: 0;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -20,7 +20,6 @@ body {
 
 .main {
     width: 100%;
-    /* height: 85%; */
     display: flex;
     justify-content: center;
 }
@@ -28,7 +27,6 @@ body {
 /* main section */
 .main-sec {
     width: 80%;
-    /* height: 100%; */
     display: flex;
     justify-content: space-between;
 }
@@ -36,11 +34,9 @@ body {
 /* left side */
 .side-menu-sec {
     width: 30%;
-    /* height: 100%; */
 }
 
 .side-menu-div {
-    /* height: 40%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -53,7 +49,6 @@ body {
 .side-menu-div a {
     text-decoration: none;
     color: black;
-    /* margin: px 0; */
 }
 
 .side-menu-div ul li {
@@ -72,7 +67,6 @@ body {
     width: 60%;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     margin-top: 40px;
 }
 
@@ -105,7 +99,6 @@ body {
 }
 
 .add-to-cart {
-    /* width: 110%; */
     display: flex;
     justify-content: space-between;
 }
@@ -130,7 +123,6 @@ body {
 }
 
 #tally-div {
-    /* display: flex; */
     display: none;
     justify-content: space-around;
     align-items: center;
@@ -152,7 +144,6 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    /* text-align: center; */
     display: flex;
     align-items: center;
     justify-content: center;

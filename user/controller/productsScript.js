@@ -1,14 +1,14 @@
 /** 
- * File: user/controller/contactUsScript.js
+ * File: user/controller/productsScript.js
  * Author: Yash Balotiya
- * Description: This file contains JS code for the contact us page.
+ * Description: This file contains JS code for the all products page.
  * Created on: 14/10/2024
- * Last Modified: 14/10/2024
+ * Last Modified: 15/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
 
-// Function to fetch user data from server via token
+// Function to fetch all products from server
 async function fetchProducts() {
     try {
         const response = await fetch(`http://${IP}:${PORT}/public/allProducts`, {
@@ -60,14 +60,15 @@ async function fetchProducts() {
                 sideMenu.appendChild(document.createElement('br')); // Add spacing between categories
             }
 
-
             // Right side
             const productContainer = document.getElementById('product-container');
 
             products.forEach(product => {
+                // To create Div
                 const productDiv = document.createElement('div');
                 productDiv.classList.add('product-div');
 
+                // To create image
                 const imgDiv = document.createElement('div');
                 imgDiv.classList.add('product-img-div');
                 const img = document.createElement('img');
@@ -76,12 +77,19 @@ async function fetchProducts() {
                 img.classList.add('product-img');
                 imgDiv.appendChild(img);
 
+                // To create description div
                 const descDiv = document.createElement('div');
                 descDiv.classList.add('product-desc');
+
+                // To add title
                 const title = document.createElement('b');
                 title.textContent = product.product_name;
+
+                // To add description
                 const desc = document.createElement('p');
                 desc.textContent = product.product_desc;
+
+                // To add view detail button
                 const button = document.createElement('button');
                 button.classList.add('view-btn');
                 button.textContent = 'View Details';
@@ -90,6 +98,7 @@ async function fetchProducts() {
                     window.location.href = "./product-description.html?product_id=" + product.product_id;
                 });
 
+                // To append every thing on the screen inside divs
                 descDiv.appendChild(title);
                 descDiv.appendChild(desc);
                 descDiv.appendChild(button);
@@ -98,10 +107,8 @@ async function fetchProducts() {
                 productDiv.appendChild(descDiv);
 
                 productContainer.appendChild(productDiv);
-            }
-            )
+            });
         };
-
     } catch (error) {
         console.error('Error during authentication:', error);
         throw error;

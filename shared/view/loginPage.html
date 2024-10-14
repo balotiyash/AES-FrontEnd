@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This page contains all the HTML5 code for the Login Page
     Created on: 01/10/2024
-    Last Modified: 11/10/2024
+    Last Modified: 15/10/2024
 -->
 
 <!DOCTYPE html>
@@ -13,6 +13,7 @@
     <!-- Meta Data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AES</title>
     <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
 
     <!-- Bootstrap -->
@@ -27,20 +28,15 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Sidebar -->
-    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
-
-    <!-- Navbar -->
-    <link rel="stylesheet" href="../../shared//style/navbarStyle.css">
+    <!-- Navbar & footer -->
+    <link rel="stylesheet" href="../style/navbarStyle.css">
+    <link rel="stylesheet" href="../style/footerStyle.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet" />
-
-    <!-- Title -->
-    <title>AES - Analytical Equipment Solutions</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../style/loginStyle.css">
@@ -62,8 +58,9 @@
             <!-- <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/cart.html'">View
                 Cart</button> -->
             <button type="button" class="navBtns" onclick="window.location.href = '../../'">About Us
-                </button>
-            <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/contact-us.html'">Contact
+            </button>
+            <button type="button" class="navBtns"
+                onclick="window.location.href = '../../user/view/contact-us.html'">Contact
                 Us</button>
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
@@ -146,15 +143,80 @@
             </div>
 
             <!-- Button -->
-            <button type="button" class="btn btn-light" id="createBtn" onclick="window.location.href = '../../user/view/sign-up.html'">Create an Account</button>
+            <button type="button" class="btn btn-light" id="createBtn"
+                onclick="window.location.href = '../../user/view/sign-up.html'">Create an Account</button>
         </section>
     </main>
+
+    <!-- footer -->
+    <footer>
+        <!-- Main footer -->
+        <div class="footer">
+
+            <!-- Company profile -->
+            <div class="footer-child-1">
+                <div class="footer-child-2">
+                    <img src="../../assets/images/AES Logo.jpg" alt="Analytical Equipment Solutions"
+                        class="footer-aes-logo">
+                    <h1>Analytical Equipment<br>Solutions</h1>
+                </div>
+                <p>We Provide Pan India Analytical Instruments Sales & Services</p>
+            </div>
+
+            <!-- quick links -->
+            <div class="footer-child-3">
+                <b>Quick Links</b>
+                <a href="../../">Home</a>
+                <a href="./products-page.html">Products</a>
+                <a href="./about-us.html">About Us</a>
+                <a href="./contact-us.html">Contact Us</a>
+            </div>
+
+            <!-- services -->
+            <div class="footer-child-3">
+                <b>Services</b>
+                <a href="../../assets/pdfs/AES_Catalogue_2024.pdf" target="_blank">Product Enquiry</a>
+                <a href="https://wa.me/919920780823?text=Test%20Service%20Request" target="_blank">Service Request</a>
+            </div>
+
+            <!-- contact us -->
+            <div class="footer-child-3">
+                <b>Contact Us</b>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:official@analyticalequipmentsolutions.com">official@analyticalequipmentsolutions.com</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:official@outlook.com">official@outlook.com</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:8268393857">+91 8268393857</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:8169060811">+91 8169060811</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="https://maps.app.goo.gl/hpf69LaY9kG6UTXM8" target="_blank">Jamil Nagar, Bhandup (W), Mumbai - 400078</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite section -->
+        <div class="copywrite-div">
+            <p>Copywrite</p>
+            <i class="fa-regular fa-copyright"></i>
+            <p>2024 Analytical Equipment Solutions | AES</p>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script type="module" src="../controller/tokenVerification.js"></script>
     <script src="../controller/sharedScript.js"></script>
     <script type="module" src="../controller/loginScript.js"></script>
-    <!-- Footer -->
 </body>
 
 </html>

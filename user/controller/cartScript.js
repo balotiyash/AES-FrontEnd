@@ -1,9 +1,9 @@
 /** 
- * File: user/controller/contactUsScript.js
+ * File: user/controller/cartScript.js
  * Author: Yash Balotiya
- * Description: This file contains JS code for the contact us page.
+ * Description: This file contains JS code for the cart page.
  * Created on: 14/10/2024
- * Last Modified: 14/10/2024
+ * Last Modified: 15/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -33,80 +33,7 @@ async function fetchProducts() {
         console.log('User data:', products);
 
         if (products) {
-            // // Left side
-            // const sideMenu = document.getElementById('side-menu');
-
-            // // Group products by category
-            // const categoryMap = {};
-
-            // products.forEach(product => {
-            //     const { product_category, product_name, product_id } = product; // Ensure product_id is included
-            //     if (!categoryMap[product_category]) {
-            //         categoryMap[product_category] = [];
-            //     }
-            //     categoryMap[product_category].push({ name: product_name, id: product_id }); // Store both name and id
-            // });
-
-            // // Generate sidebar menu
-            // for (const [category, items] of Object.entries(categoryMap)) {
-            //     const categoryHeader = document.createElement('b');
-            //     categoryHeader.textContent = category;
-            //     sideMenu.appendChild(categoryHeader);
-
-            //     const ul = document.createElement('ul');
-            //     items.forEach(item => {
-            //         const li = document.createElement('li');
-            //         const link = document.createElement('a');
-            //         link.href = `./product-description.html?product_id=${item.id}`; // Use the correct product ID
-            //         link.textContent = item.name; // Display the product name
-            //         li.appendChild(link);
-            //         ul.appendChild(li);
-            //     });
-
-            //     sideMenu.appendChild(ul);
-            //     sideMenu.appendChild(document.createElement('br')); // Add spacing between categories
-            // }
-
-
-            // // Right side
-            // const productContainer = document.getElementById('product-container');
-
-            // products.forEach(product => {
-            //     const productDiv = document.createElement('div');
-            //     productDiv.classList.add('product-div');
-
-            //     const imgDiv = document.createElement('div');
-            //     imgDiv.classList.add('product-img-div');
-            //     const img = document.createElement('img');
-            //     img.src = product.product_image;
-            //     img.alt = product.product_name;
-            //     img.classList.add('product-img');
-            //     imgDiv.appendChild(img);
-
-            //     const descDiv = document.createElement('div');
-            //     descDiv.classList.add('product-desc');
-            //     const title = document.createElement('b');
-            //     title.textContent = product.product_name;
-            //     const desc = document.createElement('p');
-            //     desc.textContent = product.product_desc;
-            //     const button = document.createElement('button');
-            //     button.classList.add('view-btn');
-            //     button.textContent = 'View Details';
-            //     button.id = product.product_id;
-            //     button.addEventListener("click", () => {
-            //         window.location.href = "./product-description.html?product_id=" + product.product_id;
-            //     });
-
-            //     descDiv.appendChild(title);
-            //     descDiv.appendChild(desc);
-            //     descDiv.appendChild(button);
-
-            //     productDiv.appendChild(imgDiv);
-            //     productDiv.appendChild(descDiv);
-
-            //     productContainer.appendChild(productDiv);
-            // }
-            // )
+            // TODO
         };
 
     } catch (error) {
@@ -115,4 +42,4 @@ async function fetchProducts() {
     }
 }
 
-window.onload = fetchProducts();
+fetchProducts();

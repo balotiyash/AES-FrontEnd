@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for token verification for session management.
  * Created on: 14/10/2024
- * Last Modified: 14/10/2024
+ * Last Modified: 15/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -59,6 +59,7 @@ async function fetchUserData(token) {
         const data = await response.json();
         console.log('User data:', data);
         return data.status;
+
     } catch (error) {
         console.error('Error during authentication:', error);
         throw error;

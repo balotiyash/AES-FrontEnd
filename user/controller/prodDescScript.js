@@ -1,12 +1,20 @@
 /** 
- * File: user/controller/contactUsScript.js
+ * File: user/controller/prodDescScript.js
  * Author: Yash Balotiya
- * Description: This file contains JS code for the contact us page.
+ * Description: This file contains JS code for the product description page.
  * Created on: 14/10/2024
- * Last Modified: 14/10/2024
+ * Last Modified: 15/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
+
+// Product ID from URL
+const currentUrl = window.location.href;
+const url = new URL(currentUrl);
+const product_id = url.searchParams.get('product_id');
+
+// Token
+const token = window.localStorage.getItem("token");
 
 // Fetch and display products grouped by category
 async function fetchAndDisplayProducts() {
@@ -56,14 +64,8 @@ async function fetchAndDisplayProducts() {
         }
     } catch (error) {
         console.error('Error fetching products:', error);
-        // Optionally, display a user-friendly error message
     }
 }
-
-// Product ID from URL
-const currentUrl = window.location.href;
-const url = new URL(currentUrl);
-const product_id = url.searchParams.get('product_id');
 
 // Fetch and display product details based on product_id from URL
 async function fetchProductDetails() {
@@ -90,14 +92,15 @@ async function fetchProductDetails() {
         }
     } catch (error) {
         console.error('Error fetching product details:', error);
-        // Optionally, display a user-friendly error message
     }
 }
 
+// Product Quantity & item id
+let item_id = "";
+let quantity = 0;
+
 // Fetch and display product add to cart or inc dec
 async function fetchCartDetails() {
-    const token = window.localStorage.getItem("token");
-
     try {
         const response = await fetch(`http://${IP}:${PORT}/cart/items`, {
             method: 'GET',
@@ -114,12 +117,12 @@ async function fetchCartDetails() {
         const products = await response.json();
         console.log('Fetched cart details:', products);
 
-        let count = 0;
+        // let count = 0;
 
         for (let i = 0; i < products.length; i++) {
             if (products[i].product_id == product_id) {
-                console.log("Found")
-                count = products[i].quantity;
+                // count = products[i].quantity;
+                quantity = products[i].quantity;
                 item_id = products[i].item_id;
 
                 document.getElementById("add-to-cart-btn").style.display = "none";
@@ -130,39 +133,42 @@ async function fetchCartDetails() {
             }
         }
 
+        // To dynamically show quantity value
         const cartQnty = document.getElementById("cartQnty");
-        cartQnty.innerHTML = count;
-        
+        cartQnty.innerHTML = quantity;
+
+        // Increment Btn Event handling
         document.getElementById("incBtn").addEventListener("click", () => {
-            count++;
-            quantity = count;
+            // count++;
+            // quantity = count;
+            quantity++;
             updateCart();
-            cartQnty.innerHTML = count;
+            cartQnty.innerHTML = quantity;
         });
-        
+
+        // Decrement Btn Event handling
         document.getElementById("decBtn").addEventListener("click", () => {
-            count--;
-            if (count <= 0) {
+            quantity--;
+            if (quantity <= 0) {
                 document.getElementById("add-to-cart-btn").style.display = "block";
                 document.getElementById("tally-div").style.display = "none";
             }
 
-            quantity = count;
+            // quantity = count;
             updateCart();
-            cartQnty.innerHTML = count;
+            cartQnty.innerHTML = quantity;
         });
-
     } catch (error) {
         console.error('Error fetching product details:', error);
     }
 }
 
-// add to cart
+// Function to add new item to the cart
 async function addToCart() {
-    const token = window.localStorage.getItem("token");
     const formdata = {
         product_id: product_id,
     }
+
     try {
         const response = await fetch(`http://${IP}:${PORT}/cart/add-to-cart`, {
             method: 'POST',
@@ -180,19 +186,15 @@ async function addToCart() {
         const data = await response.text();
         console.log('Add to cart:', data);
 
+        // To dunamically update item quantity and respective things
         fetchCartDetails();
-
     } catch (error) {
         console.error('Error fetching product details:', error);
     }
 }
 
-let item_id = "";
-let quantity = 0;
-
-// Update Quantity
+// Function to Update Quantity
 async function updateCart() {
-    const token = window.localStorage.getItem("token");
     const formdata = {
         product_id: product_id,
         item_id: item_id,
@@ -215,14 +217,15 @@ async function updateCart() {
 
         const data = await response.text();
         console.log('Update Cart:', data);
-
     } catch (error) {
         console.error('Error fetching product details:', error);
     }
 }
 
+// Calling function after load one by one to execute
 fetchAndDisplayProducts();
 fetchProductDetails();
 fetchCartDetails();
 
+// Event handling to handle click event of add to cart button
 document.getElementById("add-to-cart-btn").addEventListener("click", addToCart);

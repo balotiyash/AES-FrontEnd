@@ -1,15 +1,14 @@
 /** 
- * File: loginScript.js
+ * File: shared/controller/loginScript.js
  * Author: Yash Balotiya
  * Description: This page contains all the js code for the login page
  * Created on: 11/10/2024
- * Last Modified: 14/10/2024
+ * Last Modified: 15/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
 
 document.getElementById("loginForm").addEventListener("submit", () => {
-    // event.preventDefault(); // Prevent form from reloading the page
     console.log('Submitting form...');
 
     const form = document.getElementById('loginForm');
@@ -35,11 +34,9 @@ document.getElementById("loginForm").addEventListener("submit", () => {
             if (data) {
                 window.localStorage.setItem("token", data);
                 window.location.href = '../../';
-
             } else {
                 alert('Login failed. Token not received.');
             }
         })
         .catch(error => console.error('Error:', error));
 });
-
