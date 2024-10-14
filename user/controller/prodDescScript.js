@@ -60,12 +60,13 @@ async function fetchAndDisplayProducts() {
     }
 }
 
+// Product ID from URL
+const currentUrl = window.location.href;
+const url = new URL(currentUrl);
+const product_id = url.searchParams.get('product_id');
+
 // Fetch and display product details based on product_id from URL
 async function fetchProductDetails() {
-    const currentUrl = window.location.href;
-    const url = new URL(currentUrl);
-    const product_id = url.searchParams.get('product_id');
-
     try {
         const response = await fetch(`http://${IP}:${PORT}/public/getProduct/${product_id}`, {
             method: 'GET',
@@ -93,7 +94,33 @@ async function fetchProductDetails() {
     }
 }
 
-window.onload = () => {
-    fetchAndDisplayProducts();
-    fetchProductDetails();
+// Fetch and display product add to cart or inc dec
+async function fetchCartDetails() {
+    const token = window.localStorage.getItem("token");
+
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/cart/items`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch product details');
+        }
+
+        const product = await response;
+        console.log('Fetched cart details:', product);
+
+        
+    } catch (error) {
+        console.error('Error fetching product details:', error);
+        // Optionally, display a user-friendly error message
+    }
 }
+
+fetchAndDisplayProducts();
+fetchProductDetails();
+fetchCartDetails();

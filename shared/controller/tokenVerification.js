@@ -10,6 +10,7 @@ import { IP, PORT } from '../../config.js';
 
 // Function to run onload to validate user login
 window.onload = async () => {
+    console.log('Running token verification');
     const session = window.localStorage.getItem("token");
     console.log(session)
 
@@ -36,8 +37,7 @@ window.onload = async () => {
     } else {
         document.getElementById("loginBtn").style.display = "inline";
         document.getElementById("dropDownBtn").style.display = "none";
-        console.log('No token found');
-        
+        console.log('No token found'); 
     }
 };
 

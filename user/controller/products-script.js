@@ -108,4 +108,4 @@ async function fetchProducts() {
     }
 }
 
-window.onload = fetchProducts();
+fetchProducts();
