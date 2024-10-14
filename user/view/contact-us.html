@@ -54,25 +54,25 @@
         </div>
 
         <div id="navLinksDiv">
-            <button type="button" class="navBtns" onclick="window.location.href = '../../'">Home</button>
+            <button type="button" class="navBtns" onclick="window.location.href = './'">Home</button>
             <button type="button" class="navBtns"
-                onclick="window.location.href = '../../user/view/products-page.html'">Products</button>
-            <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/cart.html'">View
+                onclick="window.location.href = './user/view/products-page.html'">Products</button>
+            <button type="button" class="navBtns" onclick="window.location.href = './user/view/cart.html'">View
                 Cart</button>
-            <button type="button" class="navBtns"
-                onclick="window.location.href = '../../user/view/contact-us.html'">Contact Us</button>
+            <button type="button" class="navBtns" onclick="window.location.href = './user/view/contact-us.html'">Contact
+                Us</button>
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
             <!-- Dropdown -->
-            <div class="dropdown">
+            <div class="dropdown" id="dropDownBtn">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa-solid fa-circle-user"></i>
                 </a>
 
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="../../user/view/my-orders.html">My Orders</a></li>
-                    <li><a class="dropdown-item" href="../../user/view/saved-details.html">My Profile</a></li>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenu">
+                    <li><a class="dropdown-item" href="./user/view/my-orders.html">My Orders</a></li>
+                    <li><a class="dropdown-item" href="./user/view/saved-details.html">My Profile</a></li>
                     <li><a class="dropdown-item" style="color: red;" id="logoutBtn">Logout</a></li>
                 </ul>
             </div>
@@ -87,7 +87,7 @@
                 <h5>Contact Us</h5>
                 <p>Have an inquiry or some feedback for us?<br>Fill out the form below to contact out team.</p>
 
-                <form action="">
+                <form action="" onsubmit="return false">
                     <div>
                         <label for="subjectTxt"><b>Subject</b></label>
                         <input type="text" id="subjectTxt">
@@ -193,7 +193,9 @@
     </footer>
 
     <!-- Scripts -->
-     <script src="../controller/contactUsScript.js"></script>
+    <script type="module" src="../../shared/controller/tokenVerification.js"></script>
+    <script src="../../shared/controller/sharedScript.js"></script>
+    <script type="module" src="../controller/contactUsScript.js"></script>
 </body>
 
 </html>

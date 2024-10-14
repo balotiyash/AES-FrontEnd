@@ -50,8 +50,9 @@ function moveSlide(direction) {
     document.querySelector('.testimonials-div').style.transform = `translateX(${offset}%)`;
 }
 
+// Login btn navigation
 document.getElementById("loginBtn").addEventListener("click", () => {
-    window.location.href = '/shared/view/loginPage.html';
+    window.location.href = './shared/view/loginPage.html';
 });
 
 document.getElementById("logoutBtn").addEventListener("click", () => {

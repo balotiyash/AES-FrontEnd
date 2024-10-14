@@ -22,7 +22,8 @@ document.getElementById("sign-up-form").addEventListener("submit", (event) => {
         email: email,
         password: password,
         phone: phone,
-        username: username
+        username: username,
+        roles: ['USER']
     };
 
     fetch(`http://${IP}:${PORT}/public/signup`, {

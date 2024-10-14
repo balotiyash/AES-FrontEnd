@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This page contains all the js code for the login page
  * Created on: 11/10/2024
- * Last Modified: 11/10/2024
+ * Last Modified: 14/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
