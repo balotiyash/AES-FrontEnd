@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains all the HTML code of cart page
     Created on: 13/10/2024
-    Last Modified: 13/10/2024
+    Last Modified: 14/10/2024
 -->
 
 <!DOCTYPE html>
@@ -12,8 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
     <title>Cart - AES</title>
+    <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -27,21 +27,18 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Sidebar -->
-    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
-
-    <!-- Navbar -->
-    <link rel="stylesheet" href="../../shared//style/navbarStyle.css">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
+    <!-- Navbar & footer -->
+    <link rel="stylesheet" href="../../shared//style/navbarStyle.css">
+    <link rel="stylesheet" href="../../shared/style/footerStyle.css">
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../style/cart-style.css">
-    <link rel="stylesheet" href="../../shared/style/footerStyle.css">
 </head>
 
 <body>
@@ -54,11 +51,14 @@
         </div>
 
         <div id="navLinksDiv">
-            <button type="button" class="navBtns">Home</button>
-            <button type="button" class="navBtns">Products</button>
-            <button type="button" class="navBtns">View Cart</button>
-            <button type="button" class="navBtns">Contact Us</button>
-            <!-- <button type="button" class="navBtns"><i class="fa-solid fa-circle-user"></i></button> -->
+            <button type="button" class="navBtns" onclick="window.location.href = '../../'">Home</button>
+            <button type="button" class="navBtns"
+                onclick="window.location.href = '../../user/view/products-page.html'">Products</button>
+            <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/cart.html'">View
+                Cart</button>
+            <button type="button" class="navBtns"
+                onclick="window.location.href = '../../user/view/contact-us.html'">Contact Us</button>
+            <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
             <!-- Dropdown -->
             <div class="dropdown">
@@ -68,16 +68,16 @@
                 </a>
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">My Orders</a></li>
-                    <li><a class="dropdown-item" href="#">My Profile</a></li>
-                    <li><a class="dropdown-item" href="#" style="color: red;">Logout</a></li>
+                    <li><a class="dropdown-item" href="../../user/view/my-orders.html">My Orders</a></li>
+                    <li><a class="dropdown-item" href="../../user/view/saved-details.html">My Profile</a></li>
+                    <li><a class="dropdown-item" style="color: red;" id="logoutBtn">Logout</a></li>
                 </ul>
             </div>
         </div>
     </header>
 
     <!-- Main -->
-     <main class="main">
+    <main class="main">
         <section class="main-sec">
 
             <!-- Left side -->
@@ -98,7 +98,8 @@
                         <tr>
                             <td>
                                 <div class="item-desc">
-                                    <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
+                                    <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt=""
+                                        class="product-img">
                                     <p>Automatic Hydraulic Press</p>
                                 </div>
                             </td>
@@ -120,7 +121,8 @@
                         <tr>
                             <td>
                                 <div class="item-desc">
-                                    <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
+                                    <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt=""
+                                        class="product-img">
                                     <p>Automatic Hydraulic Press</p>
                                 </div>
                             </td>
@@ -142,28 +144,28 @@
 
                 <button class="cont-btn"><i class="fa-solid fa-angles-left"></i> Continue Shopping</button>
             </section>
-            
+
             <!-- Summary Section -->
             <section class="summary-sec">
                 <div class="summary-child-1">
                     <h5>Summary</h5>
                     <hr>
-    
+
                     <div class="tally-div">
                         <p>Subtotal</p>
                         <p>Rs. 15000.00</p>
                     </div>
-    
+
                     <div class="tally-div">
                         <p>Shipping</p>
                         <p>Rs. 110.00</p>
                     </div>
-    
+
                     <div class="tally-div">
                         <p>Order total</p>
                         <p class="total-text">Rs. 15110.00</p>
                     </div>
-    
+
                     <hr>
                     <div class="tally-div">
                         <p>Apply Discount Code</p>
@@ -174,7 +176,7 @@
                 </div>
             </section>
         </section>
-     </main>
+    </main>
 
     <!-- footer -->
     <footer>

@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains all the HTML5 code of home (index) page.
     Created on: 01/10/2024
-    Last Modified: 13/10/2024
+    Last Modified: 14/10/2024
 -->
 
 <!DOCTYPE html>
@@ -12,6 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AES - Analytical Equipment Solutions</title>
+    <link rel="shortcut icon" href="./assets/images/AES Logo.jpg">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -25,26 +27,23 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Navbar -->
-    <link rel="stylesheet" href="./shared//style/navbarStyle.css">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
-    <title>AES - Analytical Equipment Solutions</title>
-    <link rel="shortcut icon" href="./assets/images/AES Logo.jpg">
+    <!-- Navbar & footer -->
+    <link rel="stylesheet" href="./shared//style/navbarStyle.css">
+    <link rel="stylesheet" href="./shared/style/footerStyle.css">
 
     <!-- stylesheets -->
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./shared/style/footerStyle.css">
 </head>
 
 <body>
     <!-- navbar -->
-    <header id= "navbar">
+    <header id="navbar">
         <!-- Logo -->
         <div id="logoDiv">
             <img src="./assets/images/AES Logo.jpg" alt="AES" id="navLogo">
@@ -52,10 +51,13 @@
         </div>
 
         <div id="navLinksDiv">
-            <button type="button" class="navBtns">Home</button>
-            <button type="button" class="navBtns">Products</button>
-            <button type="button" class="navBtns">View Cart</button>
-            <button type="button" class="navBtns">Contact Us</button>
+            <button type="button" class="navBtns" onclick="window.location.href = './'">Home</button>
+            <button type="button" class="navBtns"
+                onclick="window.location.href = './user/view/products-page.html'">Products</button>
+            <button type="button" class="navBtns" onclick="window.location.href = './user/view/cart.html'">View
+                Cart</button>
+            <button type="button" class="navBtns" onclick="window.location.href = './user/view/contact-us.html'">Contact
+                Us</button>
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
             <!-- Dropdown -->
@@ -66,9 +68,9 @@
                 </a>
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenu">
-                    <li><a class="dropdown-item" href="#">My Orders</a></li>
-                    <li><a class="dropdown-item" href="#">My Profile</a></li>
-                    <li><a class="dropdown-item" href="#" style="color: red;" id="logoutBtn">Logout</a></li>
+                    <li><a class="dropdown-item" href="./user/view/my-orders.html">My Orders</a></li>
+                    <li><a class="dropdown-item" href="./user/view/saved-details.html">My Profile</a></li>
+                    <li><a class="dropdown-item" style="color: red;" id="logoutBtn">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -102,11 +104,9 @@
             <div class="news-div">
                 <h5>News & Events</h5>
                 <ul>
-                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
-                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
-                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
-                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
-                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+                    <li>Happy Navratri - 03/10/2024</li>
+                    <li>Happy Dussra - 12/10/2024</li>
+                    <li>Dussra Offer: Flat 20% off on all products if ordered today - 12/10/2024</li>
                 </ul>
             </div>
         </section>
@@ -116,10 +116,16 @@
 
             <!-- image slider -->
             <div class="image-slider">
-                <img src="./assets/images/Automatic Hydraulic Press.jpg" alt="">
-                <img src="./assets/images/Brobe Sonicator.jpg" alt="">
-                <img src="./assets/images/Gas Detector Sensors.webp" alt="">
-                <img src="./assets/images/Gas Flow Meter - VKIT.jpg" alt="">
+                <img src="./assets/images/Automatic Hydraulic Press.jpg" alt="Automatic Hydraulic Press">
+                <img src="./assets/images/Brobe Sonicator.jpg" alt="Brobe Sonicator">
+                <img src="./assets/images/Gas Detector Sensors.webp" alt="Gas Detector Sensors">
+                <img src="./assets/images/Gas Flow Meter - VKIT.jpg" alt="Gas Flow Meter - VKIT">
+                <img src="./assets/images/GC.png" alt="GC">
+                <img src="./assets/images/KBR Dia Set.png" alt="KBR Dia Set">
+                <img src="./assets/images/Manual Hydraulik Press.png" alt="Manual Hydraulik Press">
+                <img src="./assets/images/Orbital Shaker.jpg" alt="Orbital Shaker">
+                <img src="./assets/images/Sonicator.png" alt="Sonicator">
+                <img src="./assets/images/Vortex Mixer.png" alt="Vortex Mixer">
             </div>
 
             <!-- why order from us -->
@@ -149,7 +155,7 @@
                             experience. The website was easy to navigate, and the product descriptions were clear and
                             detailed, helping me make an informed decision.</p>
                     </div>
-                    
+
                     <div class="review-div">
                         <div>
                             <p class="profile-img">B</p>
@@ -158,7 +164,7 @@
                         <br>
                         <p>Great customer service and fast delivery!</p>
                     </div>
-                    
+
                     <div class="review-div">
                         <div>
                             <p class="profile-img">C</p>
@@ -167,7 +173,7 @@
                         <br>
                         <p>Quality products and excellent support.</p>
                     </div>
-                    
+
                     <div class="review-div">
                         <div>
                             <p class="profile-img">D</p>
@@ -176,7 +182,7 @@
                         <br>
                         <p>Highly recommended for industrial equipment!</p>
                     </div>
-                    
+
                     <div class="review-div">
                         <div>
                             <p class="profile-img">D</p>
@@ -202,42 +208,50 @@
             <!-- Company profile -->
             <div class="footer-child-1">
                 <div class="footer-child-2">
-                    <img src="./assets/images/AES Logo.jpg" alt="" class="footer-aes-logo">
+                    <img src="./assets/images/AES Logo.jpg" alt="Analytical Equipment Solutions" class="footer-aes-logo">
                     <h1>Analytical Equipment<br>Solutions</h1>
                 </div>
                 <p>We Provide Pan India Analytical Instruments Sales & Services</p>
             </div>
-    
+
             <!-- quick links -->
             <div class="footer-child-3">
                 <b>Quick Links</b>
-                <a href="">Home</a>
-                <a href="">Products</a>
-                <a href="">About Us</a>
-                <a href="">Contact Us</a>
+                <a href="./">Home</a>
+                <a href="./user/view/products-page.html">Products</a>
+                <a href="./">About Us</a>
+                <a href="./user/view/contact-us.html">Contact Us</a>
             </div>
-    
+
             <!-- services -->
             <div class="footer-child-3">
                 <b>Services</b>
-                <a href="">Product Enquiry</a>
-                <a href="">Service Request</a>
+                <a href="https://wa.me/919920780823?text=Test%20Product%20Enquiry">Product Enquiry</a>
+                <a href="https://wa.me/919920780823?text=Test%20Service%20Request">Service Request</a>
             </div>
-    
+
             <!-- contact us -->
             <div class="footer-child-3">
                 <b>Contact Us</b>
                 <div>
                     <i class="fa-solid fa-envelope"></i>
-                    <a href="">official@analyticalequipmentsolutions.com</a>
+                    <a href="mailto:official@analyticalequipmentsolutions.com">official@analyticalequipmentsolutions.com</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-envelope"></i>
-                    <a href="">official@outlook.com</a>
+                    <a href="mailto:official@outlook.com">official@outlook.com</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:8268393857">+91 8268393857</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:8169060811">+91 8169060811</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-location-dot"></i>
-                    <a href="">Jamil Nagar, Bhandup (W), Mumbai - 400078</a>
+                    <a href="https://maps.app.goo.gl/hpf69LaY9kG6UTXM8">Jamil Nagar, Bhandup (W), Mumbai - 400078</a>
                 </div>
             </div>
         </div>
@@ -251,7 +265,9 @@
     </footer>
 
     <!-- Scripts -->
-    <script type="module" src="./main.js"></script>
+    <script src="./main.js"></script>
+    <script src="./shared/controller/tokenVerification.js"></script>
+    <script type="module" src="./user/controller/homeServerScript.js"></script>
 </body>
 
 </html>
