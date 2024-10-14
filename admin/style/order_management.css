@@ -1,26 +1,60 @@
 .apply-filter{
-    height: 10vh;
+    height: 7vh;
     background-color: white;
+    border-radius: 25px;
+
+    display:flex;
+    gap: 5px;
 }
 
-.table{
+.tablee{
     height: 70vh;
-    background-color: aqua;
+    background-color: white;
+    border-radius: 25px;
 }
 
 .windoww{
-    height: 98vh;
+    height: 92vh;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     padding-top: 100px;
-    width: 900px;
+    width: 95%;
     padding-left: 120px;
     font-family: Inter;
     font-weight: 500;
     font-size:18px;
 }
+table{
+    width:100%;
+}
 
-.bodyyy{
-    background-color: black;
+th{
+    border-bottom:1px solid #dddddd ;
+}
+
+
+th, td{
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px; 
+    font-family: montserrat;
+    font-weight: 360;
+}
+
+tr{
+    height: 90px;
+}
+
+.flt{
+    background-color: #F7F7F7;
+    margin: 10px;
+    padding-left: 23px;
+    padding-right: 23px;
+    padding-top: 5px;
+    
+    border-radius: 25px;
+    font-family: montserrat;
+    font-weight: 360;
 }
