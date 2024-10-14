@@ -1,0 +1,26 @@
+.apply-filter{
+    height: 10vh;
+    background-color: white;
+}
+
+.table{
+    height: 70vh;
+    background-color: aqua;
+}
+
+.windoww{
+    height: 98vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-top: 100px;
+    width: 900px;
+    padding-left: 120px;
+    font-family: Inter;
+    font-weight: 500;
+    font-size:18px;
+}
+
+.bodyyy{
+    background-color: black;
+}
