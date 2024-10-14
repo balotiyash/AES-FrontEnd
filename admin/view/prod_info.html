@@ -29,9 +29,14 @@
     <!-- Sidebar -->
     <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
 
+
+    <!-- css -->
+
     <link rel="stylesheet" href="../style/prod_description.css">
 
     <link rel="stylesheet" href="../style/prod_manage.css">
+
+    <link rel="stylesheet" href="../style/prod_info.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -97,19 +102,70 @@
     <script type="text/javascript">
         const toggleSidebar = () => document.body.classList.toggle("open");
     </script>
-
-
-
 <main>
+    <div class="window">
 
-    <div class="heading">Product Information</div>
+        <div class="heading">Product Information</div>
 
-    
+        <div class="image-label">
+            <div class="im">Image</div>
+            <div class="five-images">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div><i class="fa-solid fa-plus fa-2xl add-img" style="color: #0d0d0d;"></i></div>
+            </div>
+        </div>
+        <div class="name">
+            Name
+            <div class="input-group mb-3"> 
+                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+              </div> 
+        </div>
+        <div class="prod-description">
+            Product Description
+            <div class="input-group">
+                
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+        </div>
+        <div class="price">
+            Product Price
+            <div class="input-group mb-3"> 
+                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+              </div> 
+        </div>
+        <div class="category">
+            Category
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select</button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#">Analytical applications and instruments</a></li>
+                  <li><a class="dropdown-item" href="#">Gas generators and equipments</a></li>
+                  
+                  <li><hr class="dropdown-divider"></li>
+                  
+                </ul>
+              </div>
+        </div>
+        <div class="delivery-in">
+            Delivery in
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select</button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#">days</a></li>
+                  <li><a class="dropdown-item" href="#">weeks</a></li>
+                  <li><a class="dropdown-item" href="#">months</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  
+                </ul>
+              </div>
+        </div>
 
-
-
-    
-
+    </div>
 </main>
 </body>
 
