@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the individual product description page
     Created on: 13/10/2024
-    Last Modified: 13/10/2024
+    Last Modified: 14/10/2024
 */
 
 * {
@@ -92,6 +92,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     margin-left: 40px;
+    width: 40%;
     height: 70%;
 }
 
@@ -104,6 +105,7 @@ body {
 }
 
 .add-to-cart {
+    /* width: 110%; */
     display: flex;
     justify-content: space-between;
 }
@@ -115,6 +117,7 @@ body {
     padding: 4px;
     width: 150px;
     transition: all 0.2s ease-in-out;
+    text-align: center;
 }
 
 .add-to-cart-btn:hover {

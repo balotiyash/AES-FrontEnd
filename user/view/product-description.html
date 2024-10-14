@@ -55,21 +55,28 @@
 
         <div id="navLinksDiv">
             <button type="button" class="navBtns" onclick="window.location.href = '../../'">Home</button>
-            <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/products-page.html'">Products</button>
-            <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/cart.html'">View Cart</button>
-            <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/contact-us.html'">Contact Us</button>
+            <button type="button" class="navBtns"
+                onclick="window.location.href = '../../user/view/products-page.html'">Products</button>
+            <!-- <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/cart.html'">View
+                Cart</button> -->
+            <button type="button" class="navBtns" onclick="window.location.href = '../../'">About Us
+            </button>
+            <button type="button" class="navBtns"
+                onclick="window.location.href = '../../user/view/contact-us.html'">Contact
+                Us</button>
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
             <!-- Dropdown -->
-            <div class="dropdown">
+            <div class="dropdown" id="dropDownBtn">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa-solid fa-circle-user"></i>
                 </a>
 
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenu">
                     <li><a class="dropdown-item" href="../../user/view/my-orders.html">My Orders</a></li>
                     <li><a class="dropdown-item" href="../../user/view/saved-details.html">My Profile</a></li>
+                    <li><a class="dropdown-item" href="../../user/view/cart.html">My Cart</a></li>
                     <li><a class="dropdown-item" style="color: red;" id="logoutBtn">Logout</a></li>
                 </ul>
             </div>
@@ -81,7 +88,7 @@
         <section class="main-sec">
             <!-- Left side -->
             <section class="side-menu-sec">
-                <div class="side-menu-div">
+                <!-- <div class="side-menu-div">
                     <b>Analytical Applications & Instruments for Lab</b>
                     <ul>
                         <li><a href="">Ultrasonic bath</a></li>
@@ -105,7 +112,11 @@
                         <li><a href="">Zero air generator</a></li>
                         <li><a href="">Gas detector & opersting system</a></li>
                     </ul>
-                </div>
+                </div> -->
+
+                <div class="side-menu-div" id="side-menu">
+                    <!-- Dynamic content will be injected here -->
+                </div>  
             </section>
 
             <div class="vertical-divider"></div>
@@ -113,18 +124,18 @@
             <!-- right side -->
             <section class="desc-sec">
                 <div class="part-1">
-                    <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
+                    <img src="" alt="" class="product-img" id="productImg">
                     <div class="product-desc">
-                        <b>Automatic Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down transformer for coach power supply.</p>
+                        <b id="productTitle"></b>
+                        <p id="productDesc"></p>
                         <p class="in-stock">In stock</p>
-                        <p>Rs. 5000.00</p>
+                        <p id="productPrice"></p>
 
                         <div class="add-to-cart">
                             <button class="add-to-cart-btn">Add to cart</button>
 
                             <span class="tally-div">
-                                <p>1</p>
+                                <p id="cartQnty">0</p>
                                 <span class="tally-div-child">
                                     <button class="tally-btns">-</button>
                                     <button class="tally-btns">+</button>
@@ -134,7 +145,7 @@
                     </div>
                 </div>
 
-                <div class="part-2">
+                <!-- <div class="part-2">
                     <h5>Customer Reviews</h5>
                     <div class="review-div">
                         <p class="profile-icon">P</p>
@@ -147,7 +158,8 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                             </div>
-                            <p>Liked the quality  of the product and service of the company. The pump offers excellent power and precision for construction and DIY projects</p>
+                            <p>Liked the quality of the product and service of the company. The pump offers excellent
+                                power and precision for construction and DIY projects</p>
                         </div>
                     </div>
                     <div class="review-div">
@@ -161,10 +173,11 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                             </div>
-                            <p>Liked the quality  of the product and service of the company. The pump offers excellent power and precision for construction and DIY projects</p>
+                            <p>Liked the quality of the product and service of the company. The pump offers excellent
+                                power and precision for construction and DIY projects</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </section>
 
         </section>
@@ -225,6 +238,11 @@
             <p>2024 Analytical Equipment Solutions | AES</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="../../shared/controller/tokenVerification.js"></script>
+    <script src="../../shared/controller/sharedScript.js"></script>
+    <script type="module" src="../controller/prodDescScript.js"></script>
 </body>
 
 </html>

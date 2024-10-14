@@ -39,7 +39,7 @@ async function sendMail() {
             window.open(data, "_blank");
         }
         console.log('User data:', data);
-        return data.status;
+        // return data.status;
     } catch (error) {
         console.error('Error during authentication:', error);
         throw error;

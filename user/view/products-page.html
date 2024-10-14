@@ -55,21 +55,27 @@
 
         <div id="navLinksDiv">
             <button type="button" class="navBtns" onclick="window.location.href = '../../'">Home</button>
-            <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/products-page.html'">Products</button>
-            <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/cart.html'">View Cart</button>
-            <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/contact-us.html'">Contact Us</button>
+            <button type="button" class="navBtns"
+                onclick="window.location.href = '../../user/view/products-page.html'">Products</button>
+            <!-- <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/cart.html'">View
+                Cart</button> -->
+            <button type="button" class="navBtns" onclick="window.location.href = '../../'">About Us
+                </button>
+            <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/contact-us.html'">Contact
+                Us</button>
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
             <!-- Dropdown -->
-            <div class="dropdown">
+            <div class="dropdown" id="dropDownBtn">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa-solid fa-circle-user"></i>
                 </a>
 
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenu">
                     <li><a class="dropdown-item" href="../../user/view/my-orders.html">My Orders</a></li>
                     <li><a class="dropdown-item" href="../../user/view/saved-details.html">My Profile</a></li>
+                    <li><a class="dropdown-item" href="../../user/view/cart.html">My Cart</a></li>
                     <li><a class="dropdown-item" style="color: red;" id="logoutBtn">Logout</a></li>
                 </ul>
             </div>
@@ -82,7 +88,7 @@
         <section class="main-sec">
             <!-- Left side -->
             <section class="side-menu-sec">
-                <div class="side-menu-div">
+                <!-- <div class="side-menu-div">
                     <b>Analytical Applications & Instruments for Lab</b>
                     <ul>
                         <li><a href="">Ultrasonic bath</a></li>
@@ -106,92 +112,21 @@
                         <li><a href="">Zero air generator</a></li>
                         <li><a href="">Gas detector & opersting system</a></li>
                     </ul>
-                </div>
+                </div> -->
+
+                <div class="side-menu-div" id="side-menu">
+                    <!-- Dynamic content will be injected here -->
+                </div>                
             </section>
 
             <div class="vertical-divider"></div>
 
             <!-- Right side -->
             <section class="orders-sec">
-                <h5>Analytical Applications & Instruments for Lab</h5>
+                <!-- <h5>Analytical Applications & Instruments for Lab</h5> -->
+                <h5>Analytical Applications, Instruments for Lab, Gas Generators & Equipments</h5>
 
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
-
-                    <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
-                    </div>
-                </div>
-
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
-
-                    <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
-                    </div>
-                </div>
-
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
-
-                    <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
-                    </div>
-                </div>
-
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
-
-                    <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
-                    </div>
-                </div>
-
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
-
-                    <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
-                    </div>
-                </div>
-
-                <!-- product 1 -->
-                <div class="product-div">
-                    <div class="product-img-div">
-                        <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt="" class="product-img">
-                    </div>
-
-                    <div class="product-desc">
-                        <b>Automated Hydraulic Press</b>
-                        <p>EOG AC Coached/Power Car/Pantry Car requires 750V/415V step down</p>
-                        <button class="view-btn">View Details</button>
-                    </div>
-                </div>
+                <div id="product-container"></div>
             </section>
         </section>
     </main>
@@ -251,6 +186,11 @@
             <p>2024 Analytical Equipment Solutions | AES</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+     <script type="module" src="../../shared/controller/tokenVerification.js"></script>
+     <script src="../../shared/controller/sharedScript.js"></script>
+     <script type="module" src="../controller/products-script.js"></script>
 </body>
 
 </html>
