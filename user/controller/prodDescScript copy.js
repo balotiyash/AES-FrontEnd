@@ -37,7 +37,7 @@ async function fetchAndDisplayProducts() {
         const categoryMap = {};
 
         products.forEach(product => {
-            const { product_category, product_name, product_id } = product;
+            const { product_category, product_name, product_id } = product; // Assuming product_id exists
             if (!categoryMap[product_category]) {
                 categoryMap[product_category] = [];
             }
@@ -53,14 +53,14 @@ async function fetchAndDisplayProducts() {
             items.forEach(item => {
                 const li = document.createElement('li');
                 const link = document.createElement('a');
-                link.href = `./product-description.html?product_id=${item.id}`;
+                link.href = `./product-description.html?product_id=${item.id}`; // Update with actual links if available
                 link.textContent = item.name;
                 li.appendChild(link);
                 ul.appendChild(li);
             });
 
             sideMenu.appendChild(ul);
-            sideMenu.appendChild(document.createElement('br'));
+            sideMenu.appendChild(document.createElement('br')); // Add spacing between categories
         }
     } catch (error) {
         console.error('Error fetching products:', error);
@@ -99,7 +99,7 @@ async function fetchProductDetails() {
 let item_id = "";
 let quantity = 0;
 
-// Fetch and display product add to cart or inc/dec
+// Fetch and display product add to cart or inc dec
 async function fetchCartDetails() {
     try {
         const response = await fetch(`http://${IP}:${PORT}/cart/items`, {
@@ -111,7 +111,7 @@ async function fetchCartDetails() {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to fetch cart details');
+            throw new Error('Failed to fetch product details');
         }
 
         const products = await response.json();
@@ -119,60 +119,51 @@ async function fetchCartDetails() {
 
         let count = 0;
 
-        // Find the product in the cart
         for (let i = 0; i < products.length; i++) {
             if (products[i].product_id == product_id) {
                 count = products[i].quantity;
+                // quantity = products[i].quantity;
                 item_id = products[i].item_id;
 
                 document.getElementById("add-to-cart-btn").style.display = "none";
                 document.getElementById("tally-div").style.display = "flex";
-                break;
+                break; // Exit the loop once the product is found
             } else {
                 console.log("Not Found");
             }
         }
 
-        // Dynamically show quantity value
+        // To dynamically show quantity value
         const cartQnty = document.getElementById("cartQnty");
         cartQnty.innerHTML = count;
 
-        // Increment and Decrement button event handling
-        const incBtn = document.getElementById("incBtn");
-        const decBtn = document.getElementById("decBtn");
-
-        // Define the event handler functions
-        const handleIncrement = () => {
+        // Increment Btn Event handling
+        document.getElementById("incBtn").addEventListener("click", () => {
             count++;
             quantity = count;
+            // quantity++;
             updateCart();
             cartQnty.innerHTML = count;
-        };
+        });
 
-        const handleDecrement = () => {
+        // Decrement Btn Event handling
+        document.getElementById("decBtn").addEventListener("click", () => {
             count--;
             if (count <= 0) {
                 document.getElementById("add-to-cart-btn").style.display = "block";
                 document.getElementById("tally-div").style.display = "none";
             }
+
             quantity = count;
             updateCart();
             cartQnty.innerHTML = count;
-        };
-
-        // Remove existing listeners before adding new ones to avoid duplicates
-        incBtn.removeEventListener("click", handleIncrement);
-        incBtn.addEventListener("click", handleIncrement);
-
-        decBtn.removeEventListener("click", handleDecrement);
-        decBtn.addEventListener("click", handleDecrement);
-
+        });
     } catch (error) {
-        console.error('Error fetching cart details:', error);
+        console.error('Error fetching product details:', error);
     }
 }
 
-// Function to add a new item to the cart
+// Function to add new item to the cart
 async function addToCart() {
     const formdata = {
         product_id: product_id,
@@ -189,16 +180,16 @@ async function addToCart() {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to add to cart');
+            throw new Error('Failed to fetch product details');
         }
 
         const data = await response.text();
         console.log('Add to cart:', data);
 
-        // Refresh cart details to reflect new item
+        // To dunamically update item quantity and respective things
         fetchCartDetails();
     } catch (error) {
-        console.error('Error adding to cart:', error);
+        console.error('Error fetching product details:', error);
     }
 }
 
@@ -208,7 +199,7 @@ async function updateCart() {
         product_id: product_id,
         item_id: item_id,
         quantity: quantity
-    };
+    }
     console.log(formdata);
 
     try {
@@ -222,20 +213,20 @@ async function updateCart() {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to update cart');
+            throw new Error('Failed to fetch product details');
         }
 
         const data = await response.text();
         console.log('Update Cart:', data);
     } catch (error) {
-        console.error('Error updating cart:', error);
+        console.error('Error fetching product details:', error);
     }
 }
 
-// Execute functions after page load
+// Calling function after load one by one to execute
 fetchAndDisplayProducts();
 fetchProductDetails();
 fetchCartDetails();
 
-// Event handling for add-to-cart button
+// Event handling to handle click event of add to cart button
 document.getElementById("add-to-cart-btn").addEventListener("click", addToCart);

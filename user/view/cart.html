@@ -81,7 +81,6 @@
     <!-- Main -->
     <main class="main">
         <section class="main-sec">
-
             <!-- Left side -->
             <section class="cart-sec">
                 <h5>Shopping Cart</h5>
@@ -91,60 +90,14 @@
                             <th>Item</th>
                             <th>Price</th>
                             <th>Qty</th>
-                            <th>Subtotal</th>
+                            <th>Subtotals</th>
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <!-- item1 -->
-                        <tr>
-                            <td>
-                                <div class="item-desc">
-                                    <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt=""
-                                        class="product-img">
-                                    <p>Automatic Hydraulic Press</p>
-                                </div>
-                            </td>
-                            <td>Rs. 5000</td>
-                            <td>
-                                <span class="tally-divv">
-                                    <p>2</p>
-                                    <span class="tally-div-child">
-                                        <button class="tally-btns">-</button>
-                                        <button class="tally-btns">+</button>
-                                    </span>
-                                </span>
-                            </td>
-                            <td>Rs. 10000</td>
-                            <td><i class="fa-solid fa-xmark"></i></td>
-                        </tr>
-
-                        <!-- item2 -->
-                        <tr>
-                            <td>
-                                <div class="item-desc">
-                                    <img src="../../assets/images/Automatic Hydraulic Press.jpg" alt=""
-                                        class="product-img">
-                                    <p>Automatic Hydraulic Press</p>
-                                </div>
-                            </td>
-                            <td>Rs. 5000</td>
-                            <td>
-                                <span class="tally-divv">
-                                    <p>2</p>
-                                    <span class="tally-div-child">
-                                        <button class="tally-btns">-</button>
-                                        <button class="tally-btns">+</button>
-                                    </span>
-                                </span>
-                            </td>
-                            <td>Rs. 10000</td>
-                            <td><i class="fa-solid fa-xmark"></i></td>
-                        </tr>
-                    </tbody>
+                    <tbody id="item-body"><!-- Rows will be inserted here --></tbody>
                 </table>
 
-                <button class="cont-btn"><i class="fa-solid fa-angles-left"></i> Continue Shopping</button>
+                <button class="cont-btn" onclick="window.location.href = './products-page.html'"><i class="fa-solid fa-angles-left"></i> Continue Shopping</button>
             </section>
 
             <!-- Summary Section -->
@@ -155,28 +108,30 @@
 
                     <div class="tally-div">
                         <p>Subtotal</p>
-                        <p>Rs. 15000.00</p>
+                        <p class="subtotal">Rs. 0.00</p> <!-- Updated to add class -->
                     </div>
 
                     <div class="tally-div">
                         <p>Shipping</p>
-                        <p>Rs. 110.00</p>
+                        <p class="shipping">Rs. 3000.00</p> <!-- Updated to add class -->
                     </div>
 
                     <div class="tally-div">
                         <p>Order total</p>
-                        <p class="total-text">Rs. 15110.00</p>
+                        <p class="total-text">Rs. 0.00</p>
                     </div>
 
                     <hr>
-                    <div class="tally-div">
-                        <p>Apply Discount Code</p>
-                        <i class="fa-solid fa-angle-down"></i>
-                    </div>
-
                     <button class="checkout-btn">Proceed to checkout</button>
                 </div>
             </section>
+        </section>
+
+        <section class="empty-cart-sec" style="text-align: center;">
+            <img src="../../assets/vectors/Empty Cart.svg" alt="">
+            <h1>Your cart is empty</h1>
+            <p>Looks like you haven't added anything to your cart yet</p>
+            <button class="cont-btn" onclick="window.location.href = './products-page.html'">Continue Shopping</button>
         </section>
     </main>
 
@@ -216,7 +171,8 @@
                 <b>Contact Us</b>
                 <div>
                     <i class="fa-solid fa-envelope"></i>
-                    <a href="mailto:official@analyticalequipmentsolutions.com">official@analyticalequipmentsolutions.com</a>
+                    <a
+                        href="mailto:official@analyticalequipmentsolutions.com">official@analyticalequipmentsolutions.com</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-envelope"></i>
@@ -232,7 +188,8 @@
                 </div>
                 <div>
                     <i class="fa-solid fa-location-dot"></i>
-                    <a href="https://maps.app.goo.gl/hpf69LaY9kG6UTXM8" target="_blank">Jamil Nagar, Bhandup (W), Mumbai - 400078</a>
+                    <a href="https://maps.app.goo.gl/hpf69LaY9kG6UTXM8" target="_blank">Jamil Nagar, Bhandup (W), Mumbai
+                        - 400078</a>
                 </div>
             </div>
         </div>
