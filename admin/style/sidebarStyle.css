@@ -36,7 +36,7 @@ button {
 
 .sidebar {
 	position: fixed;
-	top: 60px;
+	/* top: 60px; */
 	bottom: 0;
 	overflow-y: auto;
 	z-index: 999;
