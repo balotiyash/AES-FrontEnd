@@ -82,6 +82,10 @@ async function fetchCartDetails() {
             const updatePrice = () => {
                 const quantity = parseInt(quantityElement.textContent);
                 totalPriceElement.textContent = formatCurrency(item.price * quantity);
+                subtotal = 0; // Reset subtotal
+                document.querySelectorAll('.total-price').forEach(el => {
+                    subtotal += parseFloat(el.textContent.replace(/[^0-9.-]+/g, ""));
+                });
                 updateSummary(subtotal); // Update summary whenever price changes
             };
 
@@ -112,7 +116,7 @@ async function fetchCartDetails() {
             });
         });
 
-        // Update the summary section
+        // Update the summary section after processing all items
         updateSummary(subtotal);
 
     } catch (error) {

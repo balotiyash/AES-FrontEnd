@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the contact us page.
  * Created on: 14/10/2024
- * Last Modified: 15/10/2024
+ * Last Modified: 16/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -21,7 +21,7 @@ async function sendMail() {
     });
 
     try {
-        const response = await fetch(`http://${IP}:${PORT}/email`, {
+        const response = await fetch(`http://${IP}:${PORT}/public/contact`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
