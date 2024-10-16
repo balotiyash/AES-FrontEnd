@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the product description page.
  * Created on: 14/10/2024
- * Last Modified: 15/10/2024
+ * Last Modified: 16/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -11,7 +11,7 @@ import { IP, PORT } from '../../config.js';
 // Product ID from URL
 const currentUrl = window.location.href;
 const url = new URL(currentUrl);
-const product_id = url.searchParams.get('product_id');
+const my_product_id = url.searchParams.get('product_id');
 
 // Token
 const token = window.localStorage.getItem("token");
@@ -70,7 +70,7 @@ async function fetchAndDisplayProducts() {
 // Fetch and display product details based on product_id from URL
 async function fetchProductDetails() {
     try {
-        const response = await fetch(`http://${IP}:${PORT}/public/getProduct/${product_id}`, {
+        const response = await fetch(`http://${IP}:${PORT}/public/getProduct/${my_product_id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -96,8 +96,9 @@ async function fetchProductDetails() {
 }
 
 // Product Quantity & item id
-let item_id = "";
-let quantity = 0;
+let my_item_id = "";
+let my_quantity = 0;
+let count = 0;
 
 // Fetch and display product add to cart or inc dec
 async function fetchCartDetails() {
@@ -117,13 +118,11 @@ async function fetchCartDetails() {
         const products = await response.json();
         console.log('Fetched cart details:', products);
 
-        let count = 0;
-
         for (let i = 0; i < products.length; i++) {
-            if (products[i].product_id == product_id) {
+            if (products[i].product_id == my_product_id) {
                 count = products[i].quantity;
-                // quantity = products[i].quantity;
-                item_id = products[i].item_id;
+                my_item_id = products[i].item_id;
+                my_quantity = count; // Update my_quantity here
 
                 document.getElementById("add-to-cart-btn").style.display = "none";
                 document.getElementById("tally-div").style.display = "flex";
@@ -137,36 +136,38 @@ async function fetchCartDetails() {
         const cartQnty = document.getElementById("cartQnty");
         cartQnty.innerHTML = count;
 
-        // Increment Btn Event handling
-        document.getElementById("incBtn").addEventListener("click", () => {
-            count++;
-            quantity = count;
-            // quantity++;
-            updateCart();
-            cartQnty.innerHTML = count;
-        });
-
-        // Decrement Btn Event handling
-        document.getElementById("decBtn").addEventListener("click", () => {
-            count--;
-            if (count <= 0) {
-                document.getElementById("add-to-cart-btn").style.display = "block";
-                document.getElementById("tally-div").style.display = "none";
-            }
-
-            quantity = count;
-            updateCart();
-            cartQnty.innerHTML = count;
-        });
+        // Remove event listeners from here
     } catch (error) {
         console.error('Error fetching product details:', error);
     }
 }
 
+// Add event listeners outside of fetchCartDetails
+document.getElementById("incBtn").addEventListener("click", () => {
+    count++;
+    my_quantity = count;
+    updateCart();
+    const cartQnty = document.getElementById("cartQnty");
+    cartQnty.innerHTML = my_quantity;
+});
+
+document.getElementById("decBtn").addEventListener("click", () => {
+    count--;
+    if (count <= 0) {
+        document.getElementById("add-to-cart-btn").style.display = "block";
+        document.getElementById("tally-div").style.display = "none";
+    }
+
+    my_quantity = count;
+    updateCart();
+    const cartQnty = document.getElementById("cartQnty");
+    cartQnty.innerHTML = my_quantity;
+});
+
 // Function to add new item to the cart
 async function addToCart() {
     const formdata = {
-        product_id: product_id,
+        product_id: my_product_id,
     }
 
     try {
@@ -196,11 +197,12 @@ async function addToCart() {
 // Function to Update Quantity
 async function updateCart() {
     const formdata = {
-        product_id: product_id,
-        item_id: item_id,
-        quantity: quantity
+        product_id: my_product_id,
+        item_id: my_item_id,
+        quantity: my_quantity
     }
-    console.log(formdata);
+    console.log("Form Data: ");
+    console.log(formdata)
 
     try {
         const response = await fetch(`http://${IP}:${PORT}/cart/update-quantity`, {
