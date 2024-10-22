@@ -1,0 +1,35 @@
+.window{
+    height: 98vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-top: 100px;
+    width: 900px;
+    padding-left: 120px;
+    font-family: Inter;
+    font-weight: 500;
+    font-size:18px;
+}
+
+.five-images{
+    display: flex;
+    justify-content: space-between;
+
+    height: 150px;
+
+}
+
+.five-images > *{
+    width: 130px;
+    height: 130px;
+    background-color: #D9D9D9;
+}
+
+.im{
+    padding-bottom: 10px;
+}
+
+.add-img{
+    margin-left: 45px;
+    margin-top: 60px;
+}
