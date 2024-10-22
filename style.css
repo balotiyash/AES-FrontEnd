@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the home Page.
     Created on: 12/10/2024
-    Last Modified: 12/10/2024
+    Last Modified: 22/10/2024
 */
 
 * {
@@ -40,7 +40,9 @@ body {
 
 .hero-img-sec div {
     width: 25%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.9);
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    /* color: white; */
     display: flex;
     justify-content: center;
     align-items: center;
