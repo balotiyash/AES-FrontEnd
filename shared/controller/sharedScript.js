@@ -15,5 +15,5 @@ document.getElementById("loginBtn").addEventListener("click", () => {
 document.getElementById("logoutBtn").addEventListener("click", () => {
     console.log('Logging out...');
     window.localStorage.removeItem("token");
-    window.location.reload();
+    window.location.href = "http://localhost:5501/shared/view/loginPage.html";
 });

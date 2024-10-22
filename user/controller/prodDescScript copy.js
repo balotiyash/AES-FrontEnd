@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the product description page.
  * Created on: 14/10/2024
- * Last Modified: 16/10/2024
+ * Last Modified: 22/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -88,7 +88,9 @@ async function fetchProductDetails() {
             document.getElementById("productImg").src = product.product_images[0];
             document.getElementById("productTitle").innerHTML = product.product_name;
             document.getElementById("productDesc").innerHTML = product.product_desc;
-            document.getElementById("productPrice").innerHTML = `Rs. ${product.product_price}`;
+            // document.getElementById("productPrice").innerHTML = `Rs. ${product.product_price}`;
+            document.getElementById("productPrice").innerHTML = `Rs. ${product.product_price.toLocaleString()}/-`;
+
         }
     } catch (error) {
         console.error('Error fetching product details:', error);

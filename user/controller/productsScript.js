@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the all products page.
  * Created on: 14/10/2024
- * Last Modified: 15/10/2024
+ * Last Modified: 22/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -87,7 +87,7 @@ async function fetchProducts() {
 
                 // To add description
                 const desc = document.createElement('p');
-                desc.textContent = product.product_desc;
+                desc.textContent = `${product.product_desc.substring(0, 200)}...`;
 
                 // To add view detail button
                 const button = document.createElement('button');

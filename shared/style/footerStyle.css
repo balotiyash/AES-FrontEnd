@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the footer.
     Created on: 13/10/2024
-    Last Modified: 15/10/2024
+    Last Modified: 22/10/2024
 */
 
 .footer {
@@ -50,7 +50,7 @@
 .footer-child-3 a {
     text-decoration: none;
     color: #9d9d9d;
-    transition: 0.5s all ease-in-out;
+    transition: 0.2s all ease-in-out;
 }
 
 .footer-child-3 a:hover {

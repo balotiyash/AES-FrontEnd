@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains all the HTML code of cart page
     Created on: 13/10/2024
-    Last Modified: 15/10/2024
+    Last Modified: 22/10/2024
 -->
 
 <!DOCTYPE html>
@@ -122,7 +122,7 @@
                     </div>
 
                     <hr>
-                    <button class="checkout-btn">Proceed to checkout</button>
+                    <button class="checkout-btn" id="rzp-button1">Proceed to checkout</button>
                 </div>
             </section>
         </section>
@@ -203,6 +203,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script type="module" src="../../shared/controller/tokenVerification.js"></script>
     <script src="../../shared/controller/sharedScript.js"></script>
     <script type="module" src="../controller/cartScript.js"></script>
