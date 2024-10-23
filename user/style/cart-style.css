@@ -32,6 +32,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-top: 40px;
+    display: none;
 }
 
 /* left side */
@@ -158,4 +159,8 @@ table {
 
 .total-text {
     color: #65c1f0;
+}
+
+.empty-cart-sec {
+    display: none;
 }

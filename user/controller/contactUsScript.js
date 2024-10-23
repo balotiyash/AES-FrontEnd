@@ -21,7 +21,7 @@ async function sendMail() {
     });
 
     try {
-        const response = await fetch(`http://${IP}:${PORT}/public/contact`, {
+        const response = await fetch(`http://${IP}:${PORT}/email/contact`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
