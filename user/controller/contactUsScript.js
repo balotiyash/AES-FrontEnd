@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the contact us page.
  * Created on: 14/10/2024
- * Last Modified: 16/10/2024
+ * Last Modified: 24/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -11,6 +11,11 @@ import { IP, PORT } from '../../config.js';
 // Function to send mail data to server
 async function sendMail() {
     const token = window.localStorage.getItem("token");
+
+    if (token === null) {
+        alert("Please login to send E-mail to the seller.");
+        return;
+    }
 
     const subjectTxt = document.getElementById("subjectTxt").value;
     const messageTxt = document.getElementById("messageTxt").value;

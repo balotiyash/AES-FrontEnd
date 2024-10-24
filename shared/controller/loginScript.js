@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This page contains all the js code for the login page
  * Created on: 11/10/2024
- * Last Modified: 22/10/2024
+ * Last Modified: 24/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -37,6 +37,7 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
 
             if (myData && myData.user) { // Check if myData and myData.user exist
                 window.localStorage.setItem("token", myData.token); // Assuming the token is in myData.token
+                window.localStorage.setItem("timer", 1000 * 60 * 60); // Assuming the token is in myData.token
 
                 if (myData.user.roles[0] === "ADMIN") {
                     window.location.href = '../../admin/view/dashboard.html';
@@ -49,3 +50,14 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
         })
         .catch(error => console.error('Error:', error));
 });
+
+// Password show / hide
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("passwordCbk");
+
+togglePassword.addEventListener("click", () => {
+    // Toggle the type attribute
+    const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
+});
+

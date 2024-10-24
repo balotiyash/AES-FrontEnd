@@ -49,7 +49,8 @@ async function fetchOrders() {
                 productTitle.innerHTML = `<b>${order.product_name}</b><br><b>${new Date(order.order_date).toLocaleDateString()}</b>`;
 
                 const productPrice = document.createElement("p");
-                productPrice.innerHTML = `Rs. ${parseInt(order.product_price).toLocaleString('en-IN')}`; // Format the price
+                const orderPrice = order.product_price * order.quantity;
+                productPrice.innerHTML = `Rs. ${parseInt(orderPrice).toLocaleString('en-IN')}`; // Format the price
 
                 const productQuantity = document.createElement("p");
                 productQuantity.innerHTML = `Qty: ${order.quantity}`;

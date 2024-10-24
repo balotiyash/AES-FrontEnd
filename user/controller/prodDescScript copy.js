@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the product description page.
  * Created on: 14/10/2024
- * Last Modified: 22/10/2024
+ * Last Modified: 24/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -14,7 +14,7 @@ const url = new URL(currentUrl);
 const my_product_id = url.searchParams.get('product_id');
 
 // Token
-const token = window.localStorage.getItem("token");
+let token = window.localStorage.getItem("token");
 
 // Fetch and display products grouped by category
 async function fetchAndDisplayProducts() {
@@ -87,6 +87,7 @@ async function fetchProductDetails() {
         if (product) {
             document.getElementById("productImg").src = product.product_images[0];
             document.getElementById("productTitle").innerHTML = product.product_name;
+            document.getElementById("tabTitle").innerHTML = `${product.product_name} - AES`;
             document.getElementById("productDesc").innerHTML = product.product_desc;
             // document.getElementById("productPrice").innerHTML = `Rs. ${product.product_price}`;
             document.getElementById("productPrice").innerHTML = `Rs. ${product.product_price.toLocaleString()}/-`;
@@ -168,6 +169,12 @@ document.getElementById("decBtn").addEventListener("click", () => {
 
 // Function to add new item to the cart
 async function addToCart() {
+    token = window.localStorage.getItem("token");
+    if (token == "null") {
+        window.location.href = "http://localhost:5501/shared/view/loginPage.html";
+        return;
+    }
+
     const formdata = {
         product_id: my_product_id,
     }

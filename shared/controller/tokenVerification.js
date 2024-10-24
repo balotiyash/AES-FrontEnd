@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for token verification for session management.
  * Created on: 14/10/2024
- * Last Modified: 15/10/2024
+ * Last Modified: 24/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -11,7 +11,7 @@ import { IP, PORT } from '../../config.js';
 // Function to run onload to validate user login
 window.onload = async () => {
     console.log('Running token verification');
-    const session = window.localStorage.getItem("token");
+    let session = window.localStorage.getItem("token");
     console.log(session)
 
     if (session) {
