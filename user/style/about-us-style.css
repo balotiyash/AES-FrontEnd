@@ -1,0 +1,84 @@
+/*
+    File: user/style/about-us-style.css
+    Author: Yash Balotiya
+    Description: This file contains the styling part of the about us page
+    Created on: 26/10/2024
+    Last Modified: 26/10/2024
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    max-width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+/* main */
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-sec {
+    width: 75%;
+    /* min-height: 50vh; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* margin-top: 20px; */
+    /* display: none; */
+    text-align: justify;
+}
+
+.main-sec img {
+    width: 200px;
+}
+
+h5 {
+    color: #0077b5;
+}
+
+.main-sec div {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    /* background-color: #4CAF50; */
+    background-color: #01204e;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.fa-linkedin {
+    color: #0077b5; /* LinkedIn color */
+    font-size: 30px;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+}
