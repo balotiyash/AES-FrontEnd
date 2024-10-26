@@ -15,18 +15,19 @@ async function verifyEmail() {
     const token = url.searchParams.get('token');
     console.log(token);
 
-    // if (token === null) {
-    //     alert("Please login to verify E-mail.");
-    //     return;
-    // }
+    const emailId = window.localStorage.getItem("email");
+    console.log(emailId)
 
     try {
-        const response = await fetch(`http://${IP}:${PORT}/email/verify`, {
-            method: 'GET',
+        const response = await fetch(`http://${IP}:${PORT}/public/verify`, {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: formdata,
+            body: JSON.stringify({
+                email: emailId,
+                token: token
+            })
         });
 
         if (!response.ok) {

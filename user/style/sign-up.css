@@ -221,6 +221,7 @@ input[type=number] {
     /* background-color: #73EC8B; */
     border: 1px solid lightgray;
     border-radius: 4px;
+    width: 120px;
 }
 
 #phone, #username, #password, #confirmPassword {
