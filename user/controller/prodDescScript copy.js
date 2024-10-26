@@ -170,7 +170,7 @@ document.getElementById("decBtn").addEventListener("click", () => {
 // Function to add new item to the cart
 async function addToCart() {
     token = window.localStorage.getItem("token");
-    if (token == "null") {
+    if (token == "null" || !token) {
         window.location.href = "http://localhost:5501/shared/view/loginPage.html";
         return;
     }
