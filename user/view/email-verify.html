@@ -8,13 +8,94 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Meta Data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Email Verification - AES</title>
+    <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Fontsawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Stylesheets -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            max-width: 100vw;
+            height: 100vh;
+            background-color: white;
+        }
+
+        /* main */
+        main {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section img {
+            width: 30%;
+        }
+
+        #verified {
+            display: none;
+        }
+
+        #not-verified {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <main>
+        <section id="verified">
+            <img src="../../assets/images/Verified.png" alt="">
+            <b>Email Verified Successfully.</b>
+            <p>You may close the page.</p>
+        </section>
+
+        <section id="not-verified">
+            <img src="../../assets/images/Not Verified.png" alt="">
+            <b>Email Verification Failed.</b>
+            <p>Please Re-verify it by Generating New Link from Sign-Up Page.</p>
+        </section>
+    </main>
+
     <script type="module" src="../controller/emailVerifyScript.js"></script>
 </body>
+
 </html>
