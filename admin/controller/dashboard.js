@@ -220,3 +220,7 @@ window.onload = function () {
         e.chart.render(); // Render the chart that triggered the event
     }
 }
+
+document.getElementById("prodMangementBtn").addEventListener("click", () => {
+    location.href = "./prod_manage.html";
+});

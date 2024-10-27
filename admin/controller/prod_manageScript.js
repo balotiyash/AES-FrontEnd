@@ -7,45 +7,32 @@
 */
 import { IP, PORT } from '../../config.js';
 
-function fetchProducts() {
-    fetch(`http://${IP}:${PORT}/public/allProducts`)
-        .then(response => {
-            // Check if the response is OK (status in the range 200-299)
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); // Parse the JSON from the response
-        })
-        .then(data => {
-            // Call the function to display the products
-            displayProducts(data); 
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-}
+const fetchProducts = async () => {
+    const response = await fetch(`http://${IP}:${PORT}/public/allProducts`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
 
-function displayProducts(products) {
-    const productList = document.getElementById('product-grid');
-    productList.innerHTML = ''; // Clear the existing content
+    if (!response.ok) {
+        throw new Error('Failed to fetch product details');
+    }
 
-    products.forEach(product => {
-        const productDiv = document.createElement('div');
-        productDiv.classList.add('card');
-        productDiv.style.width = '18rem'; // Set width of the card
+    const products = await response.json();
+    console.log('Fetched products:', products);
 
-        productDiv.innerHTML = `
-            <span class="dot"></span>
-            <i class="fa-solid fa-trash-can trash-can" style="color: #000000;"></i>
+    const productList = document.getElementById('bodyy');
+    productList.innerHTML = '';
+
+    productList.innerHTML = products.map(product => `
+        <div class="card" style="width: 18rem;">
             <img src="${product.product_image}" class="card-img-top" alt="${product.product_name}">
             <div class="card-body">
                 <p class="card-text">${product.product_name}</p>
             </div>
-        `;
+        </div>
+    `).join('');
+};
 
-        productList.appendChild(productDiv);
-    });
-}
-
-// Call the fetch function to load products when the page is loaded
-window.onload = fetchProducts;
+window.onload = fetchProducts();
