@@ -1,8 +1,8 @@
 <!-- 
-    File: user/view/sign-up.html
-    Author: Nandini Kakaraniya
-    Description: This page contains all the HTML5 code for the Sign-up Page
-    Created on: 11/10/2024
+    File: user/view/about-us.html
+    Author: Yash Balotiya
+    Description: This file contains all the HTML code of about us page
+    Created on: 26/10/2024
     Last Modified: 26/10/2024
 -->
 
@@ -13,7 +13,7 @@
     <!-- Meta Data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - AES</title>
+    <title>About Us - AES</title>
     <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
 
     <!-- Bootstrap -->
@@ -39,11 +39,11 @@
         rel="stylesheet" />
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../style/sign-up.css">
+    <link rel="stylesheet" href="../style/about-us-style.css">
 </head>
 
 <body>
-    <!-- Navbar -->
+    <!-- navbar -->
     <header id="navbar">
         <!-- Logo -->
         <div id="logoDiv">
@@ -78,72 +78,72 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <div class="window">
-            <div class="rectangle">
-                <div class="leftdiv">
-                    <div class="info-container">
-                        <div class="heading"><span class="wlc-to">Welcome to</span> <br><span class="aes">Analytical
-                                Equipment Solutions</span> <br><br></div>
-                        <div class="body-text"> Sign up today to explore a wide range of analytical equipment tailored
-                            to meet your needs. Join our community and stay updated with the latest innovations. Unlock
-                            access to the latest analytical equipment, exclusive offers, and expert support tailored for
-                            your business needs.</div>
-                    </div>
-                </div>
-                <div class="rightdiv">
-                    <form class="sign-up-form" id="sign-up-form" onsubmit="return false">
-                        <span class="sign-up-heading">Sign Up</span>
+    <!-- main -->
+    <main class="main">
+        <section class="main-sec">
+            <img src="../../assets/images/AES Logo.jpg" alt="">
+            <h1>Analytical Equipment Solutions</h1>
+            <h5>We Provide PAN India Analytical Instruments Sales & Services</h5>
 
-                        <div class="input-group mb-3">
-                            <!-- <span class="input-group-text">First & last name</span> -->
-                            <input type="text" aria-label="First name" placeholder="First Name" class="form-control" id="firstname"
-                                name="firstname">
-                            <input type="text" aria-label="Last name" placeholder="Last Name" class="form-control" id="lastname"
-                                name="lastname">
-                        </div>
+            <br><br>
+            <div>
+                <h3>About US</h3>
+                <p><i>Analytical Equipment Solutions</i> is a <b>Mumbai-based company</b> specializing in the manufacturing and supply of <b>high-quality analytical equipment</b> across <b>India</b>. As a trusted manufacturer, we produce ultrasonic baths and Probe sonicator, and supply a wide range of advanced laboratory tools including Orbital Shakers, Vortex Mixer, Hydraulic pressure, KBR die-sets/Pallet holders, DTC-controller oven/ Dry box, HPLC column pump, HPLC column oven, Digital liquid flow meter, Digital gas flow, meter, HPLC / GC and more.</p>
 
-                        <div class="input-group mb-3" id="verify-div">
-                            <!-- <span class="input-group-text" id="inputGroup-sizing-default">Email</span> -->
-                            <input type="text" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default" id="email" name="email" placeholder="Email ID">
-                                <button id="verify-btn">Verify Email</button>
-                        </div>
+                <p>We are also leaders in providing gas generation solutions, offering nitrogen gas generators, hydrogen gas generators, zero air generators, gas detectors, and complete operating systems.</p>
 
-                        <div class="input-group mb-3">
-                            <!-- <span class="input-group-text" id="inputGroup-sizing-default">Phone No</span> -->
-                            <input type="text" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default" id="phone" name="phone" placeholder="Phone No.">
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <!-- <span class="input-group-text" id="inputGroup-sizing-default">Username</span> -->
-                            <input type="text" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default" id="username" name="username" placeholder="Username">
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <!-- <span class="input-group-text" id="inputGroup-sizing-default">Password</span> -->
-                            <input type="password" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default" id="password" name="password" placeholder="Password">
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <!-- <span class="input-group-text" id="inputGroup-sizing-default">Confirm Password</span> -->
-                            <input type="password" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default" id="confirmPassword"
-                                name="confirmPassword" placeholder="Confirm Password">
-                        </div>
-
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-dark" type="button" id="signupBtn">Sign Up</button>
-                            <!-- <img src="../../assets/gifs/Loading.gif" alt=""> -->
-                        </div>
-                    </form>
-                </div>
+                <p>Our commitment to quality, integrity, and customer satisfaction is at the core of everything we do. We strive to deliver innovative solutions that meet the highest standards of precision, performance, and reliability, ensuring our clients achieve excellence in their research and industrial applications.</p>
             </div>
-        </div>
+
+            <br><br>
+            <div>
+                <h3>Founders & Managers</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Email Address</th>
+                            <th>LinkedIn</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Mr. Rahul Mallah</td>
+                            <td>CEO</td>
+                            <td><a href="mailto:rahul.m@analyticalequipmentsolutions.com">rahul.m@analyticalequipmentsolutions.com</a></td>
+                            <td><i class="fa-brands fa-linkedin"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Mr. Shyamkumar Dubey</td>
+                            <td>Manager</td>
+                            <td><a href="mailto:shyam.d@analyticalequipmentsolutions.com">shyam.d@analyticalequipmentsolutions.com</a></td>
+                            <td><i class="fa-brands fa-linkedin"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Mr. Chandan Gupta</td>
+                            <td>Manager</td>
+                            <td><a href="mailto:chandan.g@analyticalequipmentsolutions.com">chandan.g@analyticalequipmentsolutions.com</a></td>
+                            <td><i class="fa-brands fa-linkedin"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Mr. Lavkuch Gupta</td>
+                            <td>Manager</td>
+                            <td><a href="mailto:lavkush.g@analyticalequipmentsolutions.com">lavkush.g@analyticalequipmentsolutions.com</a></td>
+                            <td><i class="fa-brands fa-linkedin"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br><br>
+            <div>
+                <h3>Our Location</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30147.420096615377!2d72.949359!3d19.1765211!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8f918f31577%3A0xe34cf51ad74d93e3!2sDevi%20Niwas!5e0!3m2!1sen!2sin!4v1729926943647!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+        </section>
     </main>
 
     <!-- footer -->
@@ -214,7 +214,7 @@
     <!-- Scripts -->
     <script type="module" src="../../shared/controller/tokenVerification.js"></script>
     <script src="../../shared/controller/sharedScript.js"></script>
-    <script type="module" src="../controller/signupScript.js"></script>
+    <!-- <script type="module" src="../controller/contactUsScript.js"></script> -->
 </body>
 
 </html>
