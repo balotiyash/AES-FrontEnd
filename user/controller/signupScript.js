@@ -3,7 +3,7 @@
  * Author: Atharv Mirgal
  * Description: This page contains all the js code for the sign up page
  * Created on: 12/10/2024
- * Last Modified: 15/10/2024
+ * Last Modified: 28/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -87,7 +87,7 @@ document.getElementById("verify-btn").addEventListener("click", async () => {
         // setTimeout(() => {
             document.getElementById("verify-btn").removeChild(image);
             document.getElementById("verify-btn").style.backgroundColor = "#d3d3d3";
-            document.getElementById("verify-btn").textContent = "Resend Email";
+            document.getElementById("verify-btn").textContent = "Resend";
             document.getElementById("verify-btn").disabled = false;
         // }, 1000 * 30);
 
