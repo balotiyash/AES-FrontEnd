@@ -15,14 +15,14 @@ document.getElementById("signinBtn").addEventListener("click", async () => {
 
     const formData = new FormData();
     formData.append('email', emailId);
-
+    
     try {
-        const response = await fetch(`http://${IP}:${PORT}/public/verification`, {
+        const response = await fetch(`http://${IP}:${PORT}/public/password-reset`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: new URLSearchParams({ email: emailId })
+            body: new URLSearchParams({ 'email': emailId })
         });
 
         if (!response.ok) {
