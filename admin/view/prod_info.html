@@ -107,7 +107,7 @@
 
         <div class="heading">Product Information</div>
 
-        <div class="image-label">
+        <!-- <div class="image-label">
             <div class="im">Image</div>
             <div class="five-images">
                 <div></div>
@@ -116,41 +116,49 @@
                 <div></div>
                 <div><i class="fa-solid fa-plus fa-2xl add-img" style="color: #0d0d0d;"></i></div>
             </div>
+        </div> -->
+        <div class="image-label">
+            <label for="imageUpload" class="im">Image</label>
+            <input type="file" id="imageUpload" accept="image/png, image/jpeg" style="display: none;">
+            
+            <div class="image-box" id="image-box">
+                <i class="fa-solid fa-plus fa-2xl add-img" style="color: #0d0d0d;"></i>
+            </div>
         </div>
+
         <div class="name">
             Name
             <div class="input-group mb-3"> 
-                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                <input id="p-name" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
               </div> 
         </div>
         <div class="prod-description">
             Product Description
             <div class="input-group">
                 
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <textarea id="p-desc" class="form-control" aria-label="With textarea"></textarea>
               </div>
         </div>
         <div class="price">
             Product Price
             <div class="input-group mb-3"> 
-                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                <input id="p-price" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
               </div> 
         </div>
+
         <div class="category">
             Category
             <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <input id="p-category" type="text" class="form-control" aria-label="Text input with dropdown button">
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select</button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">Analytical applications and instruments</a></li>
-                  <li><a class="dropdown-item" href="#">Gas generators and equipments</a></li>
-                  
-                  <li><hr class="dropdown-divider"></li>
-                  
+                    <li><a class="dropdown-item" id="dropdown-item1" href="#">ANALYTICAL APPLICATION & INSTRUMENTS FOR LAB</a></li>
+                    <li><a class="dropdown-item" id="dropdown-item2" href="#">GAS GENERATORS & EQUIPMENTS</a></li>
+                    
                 </ul>
-              </div>
+            </div>
         </div>
-        <div class="delivery-in">
+        <!-- <div class="delivery-in">
             Delivery in
             <div class="input-group mb-3">
                 <input type="text" class="form-control" aria-label="Text input with dropdown button">
@@ -159,14 +167,27 @@
                   <li><a class="dropdown-item" href="#">days</a></li>
                   <li><a class="dropdown-item" href="#">weeks</a></li>
                   <li><a class="dropdown-item" href="#">months</a></li>
-                  <li><hr class="dropdown-divider"></li>
+                  
                   
                 </ul>
               </div>
+        </div> -->
+        <div class="delivery-in">
+            Delivery in
+            <div class="input-group mb-3">
+                <input id="delivery-time" type="number" class="form-control" aria-label="Number input" placeholder="Enter number">
+                <select id="unit-select" class="form-select" aria-label="Select unit">
+                    <option value="">Select</option>
+                    <option value="days">Days</option>
+                    <option value="weeks">Weeks</option>
+                    <option value="months">Months</option>
+                </select>
+            </div>
         </div>
-
+        <input id="submit-form" type="button" value="Submit">
     </div>
 </main>
+<script type="module" src="../controller/prod_infoScript.js"></script>
 </body>
 
 </html>
