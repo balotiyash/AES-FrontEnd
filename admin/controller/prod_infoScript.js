@@ -128,6 +128,7 @@ function validateForm() {
     // Submit if valid
     if (isValid) {
         alert('Form submitted successfully!');
+        window.location.href = 'prod_manage.html';
         // Add form submission code here
     }
 }
@@ -183,4 +184,5 @@ document.getElementById('submit-form').addEventListener('click', (event) => {
     event.preventDefault();
     submitForm();
     validateForm();
+    
 });
