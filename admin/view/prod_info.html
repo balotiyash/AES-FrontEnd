@@ -102,54 +102,43 @@
     <script type="text/javascript">
         const toggleSidebar = () => document.body.classList.toggle("open");
     </script>
-<main>
+<main class="main-class">
     <div class="window">
 
-        <div class="heading">Product Information</div>
+        <!-- <div class="heading">Product Information</div>
 
-        <!-- <div class="image-label">
-            <div class="im">Image</div>
-            <div class="five-images">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div><i class="fa-solid fa-plus fa-2xl add-img" style="color: #0d0d0d;"></i></div>
-            </div>
-        </div> -->
-        <div class="image-label">
-            <label for="imageUpload" class="im">Image</label>
-            <input type="file" id="imageUpload" accept="image/png, image/jpeg" style="display: none;">
-            
-            <div class="image-box" id="image-box">
-                <i class="fa-solid fa-plus fa-2xl add-img" style="color: #0d0d0d;"></i>
-            </div>
-        </div>
 
         <div class="name">
             Name
             <div class="input-group mb-3"> 
-                <input id="p-name" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                <input id="p-name" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
               </div> 
         </div>
         <div class="prod-description">
             Product Description
             <div class="input-group">
                 
-                <textarea id="p-desc" class="form-control" aria-label="With textarea"></textarea>
+                <textarea id="p-desc" class="form-control" aria-label="With textarea" required></textarea>
               </div>
         </div>
         <div class="price">
             Product Price
             <div class="input-group mb-3"> 
-                <input id="p-price" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                <input id="p-price" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+              </div> 
+        </div>
+
+        <div class="profit">
+            Profit
+            <div class="input-group mb-3"> 
+                <input id="p-profit" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
               </div> 
         </div>
 
         <div class="category">
             Category
             <div class="input-group mb-3">
-                <input id="p-category" type="text" class="form-control" aria-label="Text input with dropdown button">
+                <input id="p-category" type="text" class="form-control" aria-label="Text input with dropdown button" required>
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select</button>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" id="dropdown-item1" href="#">ANALYTICAL APPLICATION & INSTRUMENTS FOR LAB</a></li>
@@ -158,33 +147,107 @@
                 </ul>
             </div>
         </div>
-        <!-- <div class="delivery-in">
-            Delivery in
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">days</a></li>
-                  <li><a class="dropdown-item" href="#">weeks</a></li>
-                  <li><a class="dropdown-item" href="#">months</a></li>
-                  
-                  
-                </ul>
-              </div>
-        </div> -->
         <div class="delivery-in">
             Delivery in
-            <div class="input-group mb-3">
-                <input id="delivery-time" type="number" class="form-control" aria-label="Number input" placeholder="Enter number">
-                <select id="unit-select" class="form-select" aria-label="Select unit">
-                    <option value="">Select</option>
-                    <option value="days">Days</option>
-                    <option value="weeks">Weeks</option>
-                    <option value="months">Months</option>
-                </select>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-label="Text input with dropdown button" id="delivery-time" type="number" required>
+                <button id="dropdownMenuButton" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select</button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#" id="days">days</a></li>
+                    <li><a class="dropdown-item" href="#" id="weeks">weeks</a></li>
+                    <li><a class="dropdown-item" href="#" id="months">months</a></li>
+                </ul>
             </div>
         </div>
-        <input id="submit-form" type="button" value="Submit">
+        
+        <div class="d-grid gap-2">
+            <button id="submit-form" class="btn btn-dark" type="button">Submit</button>
+          </div>
+    </div>
+
+    <div class="single-img">
+        <label for="imageUpload" class="im">Image</label>
+            <input type="file" id="imageUpload" accept="image/png, image/jpeg" style="display: none;" >
+
+            <div class="image-box" id="image-box">
+                <i class="fa-solid fa-plus fa-2xl add-img" style="color: #0d0d0d;"></i>
+            </div> -->
+
+            <div class="heading">Product Information</div>
+
+    <div class="name">
+        Name
+        <div class="input-group mb-3"> 
+            <input id="p-name" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+            <div id="name-error" class="error-message"></div>
+        </div> 
+    </div>
+
+    <div class="prod-description">
+        Product Description
+        <div class="input-group">
+            <textarea id="p-desc" class="form-control" aria-label="With textarea" required></textarea>
+            <div id="desc-error" class="error-message"></div>
+        </div>
+    </div>
+
+    <div class="price">
+        Product Price
+        <div class="input-group mb-3"> 
+            <input id="p-price" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+            <div id="price-error" class="error-message"></div>
+        </div> 
+    </div>
+
+    <div class="profit">
+        Profit
+        <div class="input-group mb-3"> 
+            <input id="p-profit" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+            <div id="profit-error" class="error-message"></div>
+        </div> 
+    </div>
+
+    <div class="category">
+        Category
+        <div class="input-group mb-3">
+            <input id="p-category" type="text" class="form-control" aria-label="Text input with dropdown button" required>
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select</button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" id="dropdown-item1" href="#">ANALYTICAL APPLICATION & INSTRUMENTS FOR LAB</a></li>
+                <li><a class="dropdown-item" id="dropdown-item2" href="#">GAS GENERATORS & EQUIPMENTS</a></li>
+            </ul>
+            <div id="category-error" class="error-message"></div>
+        </div>
+    </div>
+
+    <div class="delivery-in">
+        Delivery in
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" aria-label="Text input with dropdown button" id="delivery-time" type="number" required>
+            <button id="dropdownMenuButton" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select</button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#" id="days">days</a></li>
+                <li><a class="dropdown-item" href="#" id="weeks">weeks</a></li>
+                <li><a class="dropdown-item" href="#" id="months">months</a></li>
+            </ul>
+            <div id="delivery-error" class="error-message"></div>
+        </div>
+    </div>
+        
+    <div class="d-grid gap-2">
+        <button id="submit-form" class="btn btn-dark" type="button" onclick="validateForm()">Submit</button>
+    </div>
+
+   
+    </div>
+    <div class="single-img">
+        <label for="imageUpload" class="im">Image</label>
+        <div id="image-error" class="error-message"></div>
+        <input type="file" id="imageUpload" accept="image/png, image/jpeg" style="display: none;">
+        <div class="image-box" id="image-box">
+            <i class="fa-solid fa-plus fa-2xl add-img" style="color: #0d0d0d;"></i>
+        </div>
+        
     </div>
 </main>
 <script type="module" src="../controller/prod_infoScript.js"></script>

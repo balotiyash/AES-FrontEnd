@@ -46,6 +46,93 @@ document.getElementById('dropdown-item2').addEventListener('click', (event) => {
 });
 
 
+document.getElementById("days").addEventListener("click", function() {
+    document.getElementById("dropdownMenuButton").textContent = "Days";
+    document.getElementById("dropdownMenuButton").value = "days";
+});
+
+document.getElementById("weeks").addEventListener("click", function() {
+    document.getElementById("dropdownMenuButton").value = "weeks";
+    document.getElementById("dropdownMenuButton").textContent = "Weeks";
+});
+
+document.getElementById("months").addEventListener("click", function() {
+    document.getElementById("dropdownMenuButton").textContent = "Months";
+    document.getElementById("dropdownMenuButton").value = "months";
+});
+
+
+
+
+function validateForm() {
+    let isValid = true;
+
+    // Fetch input values
+    const name = document.getElementById('p-name').value;
+    const description = document.getElementById('p-desc').value;
+    const price = parseFloat(document.getElementById('p-price').value);
+    const profit = parseFloat(document.getElementById('p-profit').value);
+    const category = document.getElementById('p-category').value;
+    const deliveryTime = document.getElementById('delivery-time').value;
+    const imageUpload = document.getElementById('imageUpload').files;
+
+    // Clear all previous error messages
+    document.getElementById('name-error').textContent = '';
+    document.getElementById('desc-error').textContent = '';
+    document.getElementById('price-error').textContent = '';
+    document.getElementById('profit-error').textContent = '';
+    document.getElementById('category-error').textContent = '';
+    document.getElementById('delivery-error').textContent = '';
+    document.getElementById('image-error').textContent = '';
+
+    // Validate name
+    if (name.length === 0 || name.length > 200) {
+        document.getElementById('name-error').textContent = 'Name is required and must be less than 200 characters.';
+        isValid = false;
+    }
+
+    // Validate description
+    if (description.length === 0 || description.length > 1500) {
+        document.getElementById('desc-error').textContent = 'Description is required and must be less than 1500 characters.';
+        isValid = false;
+    }
+
+    // Validate price and profit
+    if (isNaN(price) || price <= 0) {
+        document.getElementById('price-error').textContent = 'Price must be a positive number.';
+        isValid = false;
+    }
+
+    if (isNaN(profit) || profit < 0 || profit > price) {
+        document.getElementById('profit-error').textContent = 'Profit must be a positive number and less than or equal to the price.';
+        isValid = false;
+    }
+
+    // Validate category
+    if (category.length === 0) {
+        document.getElementById('category-error').textContent = 'Category is required.';
+        isValid = false;
+    }
+
+    // Validate delivery time
+    if (deliveryTime.length === 0) {
+        document.getElementById('delivery-error').textContent = 'Delivery time is required.';
+        isValid = false;
+    }
+
+    if (imageUpload.length === 0) {
+        document.getElementById('image-error').textContent = 'Please upload an image.';
+        isValid = false;
+    }
+
+    // Submit if valid
+    if (isValid) {
+        alert('Form submitted successfully!');
+        // Add form submission code here
+    }
+}
+
+
 
 const submitForm = async () => {
     const prodName = document.getElementById('p-name').value;
@@ -53,7 +140,7 @@ const submitForm = async () => {
     const pPrice = document.getElementById('p-price').value;
     const pCategory = document.getElementById('p-category').value;
     const pDelivery = document.getElementById('delivery-time').value;
-    const unitSelect = document.getElementById('unit-select').value;
+    const unitSelect = document.getElementById('dropdownMenuButton').value;
     const imageUpload = document.getElementById('imageUpload');
 
     let deliveryTime = 0;
@@ -65,6 +152,7 @@ const submitForm = async () => {
         deliveryTime = pDelivery * 30;
     }
 
+
     const formData = new FormData();
     formData.append('product_name', prodName);
     formData.append('product_desc', pDesc);
@@ -74,24 +162,25 @@ const submitForm = async () => {
     const imageFiles = imageUpload.files[0];
     formData.append(`productImages`, imageFiles);
 
-    const response = await fetch(`http://${IP}:${PORT}/product/add`, {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
-        body: formData
-    });
+    // const response = await fetch(`http://${IP}:${PORT}/product/add`, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Authorization': `Bearer ${token}`
+    //     },
+    //     body: formData
+    // });
 
-    if (!response.ok) {
-        throw new Error('Failed to add new product');
-    }
+    // if (!response.ok) {
+    //     throw new Error('Failed to add new product');
+    // }
 
-    const data = await response.text();
-    console.log('Product added:', data);
+    // const data = await response.text();
+    // console.log('Product added:', data);
 };
 
 
 document.getElementById('submit-form').addEventListener('click', (event) => {
     event.preventDefault();
     submitForm();
+    validateForm();
 });
