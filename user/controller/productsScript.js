@@ -3,10 +3,14 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the all products page.
  * Created on: 14/10/2024
- * Last Modified: 22/10/2024
+ * Last Modified: 24/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
+
+const PRODUCTS_PER_PAGE = 10;
+let currentPage = 1;
+let allProducts = [];
 
 // Function to fetch all products from server
 async function fetchProducts() {
@@ -114,5 +118,47 @@ async function fetchProducts() {
         throw error;
     }
 }
+
+function renderProducts() {
+    const productContainer = document.getElementById('product-container');
+    productContainer.innerHTML = ''; // Clear previous products
+
+    const start = (currentPage - 1) * PRODUCTS_PER_PAGE;
+    const end = start + PRODUCTS_PER_PAGE;
+    const productsToShow = allProducts.slice(start, end);
+
+    productsToShow.forEach(product => {
+        // (Existing product rendering code here...)
+    });
+}
+
+function updatePaginationControls() {
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const pageInfo = document.getElementById('page-info');
+
+    const totalPages = Math.ceil(allProducts.length / PRODUCTS_PER_PAGE);
+    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+}
+
+document.getElementById('prev-btn').addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        renderProducts();
+        updatePaginationControls();
+    }
+});
+
+document.getElementById('next-btn').addEventListener('click', () => {
+    const totalPages = Math.ceil(allProducts.length / PRODUCTS_PER_PAGE);
+    if (currentPage < totalPages) {
+        currentPage++;
+        renderProducts();
+        updatePaginationControls();
+    }
+});
 
 fetchProducts();
