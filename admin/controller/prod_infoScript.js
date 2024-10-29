@@ -127,7 +127,7 @@ function validateForm() {
 
     // Submit if valid
     if (isValid) {
-        alert('Form submitted successfully!');
+        alert('Product added successfully!');
         window.location.href = 'prod_manage.html';
         // Add form submission code here
     }
@@ -143,6 +143,7 @@ const submitForm = async () => {
     const pDelivery = document.getElementById('delivery-time').value;
     const unitSelect = document.getElementById('dropdownMenuButton').value;
     const imageUpload = document.getElementById('imageUpload');
+    const pProfit = document.getElementById('p-profit').value;
 
     let deliveryTime = 0;
     if(unitSelect === 'days'){
@@ -162,21 +163,22 @@ const submitForm = async () => {
     formData.append('estimated_delivery_time', deliveryTime);
     const imageFiles = imageUpload.files[0];
     formData.append(`productImages`, imageFiles);
+    formData.append('product_profit', pProfit);
 
-    // const response = await fetch(`http://${IP}:${PORT}/product/add`, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Authorization': `Bearer ${token}`
-    //     },
-    //     body: formData
-    // });
+    const response = await fetch(`http://${IP}:${PORT}/product/add`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        },
+        body: formData
+    });
 
-    // if (!response.ok) {
-    //     throw new Error('Failed to add new product');
-    // }
+    if (!response.ok) {
+        throw new Error('Failed to add new product');
+    }
 
-    // const data = await response.text();
-    // console.log('Product added:', data);
+    const data = await response.text();
+    console.log('Product added:', data);
 };
 
 
