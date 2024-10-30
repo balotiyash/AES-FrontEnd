@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the dashboard page.
     Created on: 13/10/2024
-    Last Modified: 13/10/2024
+    Last Modified: 30/10/2024
 */
 
 * {
@@ -76,7 +76,7 @@ p {
 }
 
 #p1-title3 {
-    color: red;
+    color: green;
 }
 
 /* part 2 */

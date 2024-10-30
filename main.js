@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the home page (index).
  * Created on: 13/10/2024
- * Last Modified: 29/10/2024
+ * Last Modified: 30/10/2024
 */
 
 // Login btn navigation
@@ -22,7 +22,7 @@ import { IP, PORT } from './config.js';
 // Fetching data for home page
 async function fetchTopSellingProducts() {
     try {
-        const response = await fetch(`http://${IP}:${PORT}/analysis/top-sellers`, {
+        const response = await fetch(`http://${IP}:${PORT}/public/top-sellers`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ async function fetchTopSellingProducts() {
 
 async function fetchNewArrivals() {
     try {
-        const response = await fetch(`http://${IP}:${PORT}/analysis/new-arrivals`, {
+        const response = await fetch(`http://${IP}:${PORT}/public/new-arrivals`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
