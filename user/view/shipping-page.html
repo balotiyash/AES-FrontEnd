@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains all the HTML code for shipping page
     Created on: 13/10/2024
-    Last Modified: 28/10/2024
+    Last Modified: 30/10/2024
 -->
 
 <!DOCTYPE html>
@@ -69,7 +69,7 @@
                 <option value="gu">Gujarati</option>
                 <option value="ta">Tamil</option>
             </select>
-            
+
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
             <!-- Dropdown -->
@@ -113,91 +113,78 @@
 
                 <!-- Select payment mode -->
                 <form class="shipping-form">
+                    <div class="input-div">
+                        <label for="">Contact Number</label>
+                        <input type="number" name="" id="phoneTxt">
+                    </div>
+                    
                     <h5>Shipping Address</h5>
 
                     <div class="input-div">
-                        <label for="">Email</label>
-                        <input type="email" name="" id="">
+                        <select name="" id="addressSelect">
+                            <option value="">Select Address</option>
+                        </select>
                     </div>
 
-                    <div class="input-div">
-                        <label for="">First Name</label>
-                        <input type="text" name="" id="">
-                    </div>
-
-                    <div class="input-div">
-                        <label for="">Last Name</label>
-                        <input type="text" name="" id="">
-                    </div>
-
-                    <div class="input-div">
-                        <label for="">Company</label>
-                        <input type="text" name="" id="">
-                    </div>
+                    <b style="margin: auto;">OR</b>
 
                     <div class="input-div">
                         <label for="">Street Address</label>
-                        <input type="text" name="" id="">
-                        <input type="text" name="" id="">
-                        <input type="text" name="" id="">
-                        <select name="" id="">
-                            <option value="">Select Address</option>
-                            <option value="">Address 1</option>
-                            <option value="">Address 2</option>
-                            <option value="">Address 3</option>
-                        </select>
+                        <input type="text" name="" id="streetAdd1" placeholder="Address Line 1">
+                        <input type="text" name="" id="streetAdd2" placeholder="Address Line 2">
+                        <input type="text" name="" id="streetAdd3" placeholder="Address Line 3">
                     </div>
 
                     <div class="input-div">
                         <label for="">City</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="cityTxt">
                     </div>
 
                     <div class="input-div">
                         <label for="">Zip/Postal Code</label>
-                        <input type="text" name="" id="">
+                        <input type="number" name="" id="pinCode">
                     </div>
 
                     <div class="input-div">
-                        <label for="">Phone Number</label>
-                        <input type="text" name="" id="">
+                        <label for="">State</label>
+                        <input type="text" name="" id="stateTxt">
                     </div>
 
                     <div class="input-div">
-                        <label for="">Buyer GST Number</label>
-                        <input type="text" name="" id="">
+                        <label for="">Landmark</label>
+                        <input type="text" name="" id="landmarkTxt">
                     </div>
-                    </div>
+                </form>
             </section>
 
             <!-- Summary Section -->
             <section class="summary-sec">
                 <div class="summary-child-1">
-                    <h5>Order Summary</h5>
+                    <h5>Summary</h5>
                     <hr>
 
                     <div class="tally-div">
                         <p>Subtotal</p>
-                        <p>Rs. 15000.00</p>
+                        <p class="subtotal">Rs. 0.00</p> <!-- Updated to add class -->
+                    </div>
+
+                    <div class="tally-div">
+                        <p>Tax</p>
+                        <p class="tax">Rs. 0.00</p> <!-- Updated to add class -->
                     </div>
 
                     <div class="tally-div">
                         <p>Shipping</p>
-                        <p>Rs. 110.00</p>
+                        <p class="shipping">Rs. 3000.00</p> <!-- Updated to add class -->
                     </div>
 
                     <div class="tally-div">
                         <p>Order total</p>
-                        <p class="total-text">Rs. 15110.00</p>
+                        <p class="total-text">Rs. 0.00</p>
                     </div>
 
                     <hr>
-                    <div class="tally-div">
-                        <p>Apply Discount Code</p>
-                        <i class="fa-solid fa-angle-down"></i>
-                    </div>
-
-                    <button class="checkout-btn">Proceed to checkout</button>
+                    <button class="checkout-btn" id="checkout-btn">Proceed to checkout</button>
                 </div>
             </section>
         </section>
@@ -239,7 +226,8 @@
                 <b>Contact Us</b>
                 <div>
                     <i class="fa-solid fa-envelope"></i>
-                    <a href="mailto:official@analyticalequipmentsolutions.com">official@analyticalequipmentsolutions.com</a>
+                    <a
+                        href="mailto:official@analyticalequipmentsolutions.com">official@analyticalequipmentsolutions.com</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-envelope"></i>
@@ -255,7 +243,8 @@
                 </div>
                 <div>
                     <i class="fa-solid fa-location-dot"></i>
-                    <a href="https://maps.app.goo.gl/hpf69LaY9kG6UTXM8" target="_blank">Jamil Nagar, Bhandup (W), Mumbai - 400078</a>
+                    <a href="https://maps.app.goo.gl/hpf69LaY9kG6UTXM8" target="_blank">Jamil Nagar, Bhandup (W), Mumbai
+                        - 400078</a>
                 </div>
             </div>
         </div>
@@ -267,6 +256,11 @@
             <p>2024 Analytical Equipment Solutions | AES</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="../../shared/controller/tokenVerification.js"></script>
+    <script src="../../shared/controller/sharedScript.js"></script>
+    <script type="module" src="../controller/shippingScript.js"></script>
 </body>
 
 </html>

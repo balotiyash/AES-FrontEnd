@@ -1,4 +1,76 @@
-window.onload = function () {
+/** 
+ * File: user/controller/profileScript.js
+ * Author: Yash Balotiya
+ * Description: This file contains JS code for the saved address page.
+ * Created on: 28/10/2024
+ * Last Modified: 30/10/2024
+*/
+
+import { IP, PORT } from '../../config.js';
+
+// For chart 1
+async function fetchChart1Data() {
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/analysis/monthly-sales`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to Fetch User Data');
+        }
+
+        const analysis = await response.json();
+        let revenurArray = [];
+        let profitArray = [];
+
+        analysis.forEach((element) => {
+            revenurArray.push({ x: new Date(element.date), y: element.revenue });
+            profitArray.push({ x: new Date(element.date), y: element.profit });
+        });
+
+        return { revenurArray, profitArray };   
+    } catch (error) {
+        console.error('Error during Fetching User Profile:', error);
+    }
+}
+
+// For chart 3
+async function fetchChart3Data() {
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/analysis/pending-complete-order-count`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to Fetch User Data');
+        }
+
+        const analysis = await response.json();
+        const pendingOrderCount = analysis.pending;
+        const completeOrderCount = analysis.completed;
+
+        return { pendingOrderCount, completeOrderCount };
+    } catch (error) {
+        console.error('Error during Fetching User Profile:', error);
+    }
+}
+
+window.onload = async function () {
+    // For Chart 1
+    // sort both these array based on dates in ascending order
+    const { revenurArray, profitArray } = await fetchChart1Data();
+    revenurArray.sort((a, b) => a.x - b.x);
+    profitArray.sort((a, b) => a.x - b.x);
+
+    // For Chart 3
+    const { pendingOrderCount, completeOrderCount } = await fetchChart3Data();
+
     // Chart 1
     var chart1 = new CanvasJS.Chart("chartContainer1", {
         animationEnabled: true,
@@ -14,7 +86,7 @@ window.onload = function () {
             }
         },
         axisY: {
-            title: "Number of Visits",
+            title: "Amount in Rs.",
             includeZero: true,
             crosshair: {
                 enabled: true
@@ -33,48 +105,18 @@ window.onload = function () {
         data: [{
             type: "line",
             showInLegend: true,
-            name: "Total Visit",
+            name: "Revenue",
             markerType: "square",
             xValueFormatString: "DD MMM, YYYY",
             color: "#F08080",
-            dataPoints: [
-                { x: new Date(2017, 0, 3), y: 650 },
-                { x: new Date(2017, 0, 4), y: 700 },
-                { x: new Date(2017, 0, 5), y: 710 },
-                { x: new Date(2017, 0, 6), y: 658 },
-                { x: new Date(2017, 0, 7), y: 734 },
-                { x: new Date(2017, 0, 8), y: 963 },
-                { x: new Date(2017, 0, 9), y: 847 },
-                { x: new Date(2017, 0, 10), y: 853 },
-                { x: new Date(2017, 0, 11), y: 869 },
-                { x: new Date(2017, 0, 12), y: 943 },
-                { x: new Date(2017, 0, 13), y: 970 },
-                { x: new Date(2017, 0, 14), y: 869 },
-                { x: new Date(2017, 0, 15), y: 890 },
-                { x: new Date(2017, 0, 16), y: 930 }
-            ]
+            dataPoints: revenurArray
         },
         {
             type: "line",
             showInLegend: true,
-            name: "Unique Visit",
+            name: "Profit",
             lineDashType: "dash",
-            dataPoints: [
-                { x: new Date(2017, 0, 3), y: 510 },
-                { x: new Date(2017, 0, 4), y: 560 },
-                { x: new Date(2017, 0, 5), y: 540 },
-                { x: new Date(2017, 0, 6), y: 558 },
-                { x: new Date(2017, 0, 7), y: 544 },
-                { x: new Date(2017, 0, 8), y: 693 },
-                { x: new Date(2017, 0, 9), y: 657 },
-                { x: new Date(2017, 0, 10), y: 663 },
-                { x: new Date(2017, 0, 11), y: 639 },
-                { x: new Date(2017, 0, 12), y: 673 },
-                { x: new Date(2017, 0, 13), y: 660 },
-                { x: new Date(2017, 0, 14), y: 562 },
-                { x: new Date(2017, 0, 15), y: 643 },
-                { x: new Date(2017, 0, 16), y: 570 }
-            ]
+            dataPoints: profitArray
         }]
     });
     chart1.render();
@@ -126,19 +168,19 @@ window.onload = function () {
     var chart3 = new CanvasJS.Chart("chartContainer3", {
         animationEnabled: true,
         title: {
-            text: "Desktop Search Engine Market Share - 2016"
+            text: "Order Status"
         },
         data: [{
             type: "pie",
-            startAngle: 240,
-            yValueFormatString: "##0.00\"%\"",
+            startAngle: 18,
+            // yValueFormatString: "##0.00\"%\"",
             indexLabel: "{label} {y}",
             dataPoints: [
-                { y: 79.45, label: "Google" },
-                { y: 7.31, label: "Bing" },
-                { y: 7.06, label: "Baidu" },
-                { y: 4.91, label: "Yahoo" },
-                { y: 1.26, label: "Others" }
+                { y: pendingOrderCount, label: "Pending Orders" },
+                { y: completeOrderCount, label: "Completed Orders" }
+                // { y: 7.06, label: "Baidu" },
+                // { y: 4.91, label: "Yahoo" },
+                // { y: 1.26, label: "Others" }
             ]
         }]
     });

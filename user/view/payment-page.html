@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains all the HTML code for Payments Page (GATEWAY)
     Created on: 13/10/2024
-    Last Modified: 28/10/2024
+    Last Modified: 30/10/2024
 -->
 
 <!DOCTYPE html>
@@ -112,7 +112,7 @@
                 </div>
 
                 <!-- Select payment mode -->
-                <div class="payment-mode-div">
+                <!-- <div class="payment-mode-div">
                     <h5>Select Payment Method</h5>
 
                     <hr>
@@ -146,38 +146,39 @@
                             Cash on Delivery
                         </label>
                     </div>
-                </div>
-            </section>
+                </div> -->
 
-            <!-- Summary Section -->
-            <section class="summary-sec">
-                <div class="summary-child-1">
-                    <h5>Order Summary</h5>
-                    <hr>
-
-                    <div class="tally-div">
-                        <p>Subtotal</p>
-                        <p>Rs. 15000.00</p>
+                <!-- Summary Section -->
+                <section class="summary-sec">
+                    <div class="summary-child-1">
+                        <h5>Summary</h5>
+                        <hr>
+    
+                        <div class="tally-div">
+                            <p>Subtotal</p>
+                            <p class="subtotal">Rs. 0.00</p> <!-- Updated to add class -->
+                        </div>
+    
+                        <div class="tally-div">
+                            <p>Tax</p>
+                            <p class="tax">Rs. 0.00</p> <!-- Updated to add class -->
+                        </div>
+    
+                        <div class="tally-div">
+                            <p>Shipping</p>
+                            <p class="shipping">Rs. 3000.00</p> <!-- Updated to add class -->
+                        </div>
+    
+                        <div class="tally-div">
+                            <p>Order total</p>
+                            <p class="total-text">Rs. 0.00</p>
+                        </div>
+    
+                        <hr>
+                        <!-- <button class="checkout-btn" id="rzp-button1">Proceed to checkout</button> -->
+                        <button class="checkout-btn" id="rzp-button1">Proceed to checkout</button>
                     </div>
-
-                    <div class="tally-div">
-                        <p>Shipping</p>
-                        <p>Rs. 110.00</p>
-                    </div>
-
-                    <div class="tally-div">
-                        <p>Order total</p>
-                        <p class="total-text">Rs. 15110.00</p>
-                    </div>
-
-                    <hr>
-                    <div class="tally-div">
-                        <p>Apply Discount Code</p>
-                        <i class="fa-solid fa-angle-down"></i>
-                    </div>
-
-                    <button class="checkout-btn">Proceed to checkout</button>
-                </div>
+                </section>
             </section>
         </section>
     </main>
@@ -246,6 +247,12 @@
             <p>2024 Analytical Equipment Solutions | AES</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script type="module" src="../../shared/controller/tokenVerification.js"></script>
+    <script src="../../shared/controller/sharedScript.js"></script>
+    <script type="module" src="../controller/paymentScript.js"></script>
 </body>
 
 </html>

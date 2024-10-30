@@ -41,11 +41,15 @@ body {
 }
 
 .payment-mode-sec {
-    width: 60%;
+    /* width: 60%; */
+    width: 100%;
+    /* display: flex; */
+    /* justify-content: center; */
 }
 
 .summary-sec {
     width: 25%;
+    margin: auto;
 }
 
 /* top bar */
@@ -70,7 +74,7 @@ body {
 
 .payment-step-1,
 .payment-step-2 {
-    width: 5%;
+    width: 3%;
     border-radius: 50%;
     text-align: center;
     margin: 0;
@@ -95,11 +99,15 @@ body {
 }
 
 .map-lable-1 {
-    left: 146px;
+    /* left: 146px; */
+    left: 253px;
+    top: 10px;
 }
 
 .map-lable-2 {
-    left: 410px;
+    /* left: 410px; */
+    left: 725px;
+    top: 10px;
 }
 
 /* payment options */

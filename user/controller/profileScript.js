@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the saved address page.
  * Created on: 28/10/2024
- * Last Modified: 28/10/2024
+ * Last Modified: 30/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -25,6 +25,7 @@ async function fetchUserProfile() {
         }
 
         const userData = await response.json();
+        console.log(userData)
         console.log('User Data:', userData.addresses);    
 
         // Clear existing details
