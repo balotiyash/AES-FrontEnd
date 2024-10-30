@@ -28,7 +28,7 @@ async function fetchStatsData() {
         const analysis = await response.json();
         document.getElementById("p1-title1").innerHTML = analysis.pageReach;
         document.getElementById("p1-title2").innerHTML = analysis.repeatingCustomers;
-        document.getElementById("p1-title3").innerHTML = analysis.conversionRate;
+        document.getElementById("p1-title3").innerHTML = `${analysis.conversionRate}%`;
     } catch (error) {
         console.error('Error during Fetching Stats Data:', error);
     }
