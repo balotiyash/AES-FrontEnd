@@ -121,7 +121,6 @@ function createProductCard(product) {
     return productCard;
 }
 
-
 // Function to shuffle an array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -135,6 +134,25 @@ function showDescription(productId) {
     window.location.href = "./user/view/product-description.html?product_id=" + productId;    
 }
 
+async function hitStats() {
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/public/hit`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+    } catch (error) {
+        console.error('Error hitting page reach: ', error);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchProducts();
+    hitStats();
 });
