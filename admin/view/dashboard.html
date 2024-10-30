@@ -27,7 +27,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Sidebar -->
-    <link rel="stylesheet" href="../style/sidebarStyle.css">
+    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
 
     <!-- Navbar -->
     <!-- <link rel="stylesheet" href="../../shared//style/navbarStyle.css"> -->
@@ -42,12 +42,6 @@
 
     <!-- stylesheets -->
     <link rel="stylesheet" href="../style/dashboard-style.css">
-
-
-
-   
-    
-
 </head>
 
 <body>
@@ -61,20 +55,20 @@
                 </div>
             </header>
             <nav class="sidebar-nav">
-                <button type="button">
+                <button type="button" onclick="window.location.href = './dashboard.html'">
                     <i class="fa-solid fa-chart-simple"></i>
-                    <span>Analytical</span>
+                    <span>Analytics</span>
                 </button>
-                <button type="button" id="prodMangementBtn">
+                <button type="button" id="prodMangementBtn" onclick="window.location.href = './prod_manage.html'">
                     <i class="fa-solid fa-box"></i>
                     <span style="animation-delay: 0.1s">Product Management</span>
                 </button>
-                <button type="button">
+                <button type="button" onclick="window.location.href = './order_management.html'">
                     <i class="fa-solid fa-list-check"></i>
                     <span style="animation-delay: 0.2s">Order Management</span>
                 </button>
-                <button type="button" onclick="">
-                    <i class="fa-solid fa-list-check"></i>
+                <button type="button" onclick="window.localStorage.removeItem('token'); window.location.reload();">
+                    <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 20px;"></i>
                     <span style="animation-delay: 0.2s">Logout</span>
                 </button>
             </nav>
@@ -127,8 +121,9 @@
     </main>
 
     <!-- Scripts -->
-     <script>const toggleSidebar = () => document.body.classList.toggle("open");</script>
+    <script>const toggleSidebar = () => document.body.classList.toggle("open");</script>
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <!-- <script type="module" src="../../shared/controller/tokenVerification.js"></script> -->
     <script type="module" src="../controller/dashboard.js"></script>
 </body>
 

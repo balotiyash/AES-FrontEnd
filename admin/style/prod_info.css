@@ -1,4 +1,4 @@
-.window{
+.window {
     height: 98vh;
     display: flex;
     justify-content: space-between;
@@ -8,28 +8,26 @@
     padding-left: 120px;
     font-family: Inter;
     font-weight: 500;
-    font-size:18px;
+    font-size: 18px;
 }
 
-.five-images{
+.five-images {
     display: flex;
     justify-content: space-between;
-
     height: 150px;
-
 }
 
-.five-images > *{
+.five-images>* {
     width: 130px;
     height: 130px;
     background-color: #D9D9D9;
 }
 
-.im{
+.im {
     padding-bottom: 10px;
 }
 
-.add-img{
+.add-img {
     margin-left: 45px;
     margin-top: 60px;
 }

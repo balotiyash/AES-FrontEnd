@@ -3,7 +3,7 @@
     Author: Nandini Kakaraniya
     Description: This File contains product management page
     Created on: 12/10/2024
-    Last Modified: 12/10/2024
+    Last Modified: 30/10/2024
 -->
 
 <!DOCTYPE html>
@@ -12,7 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
+    <title>AES - Analytical Equipment Solutions</title>
+    <link rel="shortcut icon" href="./assets/images/AES Logo.jpg">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,147 +27,127 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Sidebar -->
-    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
-
-
-    <!-- css -->
-
-    <link rel="stylesheet" href="../style/prod_description.css">
-
-    <link rel="stylesheet" href="../style/prod_manage.css">
-
-    <link rel="stylesheet" href="../style/prod_info.css">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
+    <!-- Sidebar -->
+    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
-
-    <title>Dashboard</title>
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="../style/prod_description.css">
+    <link rel="stylesheet" href="../style/prod_manage.css">
+    <link rel="stylesheet" href="../style/prod_info.css">
 </head>
 
 <body>
-    
-
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-inner">
             <header class="sidebar-header">
-                <!-- <button type="button" class="sidebar-burger" onclick="toggleSidebar()">
-                    <img src="../../assets/images/AES Logo.jpg" alt="AES">
-                </button> -->
-                <!-- <button type="button" class="sidebar-burger" onclick="toggleSidebar()">
-                    <i class="fa-solid fa-bars"></i>
-                </button> -->
                 <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
                 <div class="sidebar-logo">
                     <p>Welcome, Admin!</p>
                 </div>
-                <!-- <img src="../../assets/images/blocklord-logo.png" class="sidebar-logo" /> -->
             </header>
             <nav class="sidebar-nav">
-                <button type="button">
-                    <img src="../../assets/vectors/icon-home.svg" class="logos" />
-                    <span>Home</span>
+                <button type="button" onclick="window.location.href = './dashboard.html'">
+                    <i class="fa-solid fa-chart-simple" style="font-size: 20px;"></i>
+                    <span>Analytics</span>
                 </button>
-                <button type="button">
-                    <img src="../../assets/vectors/icon-settings.svg" class="logos" />
-                    <span style="animation-delay: 0.1s">Settings</span>
+                <button type="button" id="prodMangementBtn" onclick="window.location.href = './prod_manage.html'">
+                    <i class="fa-solid fa-box" style="font-size: 20px;"></i>
+                    <span style="animation-delay: 0.1s">Product Management</span>
                 </button>
-                <button type="button">
-                    <img src="../../assets/vectors/icon-levels.svg" class="logos" />
-                    <span style="animation-delay: 0.2s">Levels</span>
+                <button type="button" onclick="window.location.href = './order_management.html'">
+                    <i class="fa-solid fa-list-check" style="font-size: 20px;"></i>
+                    <span style="animation-delay: 0.2s">Order Management</span>
                 </button>
-                <button type="button">
-                    <img src="../../assets/vectors/icon-accounts.svg" class="logos" />
-                    <span style="animation-delay: 0.3s">Accounts</span>
+                <button type="button" onclick="window.localStorage.removeItem('token'); window.location.reload();">
+                    <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 20px;"></i>
+                    <span style="animation-delay: 0.2s">Logout</span>
                 </button>
             </nav>
-            <footer class="sidebar-footer">
-                <button type="button">
-                    <img src="../../assets/vectors/icon-lock.svg" />
-                    <span>Logout</span>
-                </button>
-            </footer>
         </div>
     </aside>
 
-    <script type="text/javascript">
-        const toggleSidebar = () => document.body.classList.toggle("open");
-    </script>
-<main>
-    <div class="window">
+    <main>
+        <div class="window">
 
-        <div class="heading">Product Information</div>
+            <div class="heading">Product Information</div>
 
-        <div class="image-label">
-            <div class="im">Image</div>
-            <div class="five-images">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div><i class="fa-solid fa-plus fa-2xl add-img" style="color: #0d0d0d;"></i></div>
+            <div class="image-label">
+                <div class="im">Image</div>
+                <div class="five-images">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div><i class="fa-solid fa-plus fa-2xl add-img" style="color: #0d0d0d;"></i></div>
+                </div>
             </div>
-        </div>
-        <div class="name">
-            Name
-            <div class="input-group mb-3"> 
-                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-              </div> 
-        </div>
-        <div class="prod-description">
-            Product Description
-            <div class="input-group">
-                
-                <textarea class="form-control" aria-label="With textarea"></textarea>
-              </div>
-        </div>
-        <div class="price">
-            Product Price
-            <div class="input-group mb-3"> 
-                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-              </div> 
-        </div>
-        <div class="category">
-            Category
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">Analytical applications and instruments</a></li>
-                  <li><a class="dropdown-item" href="#">Gas generators and equipments</a></li>
-                  
-                  <li><hr class="dropdown-divider"></li>
-                  
-                </ul>
-              </div>
-        </div>
-        <div class="delivery-in">
-            Delivery in
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select</button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">days</a></li>
-                  <li><a class="dropdown-item" href="#">weeks</a></li>
-                  <li><a class="dropdown-item" href="#">months</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  
-                </ul>
-              </div>
-        </div>
+            <div class="name">
+                Name
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="" aria-label="Username"
+                        aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="prod-description">
+                Product Description
+                <div class="input-group">
 
-    </div>
-</main>
+                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                </div>
+            </div>
+            <div class="price">
+                Product Price
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="" aria-label="Username"
+                        aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="category">
+                Category
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Select</button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Analytical applications and instruments</a></li>
+                        <li><a class="dropdown-item" href="#">Gas generators and equipments</a></li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="delivery-in">
+                Delivery in
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Select</button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">days</a></li>
+                        <li><a class="dropdown-item" href="#">weeks</a></li>
+                        <li><a class="dropdown-item" href="#">months</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script type="text/javascript">const toggleSidebar = () => document.body.classList.toggle("open");</script>
 </body>
 
 </html>
