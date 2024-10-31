@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This page contains all the HTML5 code for the Login Page
     Created on: 01/10/2024
-    Last Modified: 24/10/2024
+    Last Modified: 28/10/2024
 -->
 
 <!DOCTYPE html>
@@ -62,6 +62,17 @@
             <button type="button" class="navBtns"
                 onclick="window.location.href = '../../user/view/contact-us.html'">Contact
                 Us</button>
+
+            <!-- Pan India Languages -->
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="mr">Marathi</option>
+                <option value="kn">Kannada</option>
+                <option value="gu">Gujarati</option>
+                <option value="ta">Tamil</option>
+            </select>
+
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
             <!-- Dropdown -->
@@ -125,7 +136,7 @@
             <!-- Button -->
             <div id="signinDiv">
                 <button type="submit" class="btn btn-info" id="signinBtn">Sign In</button>
-                <a href="#" class="greyFont">Forgot your password?</a>
+                <a href="../../user/view/forgot-password.html" class="greyFont">Forgot your password?</a>
             </div>
         </form>
 

@@ -3,7 +3,7 @@
     Author: Nandini Kakaraniya
     Description: This File contains product management page
     Created on: 12/10/2024
-    Last Modified: 12/10/2024
+    Last Modified: 30/10/2024
 -->
 
 <!DOCTYPE html>
@@ -12,7 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
+    <title>AES - Analytical Equipment Solutions</title>
+    <link rel="shortcut icon" href="./assets/images/AES Logo.jpg">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -21,29 +22,10 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-
-
-
     <!-- Fontsawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-
-
-    <!-- Sidebar -->
-    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
-
-
-   <!-- css -->
-    <link rel="stylesheet" href="../style/prod_manage.css">
-    <link rel="stylesheet" href="../style/order_management.css">
-    <link rel="stylesheet" href="../style/prod_info.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,163 +33,120 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
+    <!-- Sidebar -->
+    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-
-    <title>Dashboard</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../style/prod_manage.css">
+    <link rel="stylesheet" href="../style/order_management.css">
+    <link rel="stylesheet" href="../style/prod_info.css">
 </head>
 
 <body class="bodyyy">
-    
-
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-inner">
             <header class="sidebar-header">
-                <!-- <button type="button" class="sidebar-burger" onclick="toggleSidebar()">
-                    <img src="../../assets/images/AES Logo.jpg" alt="AES">
-                </button> -->
-                <!-- <button type="button" class="sidebar-burger" onclick="toggleSidebar()">
-                    <i class="fa-solid fa-bars"></i>
-                </button> -->
                 <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
                 <div class="sidebar-logo">
                     <p>Welcome, Admin!</p>
                 </div>
-                <!-- <img src="../../assets/images/blocklord-logo.png" class="sidebar-logo" /> -->
             </header>
             <nav class="sidebar-nav">
-                <button type="button">
-                    <img src="../../assets/vectors/icon-home.svg" class="logos" />
-                    <span>Home</span>
+                <button type="button" onclick="window.location.href = './dashboard.html'">
+                    <i class="fa-solid fa-chart-simple" style="font-size: 20px;"></i>
+                    <span>Analytics</span>
                 </button>
-                <button type="button">
-                    <img src="../../assets/vectors/icon-settings.svg" class="logos" />
-                    <span style="animation-delay: 0.1s">Settings</span>
+                <button type="button" id="prodMangementBtn" onclick="window.location.href = './prod_manage.html'">
+                    <i class="fa-solid fa-box" style="font-size: 20px;"></i>
+                    <span style="animation-delay: 0.1s">Product Management</span>
                 </button>
-                <button type="button">
-                    <img src="../../assets/vectors/icon-levels.svg" class="logos" />
-                    <span style="animation-delay: 0.2s">Levels</span>
+                <button type="button" onclick="window.location.href = './order_management.html'">
+                    <i class="fa-solid fa-list-check" style="font-size: 20px;"></i>
+                    <span style="animation-delay: 0.2s">Order Management</span>
                 </button>
-                <button type="button">
-                    <img src="../../assets/vectors/icon-accounts.svg" class="logos" />
-                    <span style="animation-delay: 0.3s">Accounts</span>
+                <button type="button" onclick="window.localStorage.removeItem('token'); window.location.reload();">
+                    <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 20px;"></i>
+                    <span style="animation-delay: 0.2s">Logout</span>
                 </button>
             </nav>
-            <footer class="sidebar-footer">
-                <button type="button">
-                    <img src="../../assets/vectors/icon-lock.svg" />
-                    <span>Logout</span>
-                </button>
-            </footer>
         </div>
     </aside>
 
-    <script type="text/javascript">
-        const toggleSidebar = () => document.body.classList.toggle("open");
-    </script>
+    <div class="windoww">
+        <div class="heading">Order Management</div>
+        <div class="apply-filter">
+            <div class="flt">Confirm status</div>
+            <div class="flt">Order status</div>
+            <div class="flt">Payment status</div>
+            <div class="flt">Sales mode</div>
+            <div class="flt">Date</div>
+        </div>
+        <div class="tablee">
+            <table>
+                <tr>
+                    <th>Product<br>
+                        Id</th>
+                    <th>Product<br>
+                        name</th>
+                    <th>Product<br>
+                        Description</th>
+                    <th>Product<br>
+                        Category</th>
+                    <th>Product<br>
+                        Image url</th>
+                    <th>estimated<br>Delevery Time</th>
+                    <th>Product<br>
+                        Price</th>
+                </tr>
+                <tr>
+                    <td>1234</td>
+                    <td>simulator</td>
+                    <td>specialized equipment EOG AC Coaches/Power car/Pantry car requires 750V/415V step down
+                    </td>
+                    <td>gas generators and equipments</td>
+                    <td>iauehuehiaweuhuifhiauehaieuheaiufhaeiuheaiuheri</td>
+                    <td>30 days</td>
+                    <td>Rs 1233</td>
 
+                </tr>
+                <tr>
+                    <td>1234</td>
+                    <td>simulator</td>
+                    <td>specialized equipment EOG AC Coaches/Power car/Pantry car requires 750V/415V step down
+                    </td>
+                    <td>gas generators and equipments</td>
+                    <td>iauehuehiaweuhuifhiauehaieuheaiufhaeiuheaiuheri</td>
+                    <td>30 days</td>
+                    <td>Rs 1233</td>
 
+                </tr>
+                <tr>
+                    <td>1234</td>
+                    <td>simulator</td>
+                    <td>specialized equipment EOG AC Coaches/Power car/Pantry car requires 750V/415V step down
+                    </td>
+                    <td>gas generators and equipments</td>
+                    <td>iauehuehiaweuhuifhiauehaieuheaiufhaeiuheaiuheri</td>
+                    <td>30 days</td>
+                    <td>Rs 1233</td>
 
-
-
-
-  <div class="windoww">
-    <div class="heading">Order Management</div>
-    <div class="apply-filter">
-        <div class="flt">Confirm status</div>
-        <div class="flt">Order status</div>
-        <div class="flt">Payment status</div>
-        <div class="flt">Sales mode</div>
-        <div class="flt">Date</div>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div class="tablee">
-        <table>
-            <tr>
-              <th>Product<br>
-                Id</th>
-              <th>Product<br> 
-                name</th>
-              <th>Product<br>
-                Description</th>
-              <th>Product<br> 
-                Category</th>
-              <th>Product<br> 
-                Image url</th>
-              <th>estimated<br>Delevery Time</th>
-              <th>Product<br> 
-                Price</th>
-            </tr>
-            <tr>
-                <td>1234</td>
-                <td>simulator</td>
-                <td>specialized equipment EOG AC Coaches/Power car/Pantry car requires 750V/415V step down 
-                </td>
-                <td>gas generators and equipments</td>
-                <td>iauehuehiaweuhuifhiauehaieuheaiufhaeiuheaiuheri</td>
-                <td>30 days</td>
-                <td>Rs 1233</td>
-                
-            </tr>
 
-            
-
-           
-            <tr>
-                <td>1234</td>
-                <td>simulator</td>
-                <td>specialized equipment EOG AC Coaches/Power car/Pantry car requires 750V/415V step down 
-                </td>
-                <td>gas generators and equipments</td>
-                <td>iauehuehiaweuhuifhiauehaieuheaiufhaeiuheaiuheri</td>
-                <td>30 days</td>
-                <td>Rs 1233</td>
-                
-            </tr>
-
-            <tr>
-                <td>1234</td>
-                <td>simulator</td>
-                <td>specialized equipment EOG AC Coaches/Power car/Pantry car requires 750V/415V step down 
-                </td>
-                <td>gas generators and equipments</td>
-                <td>iauehuehiaweuhuifhiauehaieuheaiufhaeiuheaiuheri</td>
-                <td>30 days</td>
-                <td>Rs 1233</td>
-                
-            </tr>
-
-            
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-           
-         
-            
-        </table>
-    </div>
-    
-  </div>  
-
-  
-  
-    
-
-
+    <!-- Scripts -->
+    <script type="text/javascript">const toggleSidebar = () => document.body.classList.toggle("open");</script>
 </body>
 
 </html>

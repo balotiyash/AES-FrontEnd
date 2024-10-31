@@ -116,13 +116,19 @@ body {
     padding: 10px;
 }
 
-.product-title {
+.product-title,
+.price-and-button{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .product-title p,
 .product-desc p {
     margin: 0;
+}
+
+.invoice-btn {
+    margin-top: 4px;
 }

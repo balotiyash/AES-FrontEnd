@@ -1,10 +1,196 @@
-window.onload = function () {
+/** 
+ * File: user/controller/profileScript.js
+ * Author: Yash Balotiya
+ * Description: This file contains JS code for the saved address page.
+ * Created on: 28/10/2024
+ * Last Modified: 30/10/2024
+*/
+
+import { IP, PORT } from '../../config.js';
+
+const token = window.localStorage.getItem('token');
+
+// For stats
+async function fetchStatsData() {
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/analysis/quick-stats`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to Fetch Stats Data');
+        }
+
+        const analysis = await response.json();
+        document.getElementById("p1-title1").innerHTML = analysis.pageReach;
+        document.getElementById("p1-title2").innerHTML = analysis.repeatingCustomers;
+        document.getElementById("p1-title3").innerHTML = `${analysis.conversionRate}%`;
+    } catch (error) {
+        console.error('Error during Fetching Stats Data:', error);
+    }
+}
+
+// For chart 1
+async function fetchChart1Data() {
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/analysis/monthly-sales`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to Fetch Chart1 Data');
+        }
+
+        const analysis = await response.json();
+        let revenurArray = [];
+        let profitArray = [];
+
+        analysis.forEach((element) => {
+            revenurArray.push({ x: new Date(element.date), y: element.revenue });
+            profitArray.push({ x: new Date(element.date), y: element.profit });
+        });
+
+        return { revenurArray, profitArray };   
+    } catch (error) {
+        console.error('Error during Fetching Chart1 Data:', error);
+    }
+}
+
+// For chart 2
+async function fetchChart2Data() {
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/analysis/top-sellers`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to Fetch Chart2 Data');
+        }
+
+        const analysis = await response.json();
+        let topSellers = [];
+
+        analysis.forEach((element) => {
+            topSellers.push({ y: element.quantity, label: element.product_name });
+        });
+
+        return topSellers;   
+    } catch (error) {
+        console.error('Error during Fetching Chart2 Data:', error);
+    }
+}
+
+// For chart 3
+async function fetchChart3Data() {
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/analysis/pending-complete-order-count`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to Fetch Chart3 Data');
+        }
+
+        const analysis = await response.json();
+        const pendingOrderCount = analysis.pending;
+        const completeOrderCount = analysis.completed;
+
+        return { pendingOrderCount, completeOrderCount };
+    } catch (error) {
+        console.error('Error during Fetching Chart3 Data:', error);
+    }
+}
+
+// For chart 4
+async function fetchChart4Data() {
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/analysis/online-offline-sales`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to Fetch Revenue Chart4 Data');
+        }
+
+        const data = await response.json();
+        let offlineRevenueArray = [];
+        let offlineProfitArray = [];
+        let onlineRevenueArray = [];
+        let onlineProfitArray = [];
+
+        // Process offline revenue and profit data
+        data.offlineRevenueProfit.forEach((element) => {
+            offlineRevenueArray.push({ x: new Date(element.date), y: element.revenue });
+            offlineProfitArray.push({ x: new Date(element.date), y: element.profit });
+        });
+
+        // Process online revenue and profit data
+        data.onlineRevenueProfit.forEach((element) => {
+            onlineRevenueArray.push({ x: new Date(element.date), y: element.revenue });
+            onlineProfitArray.push({ x: new Date(element.date), y: element.profit });
+        });
+
+        return { 
+            offlineRevenueArray, 
+            offlineProfitArray, 
+            onlineRevenueArray, 
+            onlineProfitArray 
+        };   
+    } catch (error) {
+        console.error('Error during Fetching Revenue Chart4 Data:', error);
+    }
+}
+
+window.onload = async function () {
+    // For Stats
+    fetchStatsData();
+
+    // For Chart 1
+    // sort both these array based on dates in ascending order
+    const { revenurArray, profitArray } = await fetchChart1Data();
+    revenurArray.sort((a, b) => a.x - b.x);
+    profitArray.sort((a, b) => a.x - b.x);
+
+    // For Chart 2
+    const topSellers = await fetchChart2Data();
+    topSellers.sort((a, b) => a.y - b.y);
+
+    // For Chart 3
+    const { pendingOrderCount, completeOrderCount } = await fetchChart3Data();
+
+    // For Chart 4
+    const { offlineRevenueArray, offlineProfitArray, onlineRevenueArray, onlineProfitArray } = await fetchChart4Data();
+    offlineRevenueArray.sort((a, b) => a.x - b.x);
+    offlineProfitArray.sort((a, b) => a.x - b.x);
+    onlineRevenueArray.sort((a, b) => a.x - b.x);
+    onlineProfitArray.sort((a, b) => a.x - b.x);
+
     // Chart 1
     var chart1 = new CanvasJS.Chart("chartContainer1", {
         animationEnabled: true,
         theme: "light2",
         title: {
-            text: "Site Traffic"
+            text: "Revenue & Profit"
         },
         axisX: {
             valueFormatString: "DD MMM",
@@ -14,7 +200,7 @@ window.onload = function () {
             }
         },
         axisY: {
-            title: "Number of Visits",
+            title: "Amount in Rs.",
             includeZero: true,
             crosshair: {
                 enabled: true
@@ -33,48 +219,18 @@ window.onload = function () {
         data: [{
             type: "line",
             showInLegend: true,
-            name: "Total Visit",
+            name: "Revenue",
             markerType: "square",
             xValueFormatString: "DD MMM, YYYY",
             color: "#F08080",
-            dataPoints: [
-                { x: new Date(2017, 0, 3), y: 650 },
-                { x: new Date(2017, 0, 4), y: 700 },
-                { x: new Date(2017, 0, 5), y: 710 },
-                { x: new Date(2017, 0, 6), y: 658 },
-                { x: new Date(2017, 0, 7), y: 734 },
-                { x: new Date(2017, 0, 8), y: 963 },
-                { x: new Date(2017, 0, 9), y: 847 },
-                { x: new Date(2017, 0, 10), y: 853 },
-                { x: new Date(2017, 0, 11), y: 869 },
-                { x: new Date(2017, 0, 12), y: 943 },
-                { x: new Date(2017, 0, 13), y: 970 },
-                { x: new Date(2017, 0, 14), y: 869 },
-                { x: new Date(2017, 0, 15), y: 890 },
-                { x: new Date(2017, 0, 16), y: 930 }
-            ]
+            dataPoints: revenurArray
         },
         {
             type: "line",
             showInLegend: true,
-            name: "Unique Visit",
+            name: "Profit",
             lineDashType: "dash",
-            dataPoints: [
-                { x: new Date(2017, 0, 3), y: 510 },
-                { x: new Date(2017, 0, 4), y: 560 },
-                { x: new Date(2017, 0, 5), y: 540 },
-                { x: new Date(2017, 0, 6), y: 558 },
-                { x: new Date(2017, 0, 7), y: 544 },
-                { x: new Date(2017, 0, 8), y: 693 },
-                { x: new Date(2017, 0, 9), y: 657 },
-                { x: new Date(2017, 0, 10), y: 663 },
-                { x: new Date(2017, 0, 11), y: 639 },
-                { x: new Date(2017, 0, 12), y: 673 },
-                { x: new Date(2017, 0, 13), y: 660 },
-                { x: new Date(2017, 0, 14), y: 562 },
-                { x: new Date(2017, 0, 15), y: 643 },
-                { x: new Date(2017, 0, 16), y: 570 }
-            ]
+            dataPoints: profitArray
         }]
     });
     chart1.render();
@@ -83,7 +239,7 @@ window.onload = function () {
     var chart2 = new CanvasJS.Chart("chartContainer2", {
         animationEnabled: true,
         title: {
-            text: "Fortune 500 Companies by Country"
+            text: "Top Selling Products"
         },
         axisX: {
             interval: 1
@@ -91,33 +247,14 @@ window.onload = function () {
         axisY2: {
             interlacedColor: "rgba(1,77,101,.2)",
             gridColor: "rgba(1,77,101,.1)",
-            title: "Number of Companies"
+            title: "Number of Units Sold"
         },
         data: [{
             type: "bar",
             name: "companies",
             color: "#014D65",
             axisYType: "secondary",
-            dataPoints: [
-                { y: 3, label: "Sweden" },
-                { y: 7, label: "Taiwan" },
-                { y: 5, label: "Russia" },
-                { y: 9, label: "Spain" },
-                { y: 7, label: "Brazil" },
-                { y: 7, label: "India" },
-                { y: 9, label: "Italy" },
-                { y: 8, label: "Australia" },
-                { y: 11, label: "Canada" },
-                { y: 15, label: "South Korea" },
-                { y: 12, label: "Netherlands" },
-                { y: 15, label: "Switzerland" },
-                { y: 25, label: "Britain" },
-                { y: 28, label: "Germany" },
-                { y: 29, label: "France" },
-                { y: 52, label: "Japan" },
-                { y: 103, label: "China" },
-                { y: 134, label: "US" }
-            ]
+            dataPoints: topSellers
         }]
     });
     chart2.render();
@@ -126,19 +263,19 @@ window.onload = function () {
     var chart3 = new CanvasJS.Chart("chartContainer3", {
         animationEnabled: true,
         title: {
-            text: "Desktop Search Engine Market Share - 2016"
+            text: "Order Status"
         },
         data: [{
             type: "pie",
-            startAngle: 240,
-            yValueFormatString: "##0.00\"%\"",
+            startAngle: -25,
+            // yValueFormatString: "##0.00\"%\"",
             indexLabel: "{label} {y}",
             dataPoints: [
-                { y: 79.45, label: "Google" },
-                { y: 7.31, label: "Bing" },
-                { y: 7.06, label: "Baidu" },
-                { y: 4.91, label: "Yahoo" },
-                { y: 1.26, label: "Others" }
+                { y: pendingOrderCount, label: "Pending Orders" },
+                { y: completeOrderCount, label: "Completed Orders" }
+                // { y: 7.06, label: "Baidu" },
+                // { y: 4.91, label: "Yahoo" },
+                // { y: 1.26, label: "Others" }
             ]
         }]
     });
@@ -149,16 +286,16 @@ window.onload = function () {
         exportEnabled: true,
         animationEnabled: true,
         title: {
-            text: "Car Parts Sold in Different States"
+            text: "Online and Offline Revenue and Profit"
         },
         subtitles: [{
-            text: "Click Legend to Hide or Unhide Data Series"
+            text: ""
         }],
         axisX: {
             title: "States"
         },
         axisY: {
-            title: "Oil Filter - Units",
+            title: "Revenue (Rs)",
             titleFontColor: "#4F81BC",
             lineColor: "#4F81BC",
             labelFontColor: "#4F81BC",
@@ -166,7 +303,7 @@ window.onload = function () {
             includeZero: true
         },
         axisY2: {
-            title: "Clutch - Units",
+            title: "Profit (Rs)",
             titleFontColor: "#C0504E",
             lineColor: "#C0504E",
             labelFontColor: "#C0504E",
@@ -182,30 +319,32 @@ window.onload = function () {
         },
         data: [{
             type: "column",
-            name: "Oil Filter",
+            name: "Offline Revenue",
             showInLegend: true,
-            yValueFormatString: "#,##0.# Units",
-            dataPoints: [
-                { label: "New Jersey", y: 19034.5 },
-                { label: "Texas", y: 20015 },
-                { label: "Oregon", y: 25342 },
-                { label: "Montana", y: 20088 },
-                { label: "Massachusetts", y: 28234 }
-            ]
+            yValueFormatString: "#,##0.# Rs",
+            dataPoints: offlineRevenueArray
         },
         {
             type: "column",
-            name: "Clutch",
+            name: "Online Revenue",
+            showInLegend: true,
+            yValueFormatString: "#,##0.# Rs",
+            dataPoints: onlineRevenueArray
+        },
+        {
+            type: "column",
+            name: "Offline Profit",
+            showInLegend: true,
+            yValueFormatString: "#,##0.# Rs",
+            dataPoints: offlineProfitArray
+        },
+        {
+            type: "column",
+            name: "Online Profit",
             axisYType: "secondary",
             showInLegend: true,
-            yValueFormatString: "#,##0.# Units",
-            dataPoints: [
-                { label: "New Jersey", y: 210.5 },
-                { label: "Texas", y: 135 },
-                { label: "Oregon", y: 425 },
-                { label: "Montana", y: 130 },
-                { label: "Massachusetts", y: 528 }
-            ]
+            yValueFormatString: "#,##0.# Rs",
+            dataPoints: onlineProfitArray
         }]
     });
     chart4.render();
@@ -220,7 +359,3 @@ window.onload = function () {
         e.chart.render(); // Render the chart that triggered the event
     }
 }
-
-document.getElementById("prodMangementBtn").addEventListener("click", () => {
-    location.href = "./prod_manage.html";
-});

@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This page contains all the js code which is shared between all pages for login & logout button functionalities
  * Created on: 11/10/2024
- * Last Modified: 24/10/2024
+ * Last Modified: 28/10/2024
 */
 
 // Login button handling
@@ -63,3 +63,32 @@ function setLoginButtonVisibility(isVisible) {
     document.getElementById("loginBtn").style.display = isVisible ? "inline" : "none";
     document.getElementById("dropDownBtn").style.display = isVisible ? "none" : "inline";
 }
+
+// PAN India Support
+document.getElementById("language-select").addEventListener("change", async () => {
+    const language = document.getElementById("language-select").value;
+    const elementsToTranslate = document.querySelectorAll("h2, h3, h4, h5, h6, p");
+  
+    // Collect all text in a single array
+    let textArray = [];
+    elementsToTranslate.forEach(element => textArray.push(element.innerText));
+  
+    // Join text array into a single string separated by "\n" for batch translation
+    const textToTranslate = textArray.join("\n");
+  
+    try {
+      // Fetch the translated data using template literals correctly
+      const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${language}&dt=t&q=${encodeURIComponent(textToTranslate)}`);
+      const data = await response.json();
+  
+      // Extract the translations and trim any extra newlines or whitespace
+      const translatedTextArray = data[0].map(item => item[0].trim());
+  
+      // Map each translated text back to its respective element
+      elementsToTranslate.forEach((element, index) => {
+        element.innerText = translatedTextArray[index] || element.innerText;
+      });
+    } catch (error) {
+      console.error("Translation error:", error);
+    }
+});

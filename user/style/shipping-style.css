@@ -95,11 +95,13 @@ body {
 }
 
 .map-lable-1 {
-    left: 146px;
+    /* left: 146px; */
+    left: 145px;
 }
 
 .map-lable-2 {
-    left: 410px;
+    /* left: 410px; */
+    left: 395px;
 }
 
 /* address section */

@@ -6,6 +6,8 @@ body {
 
 .window{
     height: 92vh;
+.window {
+    height: 98vh;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -14,18 +16,16 @@ body {
     padding-left: 120px;
     font-family: Inter;
     font-weight: 500;
-    font-size:18px;
+    font-size: 18px;
 }
 
-.five-images{
+.five-images {
     display: flex;
     justify-content: space-between;
-
     height: 150px;
-
 }
 
-.five-images > *{
+.five-images>* {
     width: 130px;
     height: 130px;
     background-color: #D9D9D9;
@@ -48,7 +48,7 @@ body {
     background-position: center;
 } */
 
-.im{
+.im {
     padding-bottom: 10px;
 }
 
@@ -88,4 +88,7 @@ body {
     color: red;
     font-size: 0.7em;
     padding-bottom: 30px;
+.add-img {
+    margin-left: 45px;
+    margin-top: 60px;
 }

@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for token verification for session management.
  * Created on: 14/10/2024
- * Last Modified: 24/10/2024
+ * Last Modified: 30/10/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -24,9 +24,14 @@ window.onload = async () => {
                 console.log('User not authenticated');
                 document.getElementById("loginBtn").style.display = "inline";
                 document.getElementById("dropDownBtn").style.display = "none";
+
             } else {
                 document.getElementById("loginBtn").style.display = "none";
                 document.getElementById("dropDownBtn").style.display = "inline";
+
+                // if (window.location.href == "http://localhost:5501/shared/view/loginPage.html") {
+                //     window.location.href = "http://localhost:5501/admin/view/dashboard.html";
+                // }
             }
         } catch (error) {
             console.error('Error fetching user data:', error);
