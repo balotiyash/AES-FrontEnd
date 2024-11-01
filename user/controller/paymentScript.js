@@ -94,6 +94,12 @@ async function payment() {
 
 async function updateOrderStatus(paymentId, orderId) {
     try {
+        const sale = {
+            shipping_address: window.localStorage.getItem('address'),
+            contact_phone: window.localStorage.getItem('phoneNo'),
+            transaction_id: paymentId,
+            order_id: orderId
+        }
         const response = await fetch(`http://${IP}:${PORT}/order/checkout`, {
             method: 'POST',
             headers: {
@@ -101,10 +107,8 @@ async function updateOrderStatus(paymentId, orderId) {
                 'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({
-                shipping_address: window.localStorage.getItem('address'),
-                contact_phone: window.localStorage.getItem('phoneNo'),
-                transaction_id: paymentId,
-                order_id: orderId
+                sale: sale,
+                isNewAddress: true
             })
         });
 

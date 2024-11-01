@@ -1,0 +1,207 @@
+<!-- 
+    File: admin/view/prod_manage.html
+    Author: Nandini Kakaraniya
+    Description: This File contains product management page
+    Created on: 12/10/2024
+    Last Modified: 01/10/2024
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Fontsawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Sidebar -->
+    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
+
+
+    <!-- css -->
+
+    <link rel="stylesheet" href="../style/prod_description.css">
+
+    <link rel="stylesheet" href="../style/prod_manage.css">
+
+    <link rel="stylesheet" href="../style/prod_info.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+
+    <title>Dashboard</title>
+</head>
+
+<body>
+
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <header class="sidebar-header">
+                <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
+                <div class="sidebar-logo">
+                    <p>Welcome, Admin!</p>
+                </div>
+            </header>
+            <nav class="sidebar-nav">
+                <button type="button" onclick="window.location.href = './dashboard.html'">
+                    <i class="fa-solid fa-chart-simple" style="font-size: 20px;"></i>
+                    <span>Analytics</span>
+                </button>
+                <button type="button" id="prodMangementBtn" onclick="window.location.href = './prod_manage.html'">
+                    <i class="fa-solid fa-box" style="font-size: 20px;"></i>
+                    <span style="animation-delay: 0.1s">Product Management</span>
+                </button>
+                <button type="button" onclick="window.location.href = './order_management.html'">
+                    <i class="fa-solid fa-list-check" style="font-size: 20px;"></i>
+                    <span style="animation-delay: 0.2s">Order Management</span>
+                </button>
+                <button type="button" onclick="window.localStorage.removeItem('token'); window.location.reload();">
+                    <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 20px;"></i>
+                    <span style="animation-delay: 0.2s">Logout</span>
+                </button>
+            </nav>
+        </div>
+    </aside>
+
+    <script type="text/javascript">
+        const toggleSidebar = () => document.body.classList.toggle("open");
+    </script>
+    <main class="main-class">
+        <div class="window">
+
+            <div class="heading">Product Information</div>
+
+            <div class="name">
+                Name
+                <div class="input-group mb-3">
+                    <input id="p-name" type="text" class="form-control" placeholder="" aria-label="Username"
+                        aria-describedby="basic-addon1" required>
+
+                </div>
+                <div id="name-error" class="error-message"></div>
+            </div>
+
+            <div class="prod-description">
+                Product Description
+                <div class="input-group">
+                    <textarea id="p-desc" class="form-control" aria-label="With textarea" required></textarea>
+
+                </div>
+                <div id="desc-error" class="error-message"></div>
+            </div>
+
+            <div class="price">
+                Product Price
+                <div class="input-group mb-3">
+                    <input id="p-price" type="text" class="form-control" placeholder="" aria-label="Username"
+                        aria-describedby="basic-addon1" required>
+
+                </div>
+                <div id="price-error" class="error-message"></div>
+            </div>
+
+            <div class="profit">
+                Profit
+                <div class="input-group mb-3">
+                    <input id="p-profit" type="text" class="form-control" placeholder="" aria-label="Username"
+                        aria-describedby="basic-addon1" required>
+
+                </div>
+                <div id="profit-error" class="error-message"></div>
+            </div>
+
+            <div class="category">
+                Category
+                <div class="input-group mb-3">
+                    <input id="p-category" type="text" class="form-control" aria-label="Text input with dropdown button"
+                        required>
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Select</button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" id="dropdown-item1" href="#">ANALYTICAL APPLICATION & INSTRUMENTS
+                                FOR LAB</a></li>
+                        <li><a class="dropdown-item" id="dropdown-item2" href="#">GAS GENERATORS & EQUIPMENTS</a></li>
+                    </ul>
+
+                </div>
+                <div id="category-error" class="error-message"></div>
+            </div>
+
+            <div class="delivery-in">
+                Delivery in
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                        id="delivery-time" type="number" required>
+                    <button id="dropdownMenuButton" class="btn btn-outline-secondary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Select</button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" id="days">days</a></li>
+                        <li><a class="dropdown-item" href="#" id="weeks">weeks</a></li>
+                        <li><a class="dropdown-item" href="#" id="months">months</a></li>
+                    </ul>
+
+                </div>
+                <div id="delivery-error" class="error-message"></div>
+            </div>
+
+            <div class="avail">
+                Availability
+                <div class="input-group mb-3">
+                    <input id="p-avail" type="text" class="form-control" aria-label="Text input with dropdown button"
+                        required>
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Select</button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" id="dropdown-item3" href="#">AVAILABLE</a></li>
+                        <li><a class="dropdown-item" id="dropdown-item4" href="#">UN-AVAILABLE</a></li>
+                    </ul>
+
+                </div>
+                <div id="avail-error" class="error-message"></div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button id="submit-form" class="btn btn-dark" type="button">Submit</button>
+            </div>
+
+
+        </div>
+        <div class="single-img">
+            <label for="imageUpload" class="im">Image</label>
+            <div id="image-error" class="error-message"></div>
+            <input type="file" id="imageUpload" accept="image/png, image/jpeg" style="display: none;">
+            <div class="image-box" id="image-box">
+                <i class="fa-solid fa-plus fa-2xl add-img" style="color: #0d0d0d;"></i>
+            </div>
+
+        </div>
+    </main>
+    <script type="module" src="../controller/prod_updateScript.js"></script>
+</body>
+
+</html>

@@ -78,7 +78,7 @@ const renderProductDetails = (product) => {
     editButton.classList.add('btn-info');
     editButton.textContent = 'Edit item';
     editButton.onclick = () => {
-        window.location.href = `http://${IP}:${PORT}/admin/editProduct?product_id=${product.product_id}`;
+        window.location.href = `./prod_update.html?product_id=${product.product_id}`;
     };
     productDetailsContainer.appendChild(editButton);
 
