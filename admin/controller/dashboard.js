@@ -271,8 +271,8 @@ window.onload = async function () {
             // yValueFormatString: "##0.00\"%\"",
             indexLabel: "{label} {y}",
             dataPoints: [
-                { y: pendingOrderCount, label: "Pending Orders" },
-                { y: completeOrderCount, label: "Completed Orders" }
+                { y: pendingOrderCount, label: "Pending" },
+                { y: completeOrderCount, label: "Complete" }
                 // { y: 7.06, label: "Baidu" },
                 // { y: 4.91, label: "Yahoo" },
                 // { y: 1.26, label: "Others" }

@@ -3,7 +3,7 @@
     Author: Nandini Kakaraniya
     Description: This File contains product management page
     Created on: 12/10/2024
-    Last Modified: 30/10/2024
+    Last Modified: 12/10/2024
 -->
 
 <!DOCTYPE html>
@@ -12,8 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AES - Analytical Equipment Solutions</title>
-    <link rel="shortcut icon" href="./assets/images/AES Logo.jpg">
+    <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -27,18 +26,29 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Sidebar -->
+    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
+
+    <link rel="stylesheet" href="../style/prod_description.css">
+
+    <link rel="stylesheet" href="../style/prod_manage.css">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
-    <!-- Sidebar -->
-    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="../style/prod_description.css">
-    <link rel="stylesheet" href="../style/prod_manage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+
+    <title>Dashboard</title>
+
 </head>
 
 <body>
@@ -46,68 +56,87 @@
     <aside class="sidebar">
         <div class="sidebar-inner">
             <header class="sidebar-header">
+                <!-- <button type="button" class="sidebar-burger" onclick="toggleSidebar()">
+                    <img src="../../assets/images/AES Logo.jpg" alt="AES">
+                </button> -->
+                <!-- <button type="button" class="sidebar-burger" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars"></i>
+                </button> -->
                 <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
                 <div class="sidebar-logo">
                     <p>Welcome, Admin!</p>
                 </div>
+                <!-- <img src="../../assets/images/blocklord-logo.png" class="sidebar-logo" /> -->
             </header>
             <nav class="sidebar-nav">
-                <button type="button" onclick="window.location.href = './dashboard.html'">
-                    <i class="fa-solid fa-chart-simple" style="font-size: 20px;"></i>
-                    <span>Analytics</span>
+                <button type="button">
+                    <img src="../../assets/vectors/icon-home.svg" class="logos" />
+                    <span>Home</span>
                 </button>
-                <button type="button" id="prodMangementBtn" onclick="window.location.href = './prod_manage.html'">
-                    <i class="fa-solid fa-box" style="font-size: 20px;"></i>
-                    <span style="animation-delay: 0.1s">Product Management</span>
+                <button type="button">
+                    <img src="../../assets/vectors/icon-settings.svg" class="logos" />
+                    <span style="animation-delay: 0.1s">Settings</span>
                 </button>
-                <button type="button" onclick="window.location.href = './order_management.html'">
-                    <i class="fa-solid fa-list-check" style="font-size: 20px;"></i>
-                    <span style="animation-delay: 0.2s">Order Management</span>
+                <button type="button">
+                    <img src="../../assets/vectors/icon-levels.svg" class="logos" />
+                    <span style="animation-delay: 0.2s">Levels</span>
                 </button>
-                <button type="button" onclick="window.localStorage.removeItem('token'); window.location.reload();">
-                    <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 20px;"></i>
-                    <span style="animation-delay: 0.2s">Logout</span>
+                <button type="button">
+                    <img src="../../assets/vectors/icon-accounts.svg" class="logos" />
+                    <span style="animation-delay: 0.3s">Accounts</span>
                 </button>
             </nav>
+            <footer class="sidebar-footer">
+                <button type="button">
+                    <img src="../../assets/vectors/icon-lock.svg" />
+                    <span>Logout</span>
+                </button>
+            </footer>
         </div>
     </aside>
 
+    <script type="text/javascript">
+        const toggleSidebar = () => document.body.classList.toggle("open");
+    </script>
+
     <main>
+
         <div class="parent-div">
 
             <div class="heading">Product Description</div>
 
-            <div class="white-rect">
-                <div class="sml-imgs">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="magnified-img">
-                    <div class="img">
+            <div class="white-rect" id="product-container">
+                <!-- <div class="sml-imgs">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div> -->
+                <!-- <div class="magnified-img">
+                    <img class="img" src="../../assets/images/Brobe Sonicator.jpg" width="">
 
-                    </div>
                 </div>
                 <div class="prod-desc">
                     <div class="details">
                         <span class="p_name">HPLC Column Pump</span> <br><br>
+                        <p class="description"> EOG AC Coaches/Power car/Pantry car requires 750V/415V step down
+                            transformer for coach power supply</p>
 
-                        EOG AC Coaches/Power car/Pantry car requires 750V/415V step down transformer for coach power
-                        supply <br><br>
 
-                        Rs. 5000.00 <br><br>
+                        <span class="prod-price">Rs. 5000.00</span> <br><br>
 
                         <button type="button" class="btn btn-info">Edit item</button>
                     </div>
-                </div>
+
+                </div> -->
             </div>
+
+        </div>
+
         </div>
     </main>
-
-    <!-- Scripts -->
-    <script type="text/javascript">const toggleSidebar = () => document.body.classList.toggle("open");</script>
+    <script type="module" src="../controller/prod_descScript.js"></script>
 </body>
 
 </html>
