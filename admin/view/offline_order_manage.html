@@ -43,8 +43,6 @@
 </head>
 
 <body>
-   
-  
 
     <!-- Main section -->
     <main class="mainSection">
@@ -52,37 +50,28 @@
             <!-- Select Payment Mode Section -->
             <section class="payment-mode-sec">
 
-                
-
-              
-
                 <!-- Select payment mode -->
                 <form class="shipping-form">
                     <div class="input-div">
-                        <label for="">Username</label>
-                        <input type="number" name="" id="phoneTxt">
+                        <label for="usernameTxt">Username</label>
+                        <input type="text" name="" id="usernameTxt">
                     </div>
 
                     <div class="input-div">
                         <label for="">Name</label>
-                        <input type="number" name="" id="phoneTxt">
+                        <input type="text" name="" id="nameTxt" disabled>
                     </div>
 
                     <div class="input-div">
                         <label for="">Email</label>
-                        <input type="number" name="" id="phoneTxt">
-                    </div>
-
-                    <div class="input-div">
-                        <label for="">Phone No</label>
-                        <input type="number" name="" id="phoneTxt">
+                        <input type="email" name="" id="emailTxt" disabled>
                     </div>
 
                     <div class="input-div">
                         <label for="">Contact Number</label>
                         <input type="number" name="" id="phoneTxt">
                     </div>
-                    
+
                     <h5>Shipping Address</h5>
 
                     <div class="input-div">
@@ -225,7 +214,7 @@
     <!-- Scripts -->
     <script type="module" src="../../shared/controller/tokenVerification.js"></script>
     <script src="../../shared/controller/sharedScript.js"></script>
-    <script type="module" src="../controller/shippingScript.js"></script>
+    <script type="module" src="../controller/offline_order_manageScript.js"></script>
 </body>
 
 </html>
