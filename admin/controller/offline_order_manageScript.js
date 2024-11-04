@@ -10,11 +10,11 @@ import { IP, PORT } from '../../config.js';
 
 function capitalizeFirstLetter(str) {
     return str
-      .toLowerCase()
-      .split(' ')  // Split the string by spaces
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-  }
+        .toLowerCase()
+        .split(' ')  // Split the string by spaces
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
 
 const fetchUserProfile = async (username) => {
     try {
@@ -32,16 +32,29 @@ const fetchUserProfile = async (username) => {
         const userData = await response.json();
         console.log(userData.addresses);
 
-        // Clear existing details
-        let email = document.getElementById('emailTxt');
-        let name = document.getElementById('nameTxt');
-
-        // Display user details
-        email.value = userData.email;
-        name.value = capitalizeFirstLetter(userData.name);   
+        fillFormDetails(userData);
     } catch (err) {
         console.error('Error during Fetching User Profile:', err);
     }
+};
+
+const fillFormDetails = (userData) => {
+    // Clear existing details
+    let email = document.getElementById('emailTxt');
+    let name = document.getElementById('nameTxt');
+    let addressOptions = document.getElementById('addressSelect');
+
+    // Display user details
+    email.value = userData.email;
+    name.value = capitalizeFirstLetter(userData.name);
+
+    // Display addresses
+    userData.addresses.forEach((address, index) => {
+        const option = document.createElement('option');
+        option.value = address;
+        option.text = address;
+        addressOptions.appendChild(option);
+    });
 };
 
 document.getElementById('usernameTxt').addEventListener('change', (event) => {

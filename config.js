@@ -6,5 +6,5 @@
  * Last Modified: 15/10/2024
 */
 
-export const IP = 'localhost';
+export const IP = '10.10.9.124';
 export const PORT = 3000
