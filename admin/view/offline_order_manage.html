@@ -51,64 +51,90 @@
             <section class="payment-mode-sec">
 
                 <!-- Select payment mode -->
-                <form class="shipping-form">
-                    <div class="input-div">
-                        <label for="usernameTxt">Username</label>
-                        <input type="text" name="" id="usernameTxt">
+                <div class="input-div">
+                    <label for="usernameTxt">Username</label>
+                    <input type="text" name="username" id="usernameTxt">
+                </div>
+            
+                <div class="input-div">
+                    <label for="nameTxt">Name</label>
+                    <input type="text" name="name" id="nameTxt" disabled>
+                </div>
+            
+                <div class="input-div">
+                    <label for="emailTxt">Email</label>
+                    <input type="email" name="email" id="emailTxt" disabled>
+                </div>
+            
+                <div class="input-div">
+                    <label for="phoneTxt">Contact Number</label>
+                    <input type="number" name="phone" id="phoneTxt">
+                </div>
+            
+                <h5>Shipping Address</h5>
+            
+                <div class="input-div">
+                    <select name="address" id="addressSelect">
+                        <option value="">Select Address</option>
+                    </select>
+                </div>
+            
+                <b style="margin: auto;">OR</b>
+            
+                <div class="input-div">
+                    <label for="streetAdd1">Street Address</label>
+                    <input type="text" name="street1" id="streetAdd1" placeholder="Address Line 1">
+                    <input type="text" name="street2" id="streetAdd2" placeholder="Address Line 2">
+                    <input type="text" name="street3" id="streetAdd3" placeholder="Address Line 3">
+                </div>
+            
+                <div class="input-div">
+                    <label for="cityTxt">City</label>
+                    <input type="text" name="city" id="cityTxt">
+                </div>
+            
+                <div class="input-div">
+                    <label for="pinCode">Zip/Postal Code</label>
+                    <input type="number" name="zip" id="pinCode">
+                </div>
+            
+                <div class="input-div">
+                    <label for="stateTxt">State</label>
+                    <input type="text" name="state" id="stateTxt">
+                </div>
+            
+                <div class="input-div">
+                    <label for="landmarkTxt">Landmark</label>
+                    <input type="text" name="landmark" id="landmarkTxt">
+                </div>
+            
+                <hr>
+                <div class="d-grid gap-2">
+                    <div id="productFieldsContainer">
+                        
+                        <div class="input-div">
+                            <select name="address" id="addressSelect">
+                                <option value="" disabled selected hidden>Select Product</option>
+                                <option value="">a</option>
+                                <option value="">b</option>
+                                <option value="">c</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-div">
+                            <input type="text" name="landmark" placeholder="Price" id="landmarkTxt">
+                        </div>
+                        <div class="input-div"> 
+                            <input type="text" name="landmark" placeholder="Profit" id="landmarkTxt">
+                        </div>
                     </div>
-
-                    <div class="input-div">
-                        <label for="">Name</label>
-                        <input type="text" name="" id="nameTxt" disabled>
-                    </div>
-
-                    <div class="input-div">
-                        <label for="">Email</label>
-                        <input type="email" name="" id="emailTxt" disabled>
-                    </div>
-
-                    <div class="input-div">
-                        <label for="">Contact Number</label>
-                        <input type="number" name="" id="phoneTxt">
-                    </div>
-
-                    <h5>Shipping Address</h5>
-
-                    <div class="input-div">
-                        <select name="" id="addressSelect">
-                            <option value="">Select Address</option>
-                        </select>
-                    </div>
-
-                    <b style="margin: auto;">OR</b>
-
-                    <div class="input-div">
-                        <label for="">Street Address</label>
-                        <input type="text" name="" id="streetAdd1" placeholder="Address Line 1">
-                        <input type="text" name="" id="streetAdd2" placeholder="Address Line 2">
-                        <input type="text" name="" id="streetAdd3" placeholder="Address Line 3">
-                    </div>
-
-                    <div class="input-div">
-                        <label for="">City</label>
-                        <input type="text" name="" id="cityTxt">
-                    </div>
-
-                    <div class="input-div">
-                        <label for="">Zip/Postal Code</label>
-                        <input type="number" name="" id="pinCode">
-                    </div>
-
-                    <div class="input-div">
-                        <label for="">State</label>
-                        <input type="text" name="" id="stateTxt">
-                    </div>
-
-                    <div class="input-div">
-                        <label for="">Landmark</label>
-                        <input type="text" name="" id="landmarkTxt">
-                    </div>
-                </form>
+                    <button class="btn btn-secondary" id="addProductButton" type="button">Add Product</button>
+                </div>
+                <hr>
+            </form>
+            
+           
+            
             </section>
 
             <!-- Summary Section -->

@@ -61,3 +61,50 @@ document.getElementById('usernameTxt').addEventListener('change', (event) => {
     const username = event.target.value;
     fetchUserProfile(username);
 });
+
+
+
+document.getElementById('addProductButton').addEventListener('click', function() {
+    // Create a new div to hold the product fields
+    const productFieldsDiv = document.createElement('div');
+    productFieldsDiv.classList.add('input-div');
+
+    // Create and append the select element for product
+    const select = document.createElement('select');
+    select.name = 'product';
+    select.innerHTML = `
+        <option value="" disabled selected hidden>Select a product</option>
+        <option value="a">Product A</option>
+        <option value="b">Product B</option>
+        <option value="c">Product C</option>
+    `;
+    productFieldsDiv.appendChild(select);
+
+    // Create and append the price input
+   const priceDiv = document.createElement('div');
+   priceDiv.classList.add('input-div');
+    const priceInput = document.createElement('input');
+    priceInput.type = 'text';
+    priceInput.placeholder = 'Price';
+    priceInput.name = 'price';
+    productFieldsDiv.appendChild(priceInput);
+
+    // Create and append the profit input
+    const profitInput = document.createElement('input');
+    profitInput.type = 'text';
+    profitInput.placeholder = 'Profit';
+    profitInput.name = 'profit';
+    productFieldsDiv.appendChild(profitInput);
+
+    // Create and append the quantity input
+    const quantityInput = document.createElement('input');
+    quantityInput.type = 'text';
+    quantityInput.placeholder = 'Quantity';
+    quantityInput.name = 'quantity';
+    productFieldsDiv.appendChild(quantityInput);
+
+    // Insert the new fields above the button
+    const container = document.getElementById('productFieldsContainer');
+    // container.insertBefore(productFieldsDiv, document.getElementById('addProductButton'));
+    container.appendChild(productFieldsDiv);
+ });
