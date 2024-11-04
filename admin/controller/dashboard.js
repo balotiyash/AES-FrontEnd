@@ -50,6 +50,7 @@ async function fetchChart1Data() {
         }
 
         const analysis = await response.json();
+        // console.log(analysis)
         let revenurArray = [];
         let profitArray = [];
 
@@ -57,7 +58,10 @@ async function fetchChart1Data() {
             revenurArray.push({ x: new Date(element.date), y: element.revenue });
             profitArray.push({ x: new Date(element.date), y: element.profit });
         });
-
+        console.log("Revenue array: ");
+        console.log(revenurArray);
+        console.log("Profit array: ");
+        console.log(profitArray);
         return { revenurArray, profitArray };   
     } catch (error) {
         console.error('Error during Fetching Chart1 Data:', error);
@@ -161,31 +165,12 @@ async function fetchChart4Data() {
     }
 }
 
-window.onload = async function () {
-    // For Stats
-    fetchStatsData();
-
-    // For Chart 1
-    // sort both these array based on dates in ascending order
+// Render chart 1
+async function renderChart1() {
     const { revenurArray, profitArray } = await fetchChart1Data();
     revenurArray.sort((a, b) => a.x - b.x);
     profitArray.sort((a, b) => a.x - b.x);
 
-    // For Chart 2
-    const topSellers = await fetchChart2Data();
-    topSellers.sort((a, b) => a.y - b.y);
-
-    // For Chart 3
-    const { pendingOrderCount, completeOrderCount } = await fetchChart3Data();
-
-    // For Chart 4
-    const { offlineRevenueArray, offlineProfitArray, onlineRevenueArray, onlineProfitArray } = await fetchChart4Data();
-    offlineRevenueArray.sort((a, b) => a.x - b.x);
-    offlineProfitArray.sort((a, b) => a.x - b.x);
-    onlineRevenueArray.sort((a, b) => a.x - b.x);
-    onlineProfitArray.sort((a, b) => a.x - b.x);
-
-    // Chart 1
     var chart1 = new CanvasJS.Chart("chartContainer1", {
         animationEnabled: true,
         theme: "light2",
@@ -235,7 +220,12 @@ window.onload = async function () {
     });
     chart1.render();
 
-    // Chart 2
+}
+
+async function renderChart2() {
+    const topSellers = await fetchChart2Data();
+    topSellers.sort((a, b) => a.y - b.y);
+
     var chart2 = new CanvasJS.Chart("chartContainer2", {
         animationEnabled: true,
         title: {
@@ -258,8 +248,11 @@ window.onload = async function () {
         }]
     });
     chart2.render();
+}
 
-    // Chart 3
+async function renderChart3() {
+    const { pendingOrderCount, completeOrderCount } = await fetchChart3Data();
+
     var chart3 = new CanvasJS.Chart("chartContainer3", {
         animationEnabled: true,
         title: {
@@ -280,8 +273,15 @@ window.onload = async function () {
         }]
     });
     chart3.render();
+}
 
-    // Chart 4
+async function renderChart4() {
+    const { offlineRevenueArray, offlineProfitArray, onlineRevenueArray, onlineProfitArray } = await fetchChart4Data();
+    offlineRevenueArray.sort((a, b) => a.x - b.x);
+    offlineProfitArray.sort((a, b) => a.x - b.x);
+    onlineRevenueArray.sort((a, b) => a.x - b.x);
+    onlineProfitArray.sort((a, b) => a.x - b.x);
+
     var chart4 = new CanvasJS.Chart("chartContainer4", {
         exportEnabled: true,
         animationEnabled: true,
@@ -348,14 +348,25 @@ window.onload = async function () {
         }]
     });
     chart4.render();
+}
 
-    // Unified toggleDataSeries function
-    function toggleDataSeries(e) {
-        if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-            e.dataSeries.visible = false;
-        } else {
-            e.dataSeries.visible = true;
-        }
-        e.chart.render(); // Render the chart that triggered the event
+window.onload = async function () {
+    fetchStatsData();
+
+    await renderChart1();
+
+    await renderChart2();
+
+    await renderChart3();
+
+    await renderChart4();
+}
+
+function toggleDataSeries(e) {
+    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+        e.dataSeries.visible = false;
+    } else {
+        e.dataSeries.visible = true;
     }
+    e.chart.render(); // Render the chart that triggered the event
 }
