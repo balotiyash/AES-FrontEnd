@@ -18,11 +18,10 @@ const saleId = url.searchParams.get('saleId');
 
 async function fetchInvoiceDetails() {
     try {
-        const response = await fetch(`http://${IP}:${PORT}/order/generate-invoice`, {
+        const response = await fetch(`http://${IP}:${PORT}/public/generate-invoice`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
             body: new URLSearchParams({ saleID: saleId })
         });
@@ -36,7 +35,7 @@ async function fetchInvoiceDetails() {
     }
 }
 
-fetchInvoiceDetails();
+window.onload = fetchInvoiceDetails();
 
 function generateInvoice(invoiceData) {
     // Set date and invoice ID
