@@ -37,7 +37,7 @@ const fillForm = (product) => {
     document.getElementById('p-profit').value = product.product_profit;
     document.getElementById('p-category').value = product.product_category;
     document.getElementById('p-avail').value = product.product_status ? 'AVAILABLE' : 'UN-AVAILABLE';
-    document.getElementById('image-error').textContent = 'Re-upload image to change';
+    // document.getElementById('image-error').textContent = 'Re-upload image to change';
 
     const deliveryTime = product.estimated_delivery_time;
     let unitSelect = '';
@@ -58,19 +58,19 @@ const fillForm = (product) => {
     document.getElementById('delivery-time').value = time;
     document.getElementById('dropdownMenuButton').textContent = unitSelect;
 
-    // const imageDiv = document.getElementById('image-box');
-    // const image = document.createElement('img');
-    // image.classList.add('img');
-    // image.src = product.product_images[0];
-    // image.alt = product.product_name;
-    // imageDiv.appendChild(image);
-    // imageDiv.style.backgroundImage = `url('${product.product_images[0]}')`;
-    // imageDiv.style.backgroundSize = 'cover';
-    // imageDiv.style.backgroundPosition = 'center';
-    // imageDiv.innerHTML = '';
+    const imageDiv = document.getElementById('image-box');
+    const image = document.createElement('img');
+    image.classList.add('img');
+    image.src = product.product_images[0];
+    image.alt = product.product_name;
+    imageDiv.appendChild(image);
+    imageDiv.style.backgroundImage = `url('${product.product_images[0]}')`;
+    imageDiv.style.backgroundSize = 'cover';
+    imageDiv.style.backgroundPosition = 'center';
+    imageDiv.innerHTML = '';
 
     // Mark that an image has been uploaded
-    // imageUploaded = true;
+    imageUploaded = true;
 };
 
 window.onload = async () => {
@@ -175,7 +175,7 @@ function validateForm() {
     document.getElementById('category-error').textContent = '';
     document.getElementById('avail-error').textContent = '';
     document.getElementById('delivery-error').textContent = '';
-    document.getElementById('image-error').textContent = '';
+    // document.getElementById('image-error').textContent = '';
 
     // Validate name
     if (name.length === 0 || name.length > 200) {
@@ -218,10 +218,10 @@ function validateForm() {
         isValid = false;
     }
 
-    if (imageUpload.length === 0) {
-        document.getElementById('image-error').textContent = 'Please upload an image.';
-        isValid = false;
-    }
+    // if (imageUpload.length === 0) {
+    //     document.getElementById('image-error').textContent = 'Please upload an image.';
+    //     isValid = false;
+    // }
 }
 
 
