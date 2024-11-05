@@ -112,21 +112,6 @@
                 <div class="d-grid gap-2">
                     <div id="productFieldsContainer">
                         
-                        <div class="input-div">
-                            <select name="address" id="addressSelect">
-                                <option value="" disabled selected hidden>Select Product</option>
-                                <option value="">a</option>
-                                <option value="">b</option>
-                                <option value="">c</option>
-                            </select>
-                        </div>
-                        
-                        <div class="input-div">
-                            <input type="text" name="landmark" placeholder="Price" id="landmarkTxt">
-                        </div>
-                        <div class="input-div"> 
-                            <input type="text" name="landmark" placeholder="Profit" id="landmarkTxt">
-                        </div>
                     </div>
                     <button class="btn btn-secondary" id="addProductButton" type="button">Add Product</button>
                 </div>
@@ -145,22 +130,22 @@
 
                     <div class="tally-div">
                         <p>Subtotal</p>
-                        <p class="subtotal">Rs. 0.00</p> <!-- Updated to add class -->
+                        <p class="subtotal" id="subtotal">Rs. 0.00</p> <!-- Updated to add class -->
                     </div>
 
                     <div class="tally-div">
                         <p>Tax</p>
-                        <p class="tax">Rs. 0.00</p> <!-- Updated to add class -->
+                        <p class="tax" id="tax">Rs. 0.00</p> <!-- Updated to add class -->
                     </div>
 
                     <div class="tally-div">
                         <p>Shipping</p>
-                        <p class="shipping">Rs. 3000.00</p> <!-- Updated to add class -->
+                        <p class="shipping" id="shipping">Rs. 3000.00</p> <!-- Updated to add class -->
                     </div>
 
                     <div class="tally-div">
                         <p>Order total</p>
-                        <p class="total-text">Rs. 0.00</p>
+                        <p class="total-text" id="total-text">Rs. 0.00</p>
                     </div>
 
                     <hr>
