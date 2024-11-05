@@ -1,9 +1,9 @@
 <!-- 
     File: user/view/product-description.html
     Author: Yash Balotiya
-    Description: This file contains all the HTML code of individual product description page
+    Description: This file contains all the HTML code of individual product description page. It consist of 2 parts, 1st part is the list of names of all products which are directly navigatable and the other is the actual product description page where product image is displayed, name, availablity, add to cart button and description is shown.
     Created on: 13/10/2024
-    Last Modified: 28/10/2024
+    Last Modified: 05/11/2024
 -->
 
 <!DOCTYPE html>
@@ -15,6 +15,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="tabTitle"></title>
     <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
+
+    <!-- Onpage SEO -->
+    <meta name="description"
+        content="Analytical Equipment Solutions is a Mumbai-based company specializing in the manufacturing and supply of high-quality analytical equipment across India. As a trusted manufacturer, we produce ultrasonic baths and Probe sonicator, and supply a wide range of advanced laboratory tools including Orbital Shakers, Vortex Mixer, Hydraulic press, KBR die-set/Pallet holder, DTC-controller oven/ Dry box, HPLC column pump, HPLC column oven, Digital liquid flow meter, Digital gas flow, meter, HPLC / GC and more. We are also leaders in providing gas generation solutions, offering Nitrogen gas generators, Hydrogen gas generators, Zero air generators, Gas detectors, and complete operating systems. Our commitment to quality, integrity, and customer satisfaction is at the core of everything we do. We strive to deliver innovative solutions that meet the highest standards of precision, performance, and reliability, ensuring our clients achieve excellence in their research and industrial applications.">
+    <meta name="keywords"
+        content="Analytical equipment, Ultrasonic baths, Probe sonicator, Orbital shakers, Vortex mixer, Hydraulic press, KBR die-set, Pallet holder, DTC-controller oven, Dry box, HPLC column pump, HPLC column oven, Digital liquid flow meter, Digital gas flow meter, HPLC GC equipment, Gas generation solutions, Nitrogen gas generators, Hydrogen gas generators, Zero air generators, Gas detectors, Laboratory tools, Research equipment, Industrial applications, Precision instruments, Mumbai-based analytical solutions, High-quality laboratory equipment, Laboratory equipment supplier, Gas generation systems, Analytical instruments India, Laboratory research tools">
+    <meta name="author" content="Yash Balotiya, Ayush Shetty, Atharv Mirgal, Nandini Kakaraniya">
+    <meta name="application-name" content="Analytical Equipment Solutions">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -51,7 +59,9 @@
             <h1>Analytical Equipment Solutions</h1>
         </div>
 
+        <!-- Navigation Panel -->
         <div id="navLinksDiv">
+            <!-- Navigation Buttons -->
             <button type="button" class="navBtns" onclick="window.location.href = '../../'">Home</button>
             <button type="button" class="navBtns"
                 onclick="window.location.href = './products-page.html'">Products</button>
@@ -65,14 +75,15 @@
                 <option value="en">English</option>
                 <option value="hi">Hindi</option>
                 <option value="mr">Marathi</option>
-                <option value="kn">Kannada</option>
                 <option value="gu">Gujarati</option>
+                <option value="kn">Kannada</option>
                 <option value="ta">Tamil</option>
             </select>
-            
+
+            <!-- Login Button -->
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
-            <!-- Dropdown -->
+            <!-- Dropdown Button after Login -->
             <div class="dropdown" id="dropDownBtn">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -81,7 +92,7 @@
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenu">
                     <li><a class="dropdown-item" href="./my-orders.html">My Orders</a></li>
-                    <li><a class="dropdown-item" href="./saved-details.html">My Profile</a></li>
+                    <!-- <li><a class="dropdown-item" href="./saved-details.html">My Profile</a></li> -->
                     <li><a class="dropdown-item" href="./cart.html">My Cart</a></li>
                     <li><a class="dropdown-item" id="logoutBtn">Logout</a></li>
                 </ul>
@@ -94,34 +105,9 @@
         <section class="main-sec">
             <!-- Left side -->
             <section class="side-menu-sec">
-                <!-- <div class="side-menu-div">
-                    <b>Analytical Applications & Instruments for Lab</b>
-                    <ul>
-                        <li><a href="">Ultrasonic bath</a></li>
-                        <li><a href="">Probesonicator</a></li>
-                        <li><a href="">Orbital shaker</a></li>
-                        <li><a href="">Vortex Mixer</a></li>
-                        <li><a href="">Hydrolic Pressure</a></li>
-                        <li><a href="">KBR die-set / Pallet holder</a></li>
-                        <li><a href="">DTC controller oven / dry box</a></li>
-                        <li><a href="">HPLC column pump</a></li>
-                        <li><a href="">Digital liquid flow meter</a></li>
-                        <li><a href="">Digital gas flow meter</a></li>
-                        <li><a href="">HPLC / GC</a></li>
-                    </ul>
-                    <br>
-
-                    <b>Gas Generators & Equipments</b>
-                    <ul>
-                        <li><a href="">Nitrogen gas generator</a></li>
-                        <li><a href="">Hydrogen gas generator</a></li>
-                        <li><a href="">Zero air generator</a></li>
-                        <li><a href="">Gas detector & opersting system</a></li>
-                    </ul>
-                </div> -->
-
-                <!-- Dynamic content will be displayed here -->
-                <div class="side-menu-div" id="side-menu"></div>
+                <div class="side-menu-div" id="side-menu">
+                    <!-- Dynamic content will be displayed here -->
+                </div>
             </section>
 
             <div class="vertical-divider"></div>
@@ -129,16 +115,25 @@
             <!-- right side -->
             <section class="desc-sec">
                 <div class="part-1">
-                    <img src="" alt="" class="product-img" id="productImg">
+                    <!-- Image -->
+                    <img class="product-img" id="productImg">
+
+                    <!-- Info -->
                     <div class="product-desc">
+                        <!-- Title -->
                         <h2 id="productTitle"></h2>
-                        <!-- <p id="productDesc"></p> -->
+
+                        <!-- In stock -->
                         <p class="in-stock">In stock</p>
+
+                        <!-- Price -->
                         <p id="productPrice"></p>
 
+                        <!-- Add to cart button -->
                         <div class="add-to-cart">
                             <button id="add-to-cart-btn">Add to cart</button>
 
+                            <!-- Increment & Decrement Buttons -->
                             <span id="tally-div">
                                 <p id="cartQnty"></p>
                                 <span class="tally-div-child">
@@ -149,44 +144,11 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Description -->
                 <h4>Product Description</h4>
                 <p id="productDesc"></p>
-
-                <!-- <div class="part-2">
-                    <h5>Customer Reviews</h5>
-                    <div class="review-div">
-                        <p class="profile-icon">P</p>
-
-                        <div>
-                            <b>Pranav Pawar</b>
-                            <div class="star-div">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <p>Liked the quality of the product and service of the company. The pump offers excellent
-                                power and precision for construction and DIY projects</p>
-                        </div>
-                    </div>
-                    <div class="review-div">
-                        <p class="profile-icon">P</p>
-
-                        <div>
-                            <b>Pranav Pawar</b>
-                            <div class="star-div">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <p>Liked the quality of the product and service of the company. The pump offers excellent
-                                power and precision for construction and DIY projects</p>
-                        </div>
-                    </div>
-                </div> -->
             </section>
-
         </section>
     </main>
 
@@ -218,7 +180,7 @@
             <div class="footer-child-3">
                 <b>Services</b>
                 <a href="../../assets/pdfs/AES_Catalogue_2024.pdf" target="_blank">Product Enquiry</a>
-                <a href="https://wa.me/919920780823?text=Test%20Service%20Request" target="_blank">Service Request</a>
+                <a href="https://wa.me/918268393857?text=Test%20Service%20Request" target="_blank">Service Request</a>
             </div>
 
             <!-- contact us -->
@@ -242,7 +204,8 @@
                 </div>
                 <div>
                     <i class="fa-solid fa-location-dot"></i>
-                    <a href="https://maps.app.goo.gl/hpf69LaY9kG6UTXM8" target="_blank">Jamil Nagar, Bhandup (W), Mumbai - 400078</a>
+                    <a href="https://maps.app.goo.gl/hpf69LaY9kG6UTXM8" target="_blank">Jamil Nagar, Bhandup (W), Mumbai
+                        - 400078</a>
                 </div>
             </div>
         </div>
@@ -258,8 +221,7 @@
     <!-- Scripts -->
     <script type="module" src="../../shared/controller/tokenVerification.js"></script>
     <script src="../../shared/controller/sharedScript.js"></script>
-    <!-- <script type="module" src="../controller/prodDescScript.js"></script> -->
-    <script type="module" src="../controller/prodDescScript copy.js"></script>
+    <script type="module" src="../controller/prodDescScript.js"></script>
 </body>
 
 </html>

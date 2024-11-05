@@ -3,7 +3,7 @@
     Author: Nandini Kakaraniya
     Description: Styles for the Sign-Up Page.
     Created on: 10/10/2024
-    Last Modified: 26/10/2024
+    Last Modified: 05/11/2024
 */
 
 * {
@@ -218,7 +218,6 @@ input[type=number] {
     border: none;
     font-size: small;
     padding: 8px 20px;
-    /* background-color: #73EC8B; */
     border: 1px solid lightgray;
     border-radius: 4px;
     width: 120px;

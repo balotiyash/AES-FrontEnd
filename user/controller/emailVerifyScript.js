@@ -1,9 +1,9 @@
 /** 
  * File: user/controller/emailVerifyScript.js
  * Author: Yash Balotiya
- * Description: This file contains JS code for email verification page after signup page.
+ * Description: This file contains JS code for email verification page after signup page. It contains function to validate user via email.
  * Created on: 26/10/2024
- * Last Modified: 26/10/2024
+ * Last Modified: 05/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -16,7 +16,6 @@ async function verifyEmail() {
     console.log(token);
 
     const emailId = window.localStorage.getItem("email");
-    console.log(emailId)
 
     try {
         const response = await fetch(`http://${IP}:${PORT}/public/verify`, {
@@ -32,7 +31,7 @@ async function verifyEmail() {
 
         if (!response.ok) {
             document.getElementById("not-verified").style.display = "flex";
-            throw new Error('Authentication failed');
+            throw new Error('Network response was not OK');
         } else {
             document.getElementById("verified").style.display = "flex";
         }

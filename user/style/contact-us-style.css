@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of contact us page
     Created on: 13/10/2024
-    Last Modified: 15/10/2024
+    Last Modified: 05/11/2024
 */
 
 * {
@@ -32,6 +32,7 @@ body {
     justify-content: space-between;
 }
 
+/* Left side */
 .contact-us-sec {
     width: 40%;
     display: flex;
@@ -43,7 +44,7 @@ body {
     margin: 20px 0;
 }
 
-.contact-us-sec h5 {
+h5 {
     color: #0092dd;
 }
 

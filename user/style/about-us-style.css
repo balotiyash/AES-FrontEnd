@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the about us page
     Created on: 26/10/2024
-    Last Modified: 26/10/2024
+    Last Modified: 05/11/2024
 */
 
 * {
@@ -27,13 +27,9 @@ body {
 
 .main-sec {
     width: 75%;
-    /* min-height: 50vh; */
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     align-items: center;
-    /* margin-top: 20px; */
-    /* display: none; */
     text-align: justify;
 }
 
@@ -49,6 +45,7 @@ h5 {
     width: 100%;
 }
 
+/* Founder & Managers */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -57,14 +54,14 @@ table {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
 th {
-    /* background-color: #4CAF50; */
     background-color: #01204e;
     color: white;
 }
@@ -74,11 +71,12 @@ tr:hover {
 }
 
 .fa-linkedin {
-    color: #0077b5; /* LinkedIn color */
+    color: #0077b5;
     font-size: 30px;
     cursor: pointer;
 }
 
+/* Map */
 iframe {
     width: 100%;
 }

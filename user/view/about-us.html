@@ -1,9 +1,9 @@
 <!-- 
     File: user/view/about-us.html
     Author: Yash Balotiya
-    Description: This file contains all the HTML code of about us page
+    Description: This file contains all the HTML code of about us page. It consists of Company Logo with their description followed by the details of the founder and managers and their plant address on map.
     Created on: 26/10/2024
-    Last Modified: 28/10/2024
+    Last Modified: 05/11/2024
 -->
 
 <!DOCTYPE html>
@@ -15,6 +15,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - AES</title>
     <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
+
+    <!-- Onpage SEO -->
+    <meta name="description"
+        content="Analytical Equipment Solutions is a Mumbai-based company specializing in the manufacturing and supply of high-quality analytical equipment across India. As a trusted manufacturer, we produce ultrasonic baths and Probe sonicator, and supply a wide range of advanced laboratory tools including Orbital Shakers, Vortex Mixer, Hydraulic press, KBR die-set/Pallet holder, DTC-controller oven/ Dry box, HPLC column pump, HPLC column oven, Digital liquid flow meter, Digital gas flow, meter, HPLC / GC and more. We are also leaders in providing gas generation solutions, offering Nitrogen gas generators, Hydrogen gas generators, Zero air generators, Gas detectors, and complete operating systems. Our commitment to quality, integrity, and customer satisfaction is at the core of everything we do. We strive to deliver innovative solutions that meet the highest standards of precision, performance, and reliability, ensuring our clients achieve excellence in their research and industrial applications.">
+    <meta name="keywords"
+        content="Analytical equipment, Ultrasonic baths, Probe sonicator, Orbital shakers, Vortex mixer, Hydraulic press, KBR die-set, Pallet holder, DTC-controller oven, Dry box, HPLC column pump, HPLC column oven, Digital liquid flow meter, Digital gas flow meter, HPLC GC equipment, Gas generation solutions, Nitrogen gas generators, Hydrogen gas generators, Zero air generators, Gas detectors, Laboratory tools, Research equipment, Industrial applications, Precision instruments, Mumbai-based analytical solutions, High-quality laboratory equipment, Laboratory equipment supplier, Gas generation systems, Analytical instruments India, Laboratory research tools">
+    <meta name="author" content="Yash Balotiya, Ayush Shetty, Atharv Mirgal, Nandini Kakaraniya">
+    <meta name="application-name" content="Analytical Equipment Solutions">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -51,6 +59,7 @@
             <h1>Analytical Equipment Solutions</h1>
         </div>
 
+        <!-- Navigation Panel -->
         <div id="navLinksDiv">
             <button type="button" class="navBtns" onclick="window.location.href = '../../'">Home</button>
             <button type="button" class="navBtns"
@@ -65,14 +74,15 @@
                 <option value="en">English</option>
                 <option value="hi">Hindi</option>
                 <option value="mr">Marathi</option>
-                <option value="kn">Kannada</option>
                 <option value="gu">Gujarati</option>
+                <option value="kn">Kannada</option>
                 <option value="ta">Tamil</option>
             </select>
 
+            <!-- Login Button -->
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
-            <!-- Dropdown -->
+            <!-- Dropdown Button after Login -->
             <div class="dropdown" id="dropDownBtn">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -81,7 +91,7 @@
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenu">
                     <li><a class="dropdown-item" href="./my-orders.html">My Orders</a></li>
-                    <li><a class="dropdown-item" href="./saved-details.html">My Profile</a></li>
+                    <!-- <li><a class="dropdown-item" href="./saved-details.html">My Profile</a></li> -->
                     <li><a class="dropdown-item" href="./cart.html">My Cart</a></li>
                     <li><a class="dropdown-item" id="logoutBtn">Logout</a></li>
                 </ul>
@@ -92,18 +102,27 @@
     <!-- main -->
     <main class="main">
         <section class="main-sec">
-            <img src="../../assets/images/AES Logo.jpg" alt="">
+            <img src="../../assets/images/AES Logo.jpg" alt="AES Logo">
             <h1>Analytical Equipment Solutions</h1>
             <h5>We Provide PAN India Analytical Instruments Sales & Services</h5>
 
             <br><br>
             <div>
                 <h3>About US</h3>
-                <p><i>Analytical Equipment Solutions</i> is a <b>Mumbai-based company</b> specializing in the manufacturing and supply of <b>high-quality analytical equipment</b> across <b>India</b>. As a trusted manufacturer, we produce ultrasonic baths and Probe sonicator, and supply a wide range of advanced laboratory tools including Orbital Shakers, Vortex Mixer, Hydraulic pressure, KBR die-sets/Pallet holders, DTC-controller oven/ Dry box, HPLC column pump, HPLC column oven, Digital liquid flow meter, Digital gas flow, meter, HPLC / GC and more.</p>
+                <p><i>Analytical Equipment Solutions</i> is a <b>Mumbai-based company</b> specializing in the
+                    manufacturing and supply of <b>high-quality analytical equipment</b> across <b>India</b>. As a
+                    trusted manufacturer, we produce ultrasonic baths and Probe sonicator, and supply a wide range of
+                    advanced laboratory tools including Orbital Shakers, Vortex Mixer, Hydraulic pressure, KBR
+                    die-sets/Pallet holders, DTC-controller oven/ Dry box, HPLC column pump, HPLC column oven, Digital
+                    liquid flow meter, Digital gas flow, meter, HPLC / GC and more.</p>
 
-                <p>We are also leaders in providing gas generation solutions, offering nitrogen gas generators, hydrogen gas generators, zero air generators, gas detectors, and complete operating systems.</p>
+                <p>We are also leaders in providing gas generation solutions, offering nitrogen gas generators, hydrogen
+                    gas generators, zero air generators, gas detectors, and complete operating systems.</p>
 
-                <p>Our commitment to quality, integrity, and customer satisfaction is at the core of everything we do. We strive to deliver innovative solutions that meet the highest standards of precision, performance, and reliability, ensuring our clients achieve excellence in their research and industrial applications.</p>
+                <p>Our commitment to quality, integrity, and customer satisfaction is at the core of everything we do.
+                    We strive to deliver innovative solutions that meet the highest standards of precision, performance,
+                    and reliability, ensuring our clients achieve excellence in their research and industrial
+                    applications.</p>
             </div>
 
             <br><br>
@@ -123,25 +142,29 @@
                         <tr>
                             <td>Mr. Rahul Mallah</td>
                             <td>CEO</td>
-                            <td><a href="mailto:rahul.m@analyticalequipmentsolutions.com">rahul.m@analyticalequipmentsolutions.com</a></td>
+                            <td><a href="mailto:rahul.m@analyticalequipmentsolutions.com">rahul.m@analyticalequipmentsolutions.com</a>
+                            </td>
                             <td><i class="fa-brands fa-linkedin"></i></td>
                         </tr>
                         <tr>
                             <td>Mr. Shyamkumar Dubey</td>
                             <td>Manager</td>
-                            <td><a href="mailto:shyam.d@analyticalequipmentsolutions.com">shyam.d@analyticalequipmentsolutions.com</a></td>
+                            <td><a href="mailto:shyam.d@analyticalequipmentsolutions.com">shyam.d@analyticalequipmentsolutions.com</a>
+                            </td>
                             <td><i class="fa-brands fa-linkedin"></i></td>
                         </tr>
                         <tr>
                             <td>Mr. Chandan Gupta</td>
                             <td>Manager</td>
-                            <td><a href="mailto:chandan.g@analyticalequipmentsolutions.com">chandan.g@analyticalequipmentsolutions.com</a></td>
+                            <td><a href="mailto:chandan.g@analyticalequipmentsolutions.com">chandan.g@analyticalequipmentsolutions.com</a>
+                            </td>
                             <td><i class="fa-brands fa-linkedin"></i></td>
                         </tr>
                         <tr>
                             <td>Mr. Lavkuch Gupta</td>
                             <td>Manager</td>
-                            <td><a href="mailto:lavkush.g@analyticalequipmentsolutions.com">lavkush.g@analyticalequipmentsolutions.com</a></td>
+                            <td><a href="mailto:lavkush.g@analyticalequipmentsolutions.com">lavkush.g@analyticalequipmentsolutions.com</a>
+                            </td>
                             <td><i class="fa-brands fa-linkedin"></i></td>
                         </tr>
                     </tbody>
@@ -151,9 +174,11 @@
             <br><br>
             <div>
                 <h3>Our Location</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30147.420096615377!2d72.949359!3d19.1765211!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8f918f31577%3A0xe34cf51ad74d93e3!2sDevi%20Niwas!5e0!3m2!1sen!2sin!4v1729926943647!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30147.420096615377!2d72.949359!3d19.1765211!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8f918f31577%3A0xe34cf51ad74d93e3!2sDevi%20Niwas!5e0!3m2!1sen!2sin!4v1729926943647!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="0" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-
         </section>
     </main>
 
@@ -185,7 +210,7 @@
             <div class="footer-child-3">
                 <b>Services</b>
                 <a href="../../assets/pdfs/AES_Catalogue_2024.pdf" target="_blank">Product Enquiry</a>
-                <a href="https://wa.me/919920780823?text=Test%20Service%20Request" target="_blank">Service Request</a>
+                <a href="https://wa.me/918268393857?text=Test%20Service%20Request" target="_blank">Service Request</a>
             </div>
 
             <!-- contact us -->
@@ -209,7 +234,8 @@
                 </div>
                 <div>
                     <i class="fa-solid fa-location-dot"></i>
-                    <a href="https://maps.app.goo.gl/hpf69LaY9kG6UTXM8" target="_blank">Jamil Nagar, Bhandup (W), Mumbai - 400078</a>
+                    <a href="https://maps.app.goo.gl/hpf69LaY9kG6UTXM8" target="_blank">Jamil Nagar, Bhandup (W), Mumbai
+                        - 400078</a>
                 </div>
             </div>
         </div>
@@ -225,7 +251,6 @@
     <!-- Scripts -->
     <script type="module" src="../../shared/controller/tokenVerification.js"></script>
     <script src="../../shared/controller/sharedScript.js"></script>
-    <!-- <script type="module" src="../controller/contactUsScript.js"></script> -->
 </body>
 
 </html>
