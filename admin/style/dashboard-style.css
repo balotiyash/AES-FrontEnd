@@ -22,13 +22,6 @@ p {
     margin: 0;
 }
 
-#navbar {
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    /* Ensure navbar is above other content */
-}
-
 /* main */
 .main {
     width: 100%;
