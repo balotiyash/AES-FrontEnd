@@ -37,6 +37,86 @@ function capitalizeFirstLetter(str) {
         .join(' ');
 }
 
+async function payment() {
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/payment/create-order/${grandTotal}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to make payment');
+        }
+
+        const order = await response.json();
+        return order;
+    } catch (error) {
+        console.error('Error making payment:', error);
+    }
+}
+
+async function updateOrderStatus(paymentId, orderId, orderData) {
+    // try {
+
+    //     const sale = {
+    //         shipping_address: orderData.sale.shipping_address,
+    //         contact_phone: orderData.sale.contact_phone,
+    //         transaction_id: paymentId,
+    //         order_id: orderId
+    //     }
+
+    //     const response = await fetch(`http://${IP}:${PORT}/order/offline-checkout`, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${token}`
+    //         },
+    //         body: JSON.stringify({
+    //             sale: sale,
+    //             isNewAddress: orderData.isNewAddress
+    //         })
+    //     });
+
+    //     if (!response.ok) {
+    //         throw new Error('Failed to delete cart item');
+    //     }
+    // } catch (error) {
+    //     console.error('Error deleting cart item:', error);
+    // }
+
+    let sales = orderData;
+    sales.sale.transaction_id = paymentId;
+    sales.sale.order_id = orderId;
+
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/order/offline-checkout`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(orderData)
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to Submit Order');
+        }
+
+        const orderResponse = await response.text();
+        console.log('Order Response:', orderResponse);
+
+        // Redirect to the order summary page
+        // window.location.href = `./order_management.html`;
+        alert('Order Submitted Successfully');
+    } catch (err) {
+        console.error('Error during Order Submission:', err);
+        alert('Error during Order Submission: ' + err.message);
+    }
+}
+
 const fetchProducts = async () => {
     try {
         const response = await fetch(`http://${IP}:${PORT}/public/getAllProducts`, {
@@ -129,6 +209,26 @@ const submitOrder = async () => {
         return;
     }
 
+    // Get order details
+    const order = await payment();
+    let userData = null;
+
+    try {
+        const response = await fetch(`http://${IP}:${PORT}/user/getUser`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+
+        if (!response.ok) throw new Error('Failed to Fetch User Data');
+
+        userData = await response.json();
+    } catch (error) {
+        console.error('Error during Fetching User Profile:', error);
+    }
+
     // Construct the new address if necessary
     let newAddress = line1 + ', ' + line2 + ', ' + line3 + ', ' + city + ', ' + state + ', ' + postalCode + ', ' + landmark;
     const isNewAddress = !selectedAddress; // True if no address is selected
@@ -139,8 +239,8 @@ const submitOrder = async () => {
         customer_id: customer_id,
         shipping_address: isNewAddress ? newAddress : selectedAddress,
         contact_phone: phone,
-        transaction_id: Math.floor(Math.random() * 1000000).toString(), // Random transaction ID
-        order_id: Math.floor(Math.random() * 1000000).toString(), // Random order ID
+        // transaction_id: Math.floor(Math.random() * 1000000).toString(), // Random transaction ID
+        // order_id: Math.floor(Math.random() * 1000000).toString(), // Random order ID
     };
 
     const productsData = selectedProducts.map(product => {
@@ -161,30 +261,37 @@ const submitOrder = async () => {
 
     console.log('Order Data:', orderData);
 
-    try {
-        const response = await fetch(`http://${IP}:${PORT}/order/offline-checkout`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(orderData)
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to Submit Order');
+    // Define Razorpay options with dynamic order_id
+    var options = {
+        "key": "rzp_test_hD75gZIHGX2XGb", // Razorpay Key
+        "amount": order.amount, // Amount in paise
+        "currency": "INR",
+        "name": "Analtical Equipment Solution",
+        "description": "AES Payment Gateway",
+        "image": "../../assets/images/AES Logo.jpg",
+        "order_id": order.id, // Pass dynamic order_id from backend
+        "handler": function (response) {
+            // alert("Payment successful with Payment ID: " + response.razorpay_payment_id);
+            updateOrderStatus(response.razorpay_payment_id, response.razorpay_order_id, orderData);
+            window.location.href = "./order_manage.html";
+            // window.localStorage.removeItem('subtotal');
+            // window.location.reload();
+        },
+        "prefill": {
+            "name": userData.customer_name,
+            "email": userData.customer_email,
+            "contact": window.localStorage.getItem('phoneNo')
+        },
+        "notes": {
+            "address": "Payment to AES"
+        },
+        "theme": {
+            "color": "#3399cc"
         }
+    };
 
-        const orderResponse = await response.text();
-        console.log('Order Response:', orderResponse);
-
-        // Redirect to the order summary page
-        // window.location.href = `./order_management.html`;
-        alert('Order Submitted Successfully');
-    } catch (err) {
-        console.error('Error during Order Submission:', err);
-        alert('Error during Order Submission: ' + err.message);
-    }
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
 };
 
 document.getElementById('usernameTxt').addEventListener('change', (event) => {

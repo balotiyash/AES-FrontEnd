@@ -83,10 +83,8 @@ async function payment() {
             throw new Error('Failed to make payment');
         }
 
-        // const responsee = await fetch("http://localhost:3000/payment/create-order/1"); // 500 is the amount in INR
         const order = await response.json();
         return order;
-
     } catch (error) {
         console.error('Error making payment:', error);
     }
