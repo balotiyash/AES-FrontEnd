@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the NAVBAR.
     Created on: 01/10/2024
-    Last Modified: 28/10/2024
+    Last Modified: 05/11/2024
 */
 
 #navbar {
@@ -28,6 +28,10 @@
     font-size: 20px;
     margin: 0 12px;
     color: #1230AE;
+}
+
+#navLinksDiv {
+    min-width: 610px;
 }
 
 .navBtns {
@@ -70,4 +74,10 @@
 
 #language-select {
     padding: 4px;
+}
+
+/* Code to disble other websites to use our URL in their IFRAME tag or security reasons */
+/* Hide important elements when in an iframe */
+.iframe-blocker {
+    display: none;
 }

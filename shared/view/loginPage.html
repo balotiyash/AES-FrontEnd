@@ -1,9 +1,9 @@
 <!-- 
     File: shared/view/loginPage.html
     Author: Yash Balotiya
-    Description: This page contains all the HTML5 code for the Login Page
+    Description: This page contains all the HTML5 code for the Login Page. It consists of login form & new account creation button
     Created on: 01/10/2024
-    Last Modified: 28/10/2024
+    Last Modified: 05/11/2024
 -->
 
 <!DOCTYPE html>
@@ -15,6 +15,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - AES</title>
     <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
+
+    <!-- Onpage SEO -->
+    <meta name="description" content="Analytical Equipment Solutions is a Mumbai-based company specializing in the manufacturing and supply of high-quality analytical equipment across India. As a trusted manufacturer, we produce ultrasonic baths and Probe sonicator, and supply a wide range of advanced laboratory tools including Orbital Shakers, Vortex Mixer, Hydraulic press, KBR die-set/Pallet holder, DTC-controller oven/ Dry box, HPLC column pump, HPLC column oven, Digital liquid flow meter, Digital gas flow, meter, HPLC / GC and more. We are also leaders in providing gas generation solutions, offering Nitrogen gas generators, Hydrogen gas generators, Zero air generators, Gas detectors, and complete operating systems. Our commitment to quality, integrity, and customer satisfaction is at the core of everything we do. We strive to deliver innovative solutions that meet the highest standards of precision, performance, and reliability, ensuring our clients achieve excellence in their research and industrial applications.">
+    <meta name="keywords" content="Analytical equipment, Ultrasonic baths, Probe sonicator, Orbital shakers, Vortex mixer, Hydraulic press, KBR die-set, Pallet holder, DTC-controller oven, Dry box, HPLC column pump, HPLC column oven, Digital liquid flow meter, Digital gas flow meter, HPLC GC equipment, Gas generation solutions, Nitrogen gas generators, Hydrogen gas generators, Zero air generators, Gas detectors, Laboratory tools, Research equipment, Industrial applications, Precision instruments, Mumbai-based analytical solutions, High-quality laboratory equipment, Laboratory equipment supplier, Gas generation systems, Analytical instruments India, Laboratory research tools">
+    <meta name="author" content="Yash Balotiya, Ayush Shetty, Atharv Mirgal, Nandini Kakaraniya">
+    <meta name="application-name" content="Analytical Equipment Solutions">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -47,17 +53,17 @@
     <header id="navbar">
         <!-- Logo -->
         <div id="logoDiv">
-            <img src="../../assets/images/AES Logo.jpg" alt="AES" id="navLogo">
+            <img src="../../assets/images/AES Logo.jpg" alt="AES Logo" id="navLogo">
             <h1>Analytical Equipment Solutions</h1>
         </div>
 
+        <!-- Navigation Panel -->
         <div id="navLinksDiv">
+            <!-- Navigation Buttons -->
             <button type="button" class="navBtns" onclick="window.location.href = '../../'">Home</button>
             <button type="button" class="navBtns"
                 onclick="window.location.href = '../../user/view/products-page.html'">Products</button>
-            <!-- <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/cart.html'">View
-                Cart</button> -->
-            <button type="button" class="navBtns" onclick="window.location.href = '../../'">About Us
+            <button type="button" class="navBtns" onclick="window.location.href = '../../user/view/about-us.html'">About Us
             </button>
             <button type="button" class="navBtns"
                 onclick="window.location.href = '../../user/view/contact-us.html'">Contact
@@ -68,14 +74,15 @@
                 <option value="en">English</option>
                 <option value="hi">Hindi</option>
                 <option value="mr">Marathi</option>
-                <option value="kn">Kannada</option>
                 <option value="gu">Gujarati</option>
+                <option value="kn">Kannada</option>
                 <option value="ta">Tamil</option>
             </select>
 
+            <!-- Login Button -->
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
-            <!-- Dropdown -->
+            <!-- Dropdown Button after Login -->
             <div class="dropdown" id="dropDownBtn">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,7 +91,7 @@
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenu">
                     <li><a class="dropdown-item" href="../../user/view/my-orders.html">My Orders</a></li>
-                    <li><a class="dropdown-item" href="../../user/view/saved-details.html">My Profile</a></li>
+                    <!-- <li><a class="dropdown-item" href="../../user/view/saved-details.html">My Profile</a></li> -->
                     <li><a class="dropdown-item" href="../../user/view/saved-details.html">My Cart</a></li>
                     <li><a class="dropdown-item" style="color: red;" id="logoutBtn">Logout</a></li>
                 </ul>
@@ -105,13 +112,13 @@
 
             <!-- Email -->
             <div class="inputDiv">
-                <b>Username</b>
+                <label for="username"><b>Username</b></label>
                 <input type="text" class="inputDetails" id="username" name="username" required>
             </div>
 
             <!-- Password -->
             <div class="inputDiv">
-                <b>Password</b>
+                <label for="password"><b>Password</b></label>
                 <input type="password" class="inputDetails" id="password" name="password" required>
             </div>
 
@@ -133,6 +140,7 @@
             </div>
 
             <br>
+
             <!-- Button -->
             <div id="signinDiv">
                 <button type="submit" class="btn btn-info" id="signinBtn">Sign In</button>
@@ -178,16 +186,16 @@
             <div class="footer-child-3">
                 <b>Quick Links</b>
                 <a href="../../">Home</a>
-                <a href="./products-page.html">Products</a>
-                <a href="./about-us.html">About Us</a>
-                <a href="./contact-us.html">Contact Us</a>
+                <a href="../../user/view/products-page.html">Products</a>
+                <a href="../../user/view/about-us.html">About Us</a>
+                <a href="../../user/view/contact-us.html">Contact Us</a>
             </div>
 
             <!-- services -->
             <div class="footer-child-3">
                 <b>Services</b>
                 <a href="../../assets/pdfs/AES_Catalogue_2024.pdf" target="_blank">Product Enquiry</a>
-                <a href="https://wa.me/919920780823?text=Test%20Service%20Request" target="_blank">Service Request</a>
+                <a href="https://wa.me/918268393857?text=Test%20Service%20Request" target="_blank">Service Request</a>
             </div>
 
             <!-- contact us -->
@@ -228,6 +236,10 @@
     <script type="module" src="../controller/tokenVerification.js"></script>
     <script src="../controller/sharedScript.js"></script>
     <script type="module" src="../controller/loginScript.js"></script>
+    
+    <!-- Chatbot -->
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2024/10/26/06/20241026063109-8ZX74BA7.js"></script>
 </body>
 
 </html>

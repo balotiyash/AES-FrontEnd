@@ -1,25 +1,25 @@
 /** 
  * File: main.js
  * Author: Yash Balotiya
- * Description: This file contains JS code for the home page (index).
+ * Description: This file contains JS code for the home page (index). This file include several functions to fetch and display top selling and new arrival products. As the products data is recieved from the backend it is shuffled and trimed only 1st 4 items and displayed it using dynamically creacted product card.
  * Created on: 13/10/2024
- * Last Modified: 30/10/2024
+ * Last Modified: 05/11/2024
 */
 
-// Login btn navigation
+import { IP, PORT } from './config.js';
+
+// Login btn navigation through home page
 document.getElementById("loginBtn").addEventListener("click", () => {
     window.location.href = './shared/view/loginPage.html';
 });
 
-// Logout button
+// Logout button function
 document.getElementById("logoutBtn").addEventListener("click", () => {
     window.localStorage.removeItem("token");
     window.location.reload();
 });
 
-import { IP, PORT } from './config.js';
-
-// Fetching data for home page
+// Function to fetch top selling products data for home page
 async function fetchTopSellingProducts() {
     try {
         const response = await fetch(`http://${IP}:${PORT}/public/top-sellers`, {
@@ -41,6 +41,7 @@ async function fetchTopSellingProducts() {
     }
 }
 
+// Function to fetch new arrival products data for home page
 async function fetchNewArrivals() {
     try {
         const response = await fetch(`http://${IP}:${PORT}/public/new-arrivals`, {
@@ -62,14 +63,8 @@ async function fetchNewArrivals() {
     }
 }
 
-// You can call these functions separately, for example:
-async function fetchProducts() {
-    await fetchTopSellingProducts();
-    await fetchNewArrivals();
-}
-
+// Function to trim 4 top selling products by shuffling the recieved product array
 function displayTopSellingProducts(data) {
-    console.log(data);
     shuffleArray(data);
 
     const itemsToShow = data.slice(0, 4);
@@ -81,8 +76,8 @@ function displayTopSellingProducts(data) {
     });
 }
 
+// Function to trim 4 new arrival products by shuffling the recieved product array
 function displayNewArrivals(data) {
-    console.log(data);
     shuffleArray(data);
 
     const itemsToShow = data.slice(0, 4);
@@ -94,6 +89,7 @@ function displayNewArrivals(data) {
     });
 }
 
+// Function to create product card dynamically using the details recieved of the products
 function createProductCard(product) {
     const productCard = document.createElement('div');
     productCard.className = 'product-card';
@@ -129,11 +125,12 @@ function shuffleArray(array) {
     }
 }
 
-// Function to show product description
+// Function to show product description on click on know more button of individual product card
 function showDescription(productId) {
-    window.location.href = "./user/view/product-description.html?product_id=" + productId;    
+    window.location.href = "./user/view/product-description.html?product_id=" + productId;
 }
 
+// Function to send page visit data to the backend to measure page reach
 async function hitStats() {
     try {
         const response = await fetch(`http://${IP}:${PORT}/public/hit`, {
@@ -152,7 +149,9 @@ async function hitStats() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    fetchProducts();
+// Function to run on load of the page
+document.addEventListener("DOMContentLoaded", async () => {
+    await fetchTopSellingProducts();
+    await fetchNewArrivals();
     hitStats();
 });

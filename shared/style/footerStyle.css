@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the footer.
     Created on: 13/10/2024
-    Last Modified: 22/10/2024
+    Last Modified: 05/11/2024
 */
 
 .footer {
@@ -75,4 +75,14 @@
 .copywrite-div p {
     margin: 0;
     font-size: 16px;
+}
+
+footer p,
+footer a,
+footer h1,
+footer b,
+.fa-envelope,
+.fa-phone,
+.fa-location-dot {
+    font-size: 1.1vw;
 }

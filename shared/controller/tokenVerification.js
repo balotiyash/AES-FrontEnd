@@ -1,37 +1,29 @@
 /** 
  * File: shared/controller/tokenVerification.js
  * Author: Yash Balotiya
- * Description: This file contains JS code for token verification for session management.
+ * Description: This file contains JS code for token verification for session management accross pages and also for navbar to show and hide profile icon accordingly.
  * Created on: 14/10/2024
- * Last Modified: 30/10/2024
+ * Last Modified: 05/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
 
 // Function to run onload to validate user login
 window.onload = async () => {
-    console.log('Running token verification');
     let session = window.localStorage.getItem("token");
-    console.log(session)
 
     if (session) {
         try {
             // Await the result of fetchUserData
             let data = await fetchUserData(session);
-            console.log('Data:', data);
 
             if (!data) {
-                console.log('User not authenticated');
                 document.getElementById("loginBtn").style.display = "inline";
                 document.getElementById("dropDownBtn").style.display = "none";
 
             } else {
                 document.getElementById("loginBtn").style.display = "none";
                 document.getElementById("dropDownBtn").style.display = "inline";
-
-                // if (window.location.href == "http://localhost:5501/shared/view/loginPage.html") {
-                //     window.location.href = "http://localhost:5501/admin/view/dashboard.html";
-                // }
             }
         } catch (error) {
             console.error('Error fetching user data:', error);
@@ -42,7 +34,6 @@ window.onload = async () => {
     } else {
         document.getElementById("loginBtn").style.display = "inline";
         document.getElementById("dropDownBtn").style.display = "none";
-        console.log('No token found'); 
     }
 };
 
@@ -58,11 +49,10 @@ async function fetchUserData(token) {
         });
 
         if (!response.ok) {
-            throw new Error('Authentication failed');
+            throw new Error('HTTP request was not ok. Authentication failed');
         }
 
         const data = await response.json();
-        console.log('User data:', data);
         return data.status;
 
     } catch (error) {
