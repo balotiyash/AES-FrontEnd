@@ -35,7 +35,22 @@ async function fetchInvoiceDetails() {
     }
 }
 
-window.onload = fetchInvoiceDetails();
+window.onload = () => {
+    // Check if the user is logged in then only this page will be accessable
+    if (!localStorage.getItem('isLoggedIn')) {
+        history.replaceState(null, '', '../../shared/view/loginPage.html');
+
+        window.onpopstate = function (event) {
+            if (!localStorage.getItem('isLoggedIn')) {
+                window.location.replace('../../shared/view/loginPage.html');
+            }
+        };
+    } else {
+        window.onpopstate = function (event) { };
+    }
+    
+    fetchInvoiceDetails();
+}
 
 // Function to convert into Pascal Case
 function capitalizeFirstLetterOfEachWord(str) {
