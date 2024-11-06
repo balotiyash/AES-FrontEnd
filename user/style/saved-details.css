@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the saved details.
     Created on: 13/10/2024
-    Last Modified: 30/10/2024
+    Last Modified: 06/11/2024
 */
 
 * {
@@ -95,9 +95,9 @@ body {
     margin: 0;
 }
 
-footer {
+/* footer {
     position: absolute;
     width: 100%;
     left: 0;
     bottom: 0;
-}
+} */

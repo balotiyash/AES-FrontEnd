@@ -1,9 +1,9 @@
 /** 
  * File: user/controller/invoiceScript.js
  * Author: Yash Balotiya
- * Description: This page contains all the js code for generating invoice
+ * Description: This page contains all the js code for generating invoice.
  * Created on: 30/10/2024
- * Last Modified: 30/10/2024
+ * Last Modified: 06/11/2024
 */
 
 
@@ -26,7 +26,7 @@ async function fetchInvoiceDetails() {
             body: new URLSearchParams({ saleID: saleId })
         });
 
-        if (!response.ok) throw new Error('Failed to Fetch Invoice Data');
+        if (!response.ok) throw new Error('Network response was not OK');
 
         const invoiceData = await response.json();
         generateInvoice(invoiceData);
@@ -36,6 +36,17 @@ async function fetchInvoiceDetails() {
 }
 
 window.onload = fetchInvoiceDetails();
+
+// Function to convert into Pascal Case
+function capitalizeFirstLetterOfEachWord(str) {
+    return str
+        .split(' ')  // Split the string into words by spaces
+        .map(word => {
+            // Capitalize the first letter and keep the rest of the word as is
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        })
+        .join(' ');  // Join the words back into a single string with spaces
+}
 
 function generateInvoice(invoiceData) {
     // Set date and invoice ID
@@ -55,9 +66,9 @@ function generateInvoice(invoiceData) {
     // Set customer details dynamically
     document.getElementById("customerDetails").innerHTML = `
         <strong>BILLED TO</strong><br>
-        <i>${invoiceData.customer_name}</i><br>
-        ${invoiceData.shipping_address}<br>
-        ${invoiceData.customer_email}<br>
+        <i>${capitalizeFirstLetterOfEachWord(invoiceData.customer_name)}</i><br>
+        ${capitalizeFirstLetterOfEachWord(invoiceData.shipping_address)}<br>
+        ${invoiceData.customer_email.toLowerCase()}<br>
         ${invoiceData.customer_phone}
     `;
 
@@ -74,9 +85,9 @@ function generateInvoice(invoiceData) {
         row.innerHTML = `
             <td>${index + 1}</td>
             <td>${product.product_name}</td>
-            <td>Rs ${product.product_price.toFixed(2)}</td>
+            <td>Rs. ${product.product_price.toFixed(2)}</td>
             <td>${product.quantity}</td>
-            <td>Rs ${total.toFixed(2)}</td>
+            <td>Rs. ${total.toFixed(2)}</td>
         `;
         productTable.appendChild(row);
     });

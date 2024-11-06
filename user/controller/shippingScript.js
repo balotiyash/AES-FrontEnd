@@ -1,9 +1,9 @@
 /** 
  * File: user/controller/shippingScript.js
  * Author: Yash Balotiya
- * Description: This file contains JS code for the address page of shipping page.
+ * Description: This file contains JS code for the address page of shipping page. It contains a function to fetch shipping address from server (existing) or to add new address
  * Created on: 30/10/2024
- * Last Modified: 30/10/2024
+ * Last Modified: 06/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -12,8 +12,8 @@ import { IP, PORT } from '../../config.js';
 const formatCurrency = (amount) => amount.toLocaleString('en-IN', { style: 'currency', currency: 'INR' });
 const token = window.localStorage.getItem("token");
 
+// Function to fetch existing address
 async function fetchUserProfile() {
-
     try {
         const response = await fetch(`http://${IP}:${PORT}/user/getUser`, {
             method: 'GET',
@@ -23,7 +23,7 @@ async function fetchUserProfile() {
             },
         });
 
-        if (!response.ok) throw new Error('Failed to Fetch User Data');
+        if (!response.ok) throw new Error('Network response was not ok');
 
         const userData = await response.json();
         populateAddressSelect(userData.addresses);
@@ -33,14 +33,16 @@ async function fetchUserProfile() {
     }
 }
 
+// Function to add addresses in select tag
 function populateAddressSelect(addresses) {
     const selectElement = document.getElementById('addressSelect');
     addresses.forEach(address => {
-        const option = new Option(address, address); // Create option element
+        const option = new Option(address.toUpperCase(), address.toLowerCase()); // Create option element
         selectElement.add(option);
     });
 }
 
+// Function to update summary section
 function updateSummary() {
     const subtotal = parseFloat(window.localStorage.getItem("subtotal")) || 0; // Fallback to 0
     const tax = subtotal * 0.18;
@@ -53,38 +55,55 @@ function updateSummary() {
     document.querySelector('.summary-sec .total-text').textContent = formatCurrency(total);
 }
 
-window.onload = fetchUserProfile;
-
+// On load
 document.addEventListener("DOMContentLoaded", () => {
+    fetchUserProfile();
+
     const selectElement = document.getElementById('addressSelect');
     const addrFields = [
         'streetAdd1', 'streetAdd2', 'streetAdd3',
         'cityTxt', 'landmarkTxt', 'stateTxt', 'pinCode'
     ].map(id => document.getElementById(id)); // Collect input fields
 
+    // Event listener for address selection (either from dropdown or manual entry)
     selectElement.addEventListener('change', () => {
         const isAddressSelected = selectElement.value !== "";
         addrFields.forEach(field => field.disabled = isAddressSelected);
 
-        // Disable additional input fields if necessary
+        // Disable additional input fields (if any) when an address is selected
         const additionalInputs = document.querySelectorAll('.inputTxt');
         additionalInputs.forEach(input => input.disabled = isAddressSelected);
     });
 
+    // Event listener for checkout button
     document.getElementById("checkout-btn").addEventListener("click", async () => {
-        const address = selectElement.value || addrFields.map(el => el.value).join(' ').trim();
+        let address = selectElement.value || addrFields.map(el => el.value).join(' ').trim();
         const phoneNo = document.getElementById('phoneTxt').value;
 
-        if (!address) {
-            alert('Please select or enter an address to proceed');
+        // Validate that an address is entered or selected
+        if (!address || (selectElement.value === "" && addrFields.some(el => !el.value.trim()))) {
+            alert('Please select or enter a valid address to proceed');
             return;
-        } else if (!phoneNo) {
+        }
+
+        // Validate that a phone number is entered
+        if (!phoneNo) {
             alert('Please enter a phone number to proceed');
             return;
         }
 
-        window.location.href = './payment-page.html';
+        // Validate pin code using regex (assuming 6 digits numeric pin code for India)
+        const pinCodeRegex = /^\d{6}$/; // 6 digits
+        if (pinCode && !pinCodeRegex.test(pinCode)) {
+            alert('Please enter a valid 6-digit pin code');
+            return;
+        }
+
+        // Store data in localStorage and redirect to payment page
         window.localStorage.setItem('address', address);
         window.localStorage.setItem('phoneNo', phoneNo);
+
+        // Redirect to payment page
+        window.location.href = './payment-page.html';
     });
 });

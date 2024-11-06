@@ -1,9 +1,9 @@
 <!-- 
     File: user/view/cart.html
     Author: Yash Balotiya
-    Description: This file contains all the HTML code of cart page
+    Description: This file contains all the HTML code of cart page. It contains left side with product details in the cart and the right side has the summary section of the total amount
     Created on: 13/10/2024
-    Last Modified: 28/10/2024
+    Last Modified: 06/11/2024
 -->
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     <!-- Meta Data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart - AES</title>
+    <title>My Cart - AES</title>
     <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
 
     <!-- Bootstrap -->
@@ -47,11 +47,13 @@
     <header id="navbar">
         <!-- Logo -->
         <div id="logoDiv">
-            <img src="../../assets/images/AES Logo.jpg" alt="AES" id="navLogo">
+            <img src="../../assets/images/AES Logo.jpg" alt="AES Logo" id="navLogo">
             <h1>Analytical Equipment Solutions</h1>
         </div>
 
+        <!-- Navigation Panel -->
         <div id="navLinksDiv">
+            <!-- Navigation Buttons -->
             <button type="button" class="navBtns" onclick="window.location.href = '../../'">Home</button>
             <button type="button" class="navBtns"
                 onclick="window.location.href = './products-page.html'">Products</button>
@@ -65,14 +67,15 @@
                 <option value="en">English</option>
                 <option value="hi">Hindi</option>
                 <option value="mr">Marathi</option>
-                <option value="kn">Kannada</option>
                 <option value="gu">Gujarati</option>
+                <option value="kn">Kannada</option>
                 <option value="ta">Tamil</option>
             </select>
 
+            <!-- Login Button -->
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
-            <!-- Dropdown -->
+            <!-- Dropdown Button after Login -->
             <div class="dropdown" id="dropDownBtn">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -108,7 +111,8 @@
                     <tbody id="item-body"><!-- Rows will be inserted here --></tbody>
                 </table>
 
-                <button class="cont-btn" onclick="window.location.href = './products-page.html'"><i class="fa-solid fa-angles-left"></i> Continue Shopping</button>
+                <button class="cont-btn" onclick="window.location.href = './products-page.html'"><i
+                        class="fa-solid fa-angles-left"></i> Continue Shopping</button>
             </section>
 
             <!-- Summary Section -->
@@ -139,14 +143,16 @@
 
                     <hr>
                     <!-- <button class="checkout-btn" id="rzp-button1">Proceed to checkout</button> -->
-                    <button class="checkout-btn" id="" onclick="window.location.href = './shipping-page.html'">Proceed to checkout</button>
+                    <button class="checkout-btn" onclick="window.location.href = './shipping-page.html'">Proceed
+                        to checkout</button>
                 </div>
             </section>
         </section>
 
+        <!-- Empty cart section -->
         <section class="empty-cart-sec" style="text-align: center;">
-            <img src="../../assets/vectors/Empty Cart.svg" alt="">
-            <h1>Your cart is empty</h1>
+            <img src="../../assets/vectors/Empty Cart.svg" alt="Empty Cart">
+            <h2>Your cart is empty</h2>
             <p>Looks like you haven't added anything to your cart yet</p>
             <button class="cont-btn" onclick="window.location.href = './products-page.html'">Continue Shopping</button>
         </section>
@@ -160,7 +166,7 @@
             <!-- Company profile -->
             <div class="footer-child-1">
                 <div class="footer-child-2">
-                    <img src="../../assets/images/AES Logo.jpg" alt="Analytical Equipment Solutions"
+                    <img src="../../assets/images/AES Logo.jpg" alt="AES Logo"
                         class="footer-aes-logo">
                     <h1>Analytical Equipment<br>Solutions</h1>
                 </div>
@@ -180,7 +186,7 @@
             <div class="footer-child-3">
                 <b>Services</b>
                 <a href="../../assets/pdfs/AES_Catalogue_2024.pdf" target="_blank">Product Enquiry</a>
-                <a href="https://wa.me/919920780823?text=Test%20Service%20Request" target="_blank">Service Request</a>
+                <a href="https://wa.me/918268393857?text=Test%20Service%20Request" target="_blank">Service Request</a>
             </div>
 
             <!-- contact us -->

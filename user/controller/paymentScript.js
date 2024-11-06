@@ -1,18 +1,19 @@
 /** 
  * File: user/controller/paymentScrpt.js
  * Author: Yash Balotiya
- * Description: This file contains JS code for the payments page.
+ * Description: This file contains JS code for the payments page. It consists function for razorpay integration to complete transaction, update cart/order and save transaction details.
  * Created on: 30/10/2024
- * Last Modified: 30/10/2024
+ * Last Modified: 06/11/2024
 */
 
-import { IP, PORT } from '../../config.js';
+import { IP, PORT, RAZORPAY_KEY } from '../../config.js';
 
 // Utility function to format numbers with commas
 function formatCurrency(amount) {
     return amount.toLocaleString('en-IN', { style: 'currency', currency: 'INR' });
 }
 
+// Function to handle transaction using razorpay
 document.getElementById('rzp-button1').onclick = async function (e) {
     e.preventDefault();
 
@@ -29,7 +30,7 @@ document.getElementById('rzp-button1').onclick = async function (e) {
             },
         });
 
-        if (!response.ok) throw new Error('Failed to Fetch User Data');
+        if (!response.ok) throw new Error('Network response was not ok');
 
         userData = await response.json();
     } catch (error) {
@@ -38,7 +39,7 @@ document.getElementById('rzp-button1').onclick = async function (e) {
 
     // Define Razorpay options with dynamic order_id
     var options = {
-        "key": "rzp_test_hD75gZIHGX2XGb", // Razorpay Key
+        "key": RAZORPAY_KEY, // Razorpay Key
         "amount": order.amount, // Amount in paise
         "currency": "INR",
         "name": "Analtical Equipment Solution",
@@ -46,11 +47,8 @@ document.getElementById('rzp-button1').onclick = async function (e) {
         "image": "../../assets/images/AES Logo.jpg",
         "order_id": order.id, // Pass dynamic order_id from backend
         "handler": function (response) {
-            // alert("Payment successful with Payment ID: " + response.razorpay_payment_id);
             updateOrderStatus(response.razorpay_payment_id, response.razorpay_order_id);
             window.location.href = "./my-orders.html";
-            // window.localStorage.removeItem('subtotal');
-            // window.location.reload();
         },
         "prefill": {
             "name": userData.customer_name,
@@ -69,6 +67,7 @@ document.getElementById('rzp-button1').onclick = async function (e) {
     rzp1.open();
 }
 
+// Function to generate payment ticket
 async function payment() {
     try {
         const response = await fetch(`http://${IP}:${PORT}/payment/create-order/${grandTotal}`, {
@@ -80,7 +79,7 @@ async function payment() {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to make payment');
+            throw new Error('Network response was not ok');
         }
 
         const order = await response.json();
@@ -90,6 +89,7 @@ async function payment() {
     }
 }
 
+// Function to update order status after successful payment
 async function updateOrderStatus(paymentId, orderId) {
     try {
         const sale = {
@@ -111,13 +111,14 @@ async function updateOrderStatus(paymentId, orderId) {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to delete cart item');
+            throw new Error('Network response was not ok');
         }
     } catch (error) {
         console.error('Error deleting cart item:', error);
     }
 }
 
+// Update summary section
 const subtotal = parseFloat(window.localStorage.getItem("subtotal"));
 const tax = subtotal * 0.18;
 const shipping = 3000;

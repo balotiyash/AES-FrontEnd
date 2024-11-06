@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This page contains all the js code which is shared between all pages for login & logout button functionalities, Session Management and PAN India support
  * Created on: 11/10/2024
- * Last Modified: 05/11/2024
+ * Last Modified: 06/11/2024
 */
 
 // Login button handling
@@ -40,15 +40,19 @@ function handleTimeout() {
     if (regex.test(URL)) {
         setLoginButtonVisibility(true);
         window.localStorage.setItem("token", null);
+        window.localStorage.clear();
     }
 
     const restrictedURLs = [
         "http://localhost:5501/user/view/cart.html",
         "http://localhost:5501/user/view/my-orders.html",
-        "http://localhost:5501/user/view/saved-details.html"
+        "http://localhost:5501/user/view/saved-details.html",
+        "http://localhost:5501/user/view/payment-page.html",
+        "http://localhost:5501/user/view/shipping-page.html"
     ];
 
     if (restrictedURLs.includes(URL)) {
+        window.localStorage.clear();
         window.location.href = "http://localhost:5501/shared/view/loginPage.html";
     } else if ([
         "http://localhost:5501/",

@@ -1,9 +1,9 @@
 /** 
  * File: user/controller/orderHistoryScript.js
  * Author: Yash Balotiya
- * Description: This file contains JS code for the My Orders page.
+ * Description: This file contains JS code for the My Orders page. It consists of functions to fetch order history
  * Created on: 22/10/2024
- * Last Modified: 30/10/2024
+ * Last Modified: 06/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -22,17 +22,17 @@ async function fetchOrders() {
         });
 
         if (!response.ok) {
-            throw new Error('Authentication failed');
+            throw new Error('Network response was not ok');
         }
 
         const data = await response.json();
-        console.log(data);
 
         if (data) {
             const productContainer = document.getElementById("productContainer");
             productContainer.innerHTML = ''; // Clear existing content
 
             data.forEach(order => {
+                // Product card
                 const productDiv = document.createElement("div");
                 productDiv.className = "product-div";
             
@@ -56,6 +56,7 @@ async function fetchOrders() {
                 const orderPrice = order.product_price * order.quantity;
                 productPrice.innerHTML = `Rs. ${parseInt(orderPrice).toLocaleString('en-IN')}`; // Format the price
             
+                // Invoice Downloading
                 const invoiceBtn = document.createElement("button");
                 invoiceBtn.innerHTML = `<i class="fa-solid fa-cloud-arrow-down"></i>`;
                 invoiceBtn.className = "invoice-btn btn btn-light";
@@ -77,6 +78,7 @@ async function fetchOrders() {
                     }
                 };                
             
+                // Tally Amount and quantity
                 const productQuantity = document.createElement("p");
                 productQuantity.innerHTML = `Qty: ${order.quantity}`;
             
@@ -95,7 +97,7 @@ async function fetchOrders() {
             
         }
     } catch (error) {
-        console.error('Error during authentication:', error);
+        console.error('Error during fetching order history:', error);
         throw error;
     }
 }

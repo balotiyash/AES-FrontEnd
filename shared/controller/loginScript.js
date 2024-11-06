@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This page contains all the js code for the login page to send data from form to server and to authinticate user.
  * Created on: 11/10/2024
- * Last Modified: 05/11/2024
+ * Last Modified: 06/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -35,11 +35,14 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
                 // To automatically logout after session expires
                 window.localStorage.setItem("token", myData.token); // Assuming the token is in myData.token
                 window.localStorage.setItem("timer", 60 * 60); // Assuming the token is in myData.token
+                window.localStorage.setItem("isLoggedin", true);
 
                 if (myData.user.roles[0] === "ADMIN") {
-                    window.location.href = '../../admin/view/dashboard.html';
+                    // Redirect to home page with window.location.replace to remove login page from history
+                    window.location.replace('../../admin/view/dashboard.html'); // Replace with actual home page URL
                 } else {
-                    window.location.href = '../../';
+                    // Redirect to home page with window.location.replace to remove login page from history
+                    window.location.replace('../../'); // Replace with actual home page URL
                 }
             } else {
                 alert('Login failed. Please contact your admin.');
@@ -56,7 +59,7 @@ window.onload = () => {
     const togglePassword = document.getElementById("passwordCbk");
 
     togglePassword.checked = false
-    
+
     togglePassword.addEventListener("click", () => {
         // Toggle the type attribute
         const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";

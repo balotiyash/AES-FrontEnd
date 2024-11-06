@@ -1,9 +1,9 @@
 /** 
  * File: user/controller/cartScript.js
  * Author: Yash Balotiya
- * Description: This file contains JS code for the cart page.
+ * Description: This file contains JS code for the cart page. It contains functions to fetch cart details, to handle empty cart, to update cart and to display summary to amount dynamically
  * Created on: 14/10/2024
- * Last Modified: 30/10/2024
+ * Last Modified: 06/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -16,7 +16,7 @@ function formatCurrency(amount) {
     return amount.toLocaleString('en-IN', { style: 'currency', currency: 'INR' });
 }
 
-// Fetch and display product add to cart or inc dec
+// function to fetch cart details along to handle functionality to dynamically generating increment/decrement buttons and to handle their click events
 async function fetchCartDetails() {
     try {
         const response = await fetch(`http://${IP}:${PORT}/cart/items`, {
@@ -28,11 +28,10 @@ async function fetchCartDetails() {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to fetch product details');
+            throw new Error('Network response was not OK');
         }
 
         const products = await response.json();
-        console.log('Fetched cart details:', products);
 
         if (products.length === 0) {
             document.querySelector('.main-sec').style.display = 'none';
@@ -93,6 +92,7 @@ async function fetchCartDetails() {
                 updateSummary(subtotal); // Update summary whenever price changes
             };
 
+            // Increment Btn Click event
             row.querySelector('.increase').addEventListener('click', () => {
                 let quantity = parseInt(quantityElement.textContent);
                 quantity++;
@@ -101,6 +101,7 @@ async function fetchCartDetails() {
                 updateCart(item.product_id, quantity, item.item_id); // Pass product ID and updated quantity
             });
 
+            // Decrement Btn Click event
             row.querySelector('.decrease').addEventListener('click', () => {
                 let quantity = parseInt(quantityElement.textContent);
                 quantity--;
@@ -114,6 +115,7 @@ async function fetchCartDetails() {
                 }
             });
 
+            // Delete icon click event
             row.querySelector('.deleteItem').addEventListener('click', () => {
                 deleteItem(item.item_id);
                 window.location.reload();

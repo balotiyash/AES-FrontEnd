@@ -1,9 +1,9 @@
 <!-- 
     File: user/view/invoice.html
     Author: Yash Balotiya
-    Description: This file contains all the HTML code of invoice page
+    Description: This file contains all the HTML code of invoice page. It consists of complete invoice design
     Created on: 30/10/2024
-    Last Modified: 30/10/2024
+    Last Modified: 06/11/2024
 -->
 
 <!DOCTYPE html>
@@ -11,16 +11,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Downloading Invoice</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <title>Downloading Invoice - AES</title>
     <link rel="stylesheet" href="../style/invoice-style.css">
 </head>
 <body>
-    <!-- <h1>Invoice Generator</h1> -->
-    <!-- <button onclick="generateInvoice()">Download Styled Invoice</button> -->
-
     <!-- Hidden invoice template -->
     <div id="invoice">
+        <!-- Header Section -->
         <div class="header">
             <div class="logo">
                 <div>
@@ -30,16 +27,18 @@
                 <p>We Provide Pan India Analytical Instruments Sales & Services</p>
             </div>
         </div>
+
+        <!-- Invoice details -->
         <div class="invoice-title">
             <h3>INVOICE</h3>
             <p><b>Id:</b> <span id="invoiceIdDisplay"></span></p>
             <p><b>Date:</b> <span id="createdDate"></span></p>
         </div>
-        <!-- <hr> -->
 
+        <!-- Client & Company Details -->
         <div class="info">
+            <!-- Company Details -->
             <div id="companyDetails">
-                <!-- Company details will be added dynamically -->
                 <b>MANUFACTURED & SUPPLIED BY</b><br>
                 <i>Analytical Equipment Solutions</i><br>
                 Gala No. 1, Devi Nivas, Near Medicure Hospital, Jamil Nagar, Bhandup (West), Mumbai - 400 078<br>
@@ -47,11 +46,14 @@
                 official@analyticalequipmentsolutions.com<br>
                 +91 82683 93857
             </div>
+
+            <!-- Clients Detail -->
             <div id="customerDetails">
                 <!-- Customer details will be added dynamically -->
             </div>
         </div>
 
+        <!-- Invoice product details -->
         <div class="items">
             <table>
                 <thead>
@@ -69,12 +71,8 @@
             </table>
         </div>
 
+        <!-- Invoice Tally section -->
         <div class="totals">
-            <!-- <div><b>SUBTOTAL:</b> Rs <span id="subtotalAmount"></span></div>
-            <div><b>GST:</b> Rs <span id="gstAmount"></span></div>
-            <div><b>SHIPPING:</b> Rs <span id="shippingAmount"></span></div>
-            <div class="total-amount"><b>TOTAL:</b> Rs <span id="totalAmount"></span></div> -->
-
             <table>
                 <tbody>
                     <tr>
@@ -97,11 +95,14 @@
             </table>
         </div>
 
+        <!-- Footer -->
         <div class="notice">
             This invoice is computer-generated and does not require a signature. 
         </div>
     </div>
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <script type="module" src="../controller/invoiceScript.js"></script>
 </body>
 </html>

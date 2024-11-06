@@ -1,9 +1,9 @@
 <!-- 
     File: user/view/shipping-page.html
     Author: Yash Balotiya
-    Description: This file contains all the HTML code for shipping page
+    Description: This file contains all the HTML code for shipping page. It is consist of a form to fill shipping address along with a summary section of amount on the right side.
     Created on: 13/10/2024
-    Last Modified: 30/10/2024
+    Last Modified: 06/11/2024
 -->
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     <!-- Meta Data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment - AES</title>
+    <title>Shipping Address - AES</title>
     <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
 
     <!-- Bootstrap -->
@@ -47,11 +47,13 @@
     <header id="navbar">
         <!-- Logo -->
         <div id="logoDiv">
-            <img src="../../assets/images/AES Logo.jpg" alt="AES" id="navLogo">
+            <img src="../../assets/images/AES Logo.jpg" alt="AES Logo" id="navLogo">
             <h1>Analytical Equipment Solutions</h1>
         </div>
 
+        <!-- Navigation Panel -->
         <div id="navLinksDiv">
+            <!-- Navigation Buttons -->
             <button type="button" class="navBtns" onclick="window.location.href = '../../'">Home</button>
             <button type="button" class="navBtns"
                 onclick="window.location.href = './products-page.html'">Products</button>
@@ -65,14 +67,15 @@
                 <option value="en">English</option>
                 <option value="hi">Hindi</option>
                 <option value="mr">Marathi</option>
-                <option value="kn">Kannada</option>
                 <option value="gu">Gujarati</option>
+                <option value="kn">Kannada</option>
                 <option value="ta">Tamil</option>
             </select>
 
+            <!-- Login Button -->
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
-            <!-- Dropdown -->
+            <!-- Dropdown Button after Login -->
             <div class="dropdown" id="dropDownBtn">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -114,14 +117,14 @@
                 <!-- Select payment mode -->
                 <form class="shipping-form">
                     <div class="input-div">
-                        <label for="">Contact Number</label>
-                        <input type="number" name="" id="phoneTxt">
+                        <label for="phoneTxt">Contact Number</label>
+                        <input type="number" id="phoneTxt" required>
                     </div>
-                    
+
                     <h5>Shipping Address</h5>
 
                     <div class="input-div">
-                        <select name="" id="addressSelect">
+                        <select id="addressSelect">
                             <option value="">Select Address</option>
                         </select>
                     </div>
@@ -129,30 +132,30 @@
                     <b style="margin: auto;">OR</b>
 
                     <div class="input-div">
-                        <label for="">Street Address</label>
-                        <input type="text" name="" id="streetAdd1" placeholder="Address Line 1">
-                        <input type="text" name="" id="streetAdd2" placeholder="Address Line 2">
-                        <input type="text" name="" id="streetAdd3" placeholder="Address Line 3">
+                        <label for="streetAdd1">Street Address</label>
+                        <input type="text" id="streetAdd1" placeholder="Address Line 1">
+                        <input type="text" id="streetAdd2" placeholder="Address Line 2">
+                        <input type="text" id="streetAdd3" placeholder="Address Line 3">
                     </div>
 
                     <div class="input-div">
-                        <label for="">City</label>
-                        <input type="text" name="" id="cityTxt">
+                        <label for="cityTxt">City</label>
+                        <input type="text" id="cityTxt">
                     </div>
 
                     <div class="input-div">
-                        <label for="">Zip/Postal Code</label>
-                        <input type="number" name="" id="pinCode">
+                        <label for="pinCode">Zip/Postal Code</label>
+                        <input type="number" id="pinCode">
                     </div>
 
                     <div class="input-div">
-                        <label for="">State</label>
-                        <input type="text" name="" id="stateTxt">
+                        <label for="stateTxt">State</label>
+                        <input type="text" id="stateTxt">
                     </div>
 
                     <div class="input-div">
-                        <label for="">Landmark</label>
-                        <input type="text" name="" id="landmarkTxt">
+                        <label for="landmarkTxt">Landmark</label>
+                        <input type="text" id="landmarkTxt">
                     </div>
                 </form>
             </section>
@@ -198,7 +201,7 @@
             <!-- Company profile -->
             <div class="footer-child-1">
                 <div class="footer-child-2">
-                    <img src="../../assets/images/AES Logo.jpg" alt="Analytical Equipment Solutions"
+                    <img src="../../assets/images/AES Logo.jpg" alt="AES Logo"
                         class="footer-aes-logo">
                     <h1>Analytical Equipment<br>Solutions</h1>
                 </div>
@@ -218,7 +221,7 @@
             <div class="footer-child-3">
                 <b>Services</b>
                 <a href="../../assets/pdfs/AES_Catalogue_2024.pdf" target="_blank">Product Enquiry</a>
-                <a href="https://wa.me/919920780823?text=Test%20Service%20Request" target="_blank">Service Request</a>
+                <a href="https://wa.me/918268393857?text=Test%20Service%20Request" target="_blank">Service Request</a>
             </div>
 
             <!-- contact us -->

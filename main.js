@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the home page (index). This file include several functions to fetch and display top selling and new arrival products. As the products data is recieved from the backend it is shuffled and trimed only 1st 4 items and displayed it using dynamically creacted product card.
  * Created on: 13/10/2024
- * Last Modified: 05/11/2024
+ * Last Modified: 06/11/2024
 */
 
 import { IP, PORT } from './config.js';
@@ -154,4 +154,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     await fetchTopSellingProducts();
     await fetchNewArrivals();
     hitStats();
+
+    // On the Home page
+
+    // Check if the user is logged in
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        // When the user navigates to the home page after login,
+        // replace the history state to prevent going back to the login page
+        history.replaceState(null, '', './');
+
+        // Listen for back navigation (popstate event) and redirect if necessary
+        window.onpopstate = function (event) {
+            // If the user is trying to go back to the login page, redirect to the home page
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                window.location.replace('./');  // Redirect to the home page
+            }
+        };
+    } else {
+        // If not logged in, allow regular navigation
+        window.onpopstate = function (event) {
+            // Normal back navigation (you can leave this empty or handle other cases)
+        };
+    }
+
 });

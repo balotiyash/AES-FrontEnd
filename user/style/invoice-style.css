@@ -3,21 +3,18 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of invoice page
     Created on: 30/10/2024
-    Last Modified: 30/10/2024
+    Last Modified: 06/11/2024
 */
 
+/* Main section */
 #invoice {
     display: none;
-    /* font-family: Arial, sans-serif; */
     color: #333;
-    /* width: 80%; */
-    /* margin: auto; */
-    /* padding: 20px; */
 }
 
+/* Header */
 .header {
     display: flex;
-    /* align-items: flex-start; */
     justify-content: space-between;
     padding-bottom: 20px;
     border-bottom: 2px solid #ddd;
@@ -25,14 +22,12 @@
 
 .logo {
     width: 100%;
-    /* margin-right: 8px; */
     text-align: center;
 }
 
 .logo img {
     height: 100px;
     margin-right: 20px;
-    /* width: 300px; */
 }
 
 .logo div {
@@ -44,16 +39,14 @@
 }
 
 .logo p {
-    /* margin: 4px 0; */
     margin: 0;
 }
 
+/* Invoice details */
 .invoice-title {
-    /* padding-top: 20px; */
     margin: 16px 0;
     width: 100%;
     text-align: right;
-    /* font-size: 16px; */
     color: Black;
     line-height: 1.2;
 }
@@ -67,11 +60,11 @@
     margin: 0.2em 0;
 }
 
+/* Company & Customer details */
 .info {
     display: flex;
     justify-content: space-between;
     margin: 40px 0;
-    /* font-size: 14px; */
 }
 
 .info div {
@@ -84,7 +77,6 @@
 
 .items {
     margin-top: 20px;
-    /* font-size: 14px; */
 }
 
 .items table {
@@ -103,11 +95,10 @@
     background-color: #f9f9f9;
 }
 
+/* Tally section */
 .totals {
     margin: 20px 0;
     text-align: right;
-    /* font-size: 14px; */
-
     width: 100%;
     display: flex;
     justify-content: end;
@@ -122,11 +113,6 @@
     margin: 3px 0;
 }
 
-.totals .total-amount {
-    /* font-size: 20px; */
-    /* color: #d4b25a; */
-}
-
 #totalAmount {
     background-color: yellow;
 }
@@ -136,7 +122,6 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    /* font-size: 12px; */
     color: #777;
     border-top: 1px solid #ddd;
     padding-top: 10px;

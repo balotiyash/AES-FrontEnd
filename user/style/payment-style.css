@@ -3,7 +3,7 @@
     Author: Yash Balotiya
     Description: This file contains the styling part of the payments Page.
     Created on: 13/10/2024
-    Last Modified: 15/10/2024
+    Last Modified: 06/11/2024
 */
 
 * {
@@ -41,10 +41,7 @@ body {
 }
 
 .payment-mode-sec {
-    /* width: 60%; */
     width: 100%;
-    /* display: flex; */
-    /* justify-content: center; */
 }
 
 .summary-sec {
@@ -99,14 +96,12 @@ body {
 }
 
 .map-lable-1 {
-    /* left: 146px; */
-    left: 253px;
+    left: 260px;
     top: 10px;
 }
 
 .map-lable-2 {
-    /* left: 410px; */
-    left: 725px;
+    left: 750px;
     top: 10px;
 }
 

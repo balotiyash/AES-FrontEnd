@@ -1,9 +1,9 @@
 <!-- 
     File: user/view/my-orders.html
     Author: Yash Balotiya
-    Description: This file contains all the HTML code of my orders page
+    Description: This file contains all the HTML code of my orders page. It contains all the past order history along with a button to download invoice
     Created on: 13/10/2024
-    Last Modified: 30/10/2024
+    Last Modified: 06/11/2024
 -->
 
 <!DOCTYPE html>
@@ -47,11 +47,13 @@
     <header id="navbar">
         <!-- Logo -->
         <div id="logoDiv">
-            <img src="../../assets/images/AES Logo.jpg" alt="AES" id="navLogo">
+            <img src="../../assets/images/AES Logo.jpg" alt="AES Logo" id="navLogo">
             <h1>Analytical Equipment Solutions</h1>
         </div>
 
+        <!-- Navigation Panel -->
         <div id="navLinksDiv">
+            <!-- Navigation Buttons -->
             <button type="button" class="navBtns" onclick="window.location.href = '../../'">Home</button>
             <button type="button" class="navBtns"
                 onclick="window.location.href = './products-page.html'">Products</button>
@@ -65,14 +67,15 @@
                 <option value="en">English</option>
                 <option value="hi">Hindi</option>
                 <option value="mr">Marathi</option>
-                <option value="kn">Kannada</option>
                 <option value="gu">Gujarati</option>
+                <option value="kn">Kannada</option>
                 <option value="ta">Tamil</option>
             </select>
             
+            <!-- Login Button -->
             <button type="button" class="navBtns" id="loginBtn"><i class="fa-solid fa-circle-user"></i></button>
 
-            <!-- Dropdown -->
+            <!-- Dropdown Button after Login -->
             <div class="dropdown" id="dropDownBtn">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -99,7 +102,7 @@
                     <a href="./my-orders.html" class="active-page">My Orders</a>
                     <a href="./saved-details.html" class="inactive-page">My Profile</a>
                     <a href="./cart.html" class="inactive-page">My Cart</a>
-                    <button class="logout-btn" id="logoutBtn">Logout</button>
+                    <!-- <button class="logout-btn" id="logoutBtn">Logout</button> -->
                 </div>
             </section>
 
@@ -109,7 +112,7 @@
             <section class="orders-sec">
                 <h5>My Orders</h5>
 
-                <!-- products -->
+                <!-- products will be dynamically appended here -->
                 <div id="productContainer" class="product-container"></div>
             </section>
         </section>
@@ -123,7 +126,7 @@
             <!-- Company profile -->
             <div class="footer-child-1">
                 <div class="footer-child-2">
-                    <img src="../../assets/images/AES Logo.jpg" alt="Analytical Equipment Solutions"
+                    <img src="../../assets/images/AES Logo.jpg" alt="AES Logo"
                         class="footer-aes-logo">
                     <h1>Analytical Equipment<br>Solutions</h1>
                 </div>
@@ -143,7 +146,7 @@
             <div class="footer-child-3">
                 <b>Services</b>
                 <a href="../../assets/pdfs/AES_Catalogue_2024.pdf" target="_blank">Product Enquiry</a>
-                <a href="https://wa.me/919920780823?text=Test%20Service%20Request" target="_blank">Service Request</a>
+                <a href="https://wa.me/918268393857?text=Test%20Service%20Request" target="_blank">Service Request</a>
             </div>
 
             <!-- contact us -->
