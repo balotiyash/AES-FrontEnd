@@ -119,16 +119,17 @@ async function updateOrderStatus(paymentId, orderId) {
 }
 
 // Check if the user is logged in then only this page will be accessable
-if (!localStorage.getItem('isLoggedIn')) {
+if (!window.localStorage.getItem('isLoggedIn') || window.localStorage.getItem("role") == "admin") {
     history.replaceState(null, '', '../../shared/view/loginPage.html');
+    window.localStorage.clear();
 
     window.onpopstate = function (event) {
-        if (!localStorage.getItem('isLoggedIn')) {
+        if (!localStorage.getItem('isLoggedIn') || localStorage.getItem("role") == "admin") {
             window.location.replace('../../shared/view/loginPage.html');
         }
     };
 } else {
-    window.onpopstate = function (event) {};
+    window.onpopstate = function (event) { };
 }
 
 // Update summary section

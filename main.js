@@ -176,5 +176,4 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Normal back navigation (you can leave this empty or handle other cases)
         };
     }
-
 });

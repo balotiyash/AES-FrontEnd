@@ -3,13 +3,23 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for token verification for session management accross pages and also for navbar to show and hide profile icon accordingly.
  * Created on: 14/10/2024
- * Last Modified: 05/11/2024
+ * Last Modified: 06/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
 
 // Function to run onload to validate user login
 window.onload = async () => {
+    // For admin navigation
+    if (window.localStorage.getItem("isLoggedin") && window.localStorage.getItem("role") == "admin") {
+        document.getElementById("dropDownBtn").style.display = "none";
+        document.getElementById("loginBtn").style.display = "inline";
+        document.getElementById("loginBtn").addEventListener("click", () => {
+            window.location.href = "./admin/view/dashboard.html";
+        });
+        return;
+    }
+
     let session = window.localStorage.getItem("token");
 
     if (session) {

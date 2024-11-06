@@ -36,13 +36,15 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
                 window.localStorage.setItem("token", myData.token); // Assuming the token is in myData.token
                 window.localStorage.setItem("timer", 60 * 60); // Assuming the token is in myData.token
                 window.localStorage.setItem("isLoggedin", true);
-
+                
                 if (myData.user.roles[0] === "ADMIN") {
                     // Redirect to home page with window.location.replace to remove login page from history
                     window.location.replace('../../admin/view/dashboard.html'); // Replace with actual home page URL
+                    window.localStorage.setItem("role", "admin");
                 } else {
                     // Redirect to home page with window.location.replace to remove login page from history
                     window.location.replace('../../'); // Replace with actual home page URL
+                    window.localStorage.setItem("role", "user");
                 }
             } else {
                 alert('Login failed. Please contact your admin.');
