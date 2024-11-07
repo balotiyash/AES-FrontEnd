@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the address page of shipping page. It contains a function to fetch shipping address from server (existing) or to add new address
  * Created on: 30/10/2024
- * Last Modified: 06/11/2024
+ * Last Modified: 07/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -34,10 +34,18 @@ async function fetchUserProfile() {
 }
 
 // Function to add addresses in select tag
+// Function to add addresses in select tag
 function populateAddressSelect(addresses) {
     const selectElement = document.getElementById('addressSelect');
-    addresses.forEach(address => {
-        const option = new Option(address.toUpperCase(), address.toLowerCase()); // Create option element
+    addresses.forEach(addressObject => {
+        // Extract the address and id from the object
+        const address = addressObject.address;
+        const id = addressObject.id;
+        
+        // Create option element, using address for the display text, and id for the value
+        const option = new Option(address.toUpperCase(), address.toLowerCase());
+        
+        // Add the option to the select element
         selectElement.add(option);
     });
 }
@@ -58,12 +66,12 @@ function updateSummary() {
 // On load
 document.addEventListener("DOMContentLoaded", () => {
     // Check if the user is logged in then only this page will be accessable
-    if (!window.localStorage.getItem('isLoggedIn') || window.localStorage.getItem("role") == "admin") {
+    if (window.localStorage.getItem('isLoggedin') != "true" || window.localStorage.getItem("role") == "admin") {
         history.replaceState(null, '', '../../shared/view/loginPage.html');
         window.localStorage.clear();
 
         window.onpopstate = function (event) {
-            if (!localStorage.getItem('isLoggedIn') || localStorage.getItem("role") == "admin") {
+            if (!localStorage.getItem('isLoggedin') || localStorage.getItem("role") == "admin") {
                 window.location.replace('../../shared/view/loginPage.html');
             }
         };
@@ -107,11 +115,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Validate pin code using regex (assuming 6 digits numeric pin code for India)
-        const pinCodeRegex = /^\d{6}$/; // 6 digits
-        if (pinCode && !pinCodeRegex.test(pinCode)) {
-            alert('Please enter a valid 6-digit pin code');
-            return;
-        }
+        // const pinCodeRegex = /^\d{6}$/; // 6 digits
+        // if (pinCode && !pinCodeRegex.test(pinCode)) {
+        //     alert('Please enter a valid 6-digit pin code');
+        //     return;
+        // }
 
         // Store data in localStorage and redirect to payment page
         window.localStorage.setItem('address', address);

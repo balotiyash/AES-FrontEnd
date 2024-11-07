@@ -1,9 +1,9 @@
 <!-- 
     File: admin/view/dashboard.html
     Author: Yash Balotiya
-    Description: This File contains all the html5 code of SideBar
+    Description: This File contains all the html5 code of the dashboard page for admin.
     Created on: 07/10/2024
-    Last Modified: 30/10/2024
+    Last Modified: 07/11/2024
 -->
 
 <!DOCTYPE html>
@@ -13,6 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/images/AES Logo.jpg">
+    <title>Dashboard - AES</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -29,16 +30,11 @@
     <!-- Sidebar -->
     <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
 
-    <!-- Navbar -->
-    <!-- <link rel="stylesheet" href="../../shared//style/navbarStyle.css"> -->
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet" />
-
-    <title>Dashboard</title>
 
     <!-- stylesheets -->
     <link rel="stylesheet" href="../style/dashboard-style.css">
@@ -63,7 +59,7 @@
                     <i class="fa-solid fa-box"></i>
                     <span style="animation-delay: 0.1s">Product Management</span>
                 </button>
-                <button type="button" onclick="window.location.href = './order_management.html'">
+                <button type="button" onclick="window.location.href = './order_manage.html'">
                     <i class="fa-solid fa-list-check"></i>
                     <span style="animation-delay: 0.2s">Order Management</span>
                 </button>
@@ -79,6 +75,7 @@
     <main class="main">
         <h3>Analytics</h3>
 
+        <!-- Page Reach Section -->
         <section class="part-1">
             <div class="part1-child-1">
                 <div>
@@ -98,6 +95,7 @@
             </div>
         </section>
 
+        <!-- Chart1 -->
         <section class="part-2">
             <div class="p2-child1">
                 <!-- <p id="p2-title1">Revenue & Profit</p> -->
@@ -110,20 +108,27 @@
             <div id="chartContainer1"></div>
         </section>
 
+        <!-- Chart 2 and 3 -->
         <section class="part-3">
             <div id="chartContainer2"></div>
             <div id="chartContainer3"></div>
         </section>
-        
+
+        <!-- Chart 4 -->
         <section class="part-4">
             <div id="chartContainer4"></div>
         </section>
     </main>
 
     <!-- Scripts -->
+    <!-- For Sidebar -->
     <script>const toggleSidebar = () => document.body.classList.toggle("open");</script>
+
+    <!-- For Graphs -->
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
-    <!-- <script type="module" src="../../shared/controller/tokenVerification.js"></script> -->
+
+    <!-- Main -->
+    <script type="module" src="../../shared/controller/tokenVerification.js"></script>
     <script type="module" src="../controller/dashboard.js"></script>
 </body>
 

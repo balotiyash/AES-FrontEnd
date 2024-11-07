@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the My Orders page. It consists of functions to fetch order history
  * Created on: 22/10/2024
- * Last Modified: 06/11/2024
+ * Last Modified: 07/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -103,12 +103,12 @@ async function fetchOrders() {
 }
 
 // Check if the user is logged in then only this page will be accessable
-if (!window.localStorage.getItem('isLoggedIn') || window.localStorage.getItem("role") == "admin") {
+if (window.localStorage.getItem('isLoggedin') != "true" || window.localStorage.getItem("role") == "admin") {
     history.replaceState(null, '', '../../shared/view/loginPage.html');
     window.localStorage.clear();
 
     window.onpopstate = function (event) {
-        if (!localStorage.getItem('isLoggedIn') || localStorage.getItem("role") == "admin") {
+        if (!localStorage.getItem('isLoggedin') || localStorage.getItem("role") == "admin") {
             window.location.replace('../../shared/view/loginPage.html');
         }
     };

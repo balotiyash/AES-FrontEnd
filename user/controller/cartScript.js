@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the cart page. It contains functions to fetch cart details, to handle empty cart, to update cart and to display summary to amount dynamically
  * Created on: 14/10/2024
- * Last Modified: 06/11/2024
+ * Last Modified: 07/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -200,12 +200,12 @@ async function deleteItem(item_id) {
 }
 
 // Check if the user is logged in then only this page will be accessable
-if (!window.localStorage.getItem('isLoggedIn') || window.localStorage.getItem("role") == "admin") {
+if (window.localStorage.getItem('isLoggedin') != "true" || window.localStorage.getItem("role") == "admin") {
     history.replaceState(null, '', '../../shared/view/loginPage.html');
     window.localStorage.clear();
 
     window.onpopstate = function (event) {
-        if (!localStorage.getItem('isLoggedIn') || localStorage.getItem("role") == "admin") {
+        if (!localStorage.getItem('isLoggedin') || localStorage.getItem("role") == "admin") {
             window.location.replace('../../shared/view/loginPage.html');
         }
     };

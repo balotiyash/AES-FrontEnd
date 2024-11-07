@@ -81,7 +81,6 @@ async function fetchOrders(type) {
                 break;
         }
 
-
         orders.forEach(order => {
             const row = document.createElement('tr');
             row.innerHTML = `

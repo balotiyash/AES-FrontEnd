@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for email verification page after signup page. It contains function to validate user via email.
  * Created on: 26/10/2024
- * Last Modified: 05/11/2024
+ * Last Modified: 07/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -13,9 +13,9 @@ async function verifyEmail() {
     const currentUrl = window.location.href;
     const url = new URL(currentUrl);
     const token = url.searchParams.get('token');
-    console.log(token);
+    const emailId = url.searchParams.get('email');
 
-    const emailId = window.localStorage.getItem("email");
+    // const emailId = window.localStorage.getItem("email");
 
     try {
         const response = await fetch(`http://${IP}:${PORT}/public/verify`, {

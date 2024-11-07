@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the saved address page. It consists of functions to fetch and display the user profile and delete addresses.
  * Created on: 28/10/2024
- * Last Modified: 06/11/2024
+ * Last Modified: 07/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -48,18 +48,19 @@ async function fetchUserProfile() {
             const addressDiv = document.createElement('div');
             addressDiv.classList.add('address-div');
 
-            // Assuming each address is a string (not an object), adjust as needed
+            // Display address
             addressDiv.innerHTML = `
                 <b>Address ${index + 1}:</b>
-                <p>${address.toUpperCase()}</p>
-                <button class="btn btn-danger" id="delete-${index}">Delete</button>
+                <p>${address.address.toUpperCase()}</p>
+                <button class="btn btn-danger" id="delete-${address.id}">Delete</button>
             `;
             addressSection.appendChild(addressDiv);
 
             // Add event listener for delete button
-            const deleteButton = document.getElementById(`delete-${index}`);
-            deleteButton.addEventListener('click', () => deleteAddress(index));
+            const deleteButton = document.getElementById(`delete-${address.id}`);
+            deleteButton.addEventListener('click', () => deleteAddress(address.id));
         });
+
 
         // Display user details
         const userDetailsDiv = document.createElement('div');
@@ -105,12 +106,12 @@ async function deleteAddress(index) {
 }
 
 // Check if the user is logged in then only this page will be accessable
-if (!window.localStorage.getItem('isLoggedIn') || window.localStorage.getItem("role") == "admin") {
+if (window.localStorage.getItem('isLoggedin') != "true" || window.localStorage.getItem("role") == "admin") {
     history.replaceState(null, '', '../../shared/view/loginPage.html');
     window.localStorage.clear();
 
     window.onpopstate = function (event) {
-        if (!localStorage.getItem('isLoggedIn') || localStorage.getItem("role") == "admin") {
+        if (!localStorage.getItem('isLoggedin') || localStorage.getItem("role") == "admin") {
             window.location.replace('../../shared/view/loginPage.html');
         }
     };

@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the payments page. It consists function for razorpay integration to complete transaction, update cart/order and save transaction details.
  * Created on: 30/10/2024
- * Last Modified: 06/11/2024
+ * Last Modified: 07/11/2024
 */
 
 import { IP, PORT, RAZORPAY_KEY } from '../../config.js';
@@ -119,12 +119,12 @@ async function updateOrderStatus(paymentId, orderId) {
 }
 
 // Check if the user is logged in then only this page will be accessable
-if (!window.localStorage.getItem('isLoggedIn') || window.localStorage.getItem("role") == "admin") {
+if (window.localStorage.getItem('isLoggedin') != "true" || window.localStorage.getItem("role") == "admin") {
     history.replaceState(null, '', '../../shared/view/loginPage.html');
     window.localStorage.clear();
 
     window.onpopstate = function (event) {
-        if (!localStorage.getItem('isLoggedIn') || localStorage.getItem("role") == "admin") {
+        if (!localStorage.getItem('isLoggedin') || localStorage.getItem("role") == "admin") {
             window.location.replace('../../shared/view/loginPage.html');
         }
     };
