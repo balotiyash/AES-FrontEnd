@@ -41,10 +41,10 @@ function populateAddressSelect(addresses) {
         // Extract the address and id from the object
         const address = addressObject.address;
         const id = addressObject.id;
-        
+
         // Create option element, using address for the display text, and id for the value
         const option = new Option(address.toUpperCase(), address.toLowerCase());
-        
+
         // Add the option to the select element
         selectElement.add(option);
     });
@@ -99,7 +99,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Event listener for checkout button
     document.getElementById("checkout-btn").addEventListener("click", async () => {
-        let address = selectElement.value || addrFields.map(el => el.value).join(' ').trim();
+        const selectAddress = selectElement.value;
+        const fieldAddress = addrFields.map(el => el.value).join(' ').trim();
+
+        let address = "";
+
+        // Determine if it's a new address or an existing one
+        if (selectAddress === "") {
+            window.localStorage.setItem("isNewAddress", "no");
+            // Use the concatenated field address if no selection is made
+            address = fieldAddress;
+        } else {
+            window.localStorage.setItem("isNewAddress", "yes");
+            // Use the selected address if available
+            address = selectAddress;
+        }
+
         const phoneNo = document.getElementById('phoneTxt').value;
 
         // Validate that an address is entered or selected
@@ -111,6 +126,15 @@ document.addEventListener("DOMContentLoaded", () => {
         // Validate that a phone number is entered
         if (!phoneNo) {
             alert('Please enter a phone number to proceed');
+            return;
+        }
+
+        // Regular expression to validate Indian phone number
+        const phoneRegex = /^[7-9][0-9]{9}$/;
+
+        // Check if the phone number matches the regex
+        if (!phoneRegex.test(phoneNo)) {
+            alert('Please enter a valid phone number.');
             return;
         }
 

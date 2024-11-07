@@ -44,26 +44,35 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-inner">
+            <!-- 3 Bars Icon -->
             <header class="sidebar-header">
                 <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
                 <div class="sidebar-logo">
                     <p>Welcome, Admin!</p>
                 </div>
             </header>
+
             <nav class="sidebar-nav">
+                <!-- Analytics -->
                 <button type="button" onclick="window.location.href = './dashboard.html'">
                     <i class="fa-solid fa-chart-simple"></i>
                     <span>Analytics</span>
                 </button>
+
+                <!-- Product Management -->
                 <button type="button" id="prodMangementBtn" onclick="window.location.href = './prod_manage.html'">
                     <i class="fa-solid fa-box"></i>
                     <span style="animation-delay: 0.1s">Product Management</span>
                 </button>
+
+                <!-- Order Management -->
                 <button type="button" onclick="window.location.href = './order_manage.html'">
                     <i class="fa-solid fa-list-check"></i>
                     <span style="animation-delay: 0.2s">Order Management</span>
                 </button>
-                <button type="button" onclick="window.localStorage.removeItem('token'); window.location.reload();">
+
+                <!-- Logout -->
+                <button type="button" id="logoutBtn">
                     <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 20px;"></i>
                     <span style="animation-delay: 0.2s">Logout</span>
                 </button>
@@ -129,6 +138,7 @@
 
     <!-- Main -->
     <script type="module" src="../../shared/controller/tokenVerification.js"></script>
+    <script type="module" src="../controller/sharedAdminScript.js"></script>
     <script type="module" src="../controller/dashboard.js"></script>
 </body>
 

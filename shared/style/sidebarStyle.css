@@ -1,3 +1,11 @@
+/*
+    File: shared/style/sidebarStyle.css
+    Author: Yash Balotiya
+    Description: This file contains the styling part of the Sidebar for admin pages.
+    Created on: 07/11/2024
+    Last Modified: 07/11/2024
+*/
+
 * {
     box-sizing: border-box;
 }
@@ -87,7 +95,7 @@ body.open .sidebar-logo {
     height: 50px;
     width: 72px;
     font-family: "Poppins";
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 200;
     letter-spacing: 2px;
     line-height: 1;
@@ -120,4 +128,12 @@ body.open .sidebar-logo {
 body.open .sidebar button>span {
     opacity: 1;
     animation: appear 0.3s both;
+}
+
+/* Sidebar icons */
+.fa-chart-simple,
+.fa-box,
+.fa-list-check,
+.fa-arrow-right-from-bracket {
+    font-size: 20px;
 }

@@ -3,7 +3,7 @@
  * Author: Atharv Mirgal
  * Description: This file contains JS code for the offline product management page.
  * Created on: 02/11/2024
- * Last Modified: 02/11/2024
+ * Last Modified: 07/11/2024
  */
 
 import { IP, PORT } from '../../config.js';
@@ -360,7 +360,7 @@ document.getElementById('addProductButton').addEventListener('click', function (
     priceInput.placeholder = 'Price';
     priceInput.name = 'price';
     priceInput.id = 'priceInput';
-    priceInput.readOnly = true; // Make it read-only
+    // priceInput.readOnly = true; // Make it read-only
     productFieldsDiv.appendChild(priceInput);
 
     // Create and append the profit input
@@ -369,7 +369,7 @@ document.getElementById('addProductButton').addEventListener('click', function (
     profitInput.placeholder = 'Profit';
     profitInput.name = 'profit';
     profitInput.id = 'profitInput';
-    profitInput.readOnly = true; // Make it read-only
+    // profitInput.readOnly = true; // Make it read-only
     productFieldsDiv.appendChild(profitInput);
 
     // Create and append the quantity input

@@ -53,7 +53,7 @@ document.getElementById('rzp-button1').onclick = async function (e) {
         "prefill": {
             "name": userData.customer_name,
             "email": userData.customer_email,
-            "contact": window.localStorage.getItem('phoneNo')
+            "contact": parseInt(window.localStorage.getItem('phoneNo'))
         },
         "notes": {
             "address": "Payment to AES"
@@ -98,6 +98,9 @@ async function updateOrderStatus(paymentId, orderId) {
             transaction_id: paymentId,
             order_id: orderId
         }
+
+        const isNewAddress = window.localStorage.getItem("isNewAddress") === "yes";
+
         const response = await fetch(`http://${IP}:${PORT}/order/checkout`, {
             method: 'POST',
             headers: {
@@ -106,7 +109,7 @@ async function updateOrderStatus(paymentId, orderId) {
             },
             body: JSON.stringify({
                 sale: sale,
-                isNewAddress: true
+                isNewAddress: isNewAddress
             })
         });
 
