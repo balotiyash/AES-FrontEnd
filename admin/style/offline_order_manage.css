@@ -1,9 +1,9 @@
 /*
-    File: user/style/shipping-style.css
-    Author: Yash Balotiya
-    Description: This file contains the styling part of the shipping Page.
+    File: admin/style/offline_order_manage.css
+    Author: Atharv Mirgal
+    Description: This file contains the styling part of the offline sales management Page.
     Created on: 13/10/2024
-    Last Modified: 15/10/2024
+    Last Modified: 07/11/2024
 */
 
 * {
@@ -15,7 +15,7 @@
 body {
     max-width: 100vw;
     height: 100vh;
-    background-color: white;
+    /* background-color: white; */
 }
 
 /* Main section */

@@ -14,7 +14,7 @@ const timer = setInterval(() => {
 
     if (time <= 0) {
         clearInterval(timer);
-        handleTimeout();
+        logout();
     } else {
         time--;
         window.localStorage.setItem("timer", time);
@@ -41,14 +41,15 @@ window.onload = async () => {
 
     if (session) {
         try {
-            // Await the result of fetchUserData
             let data = await fetchUserData(session);
 
-            if (!data) logout();
+            if (!data) {
+                logout();
+            }
 
         } catch (error) {
             console.error('Error fetching user data:', error);
-            console.log('User not authenticated due to an error');
+            logout(); // Logout if there's an error fetching user data
         }
     } else {
         logout();
@@ -85,6 +86,7 @@ document.getElementById("logoutBtn").addEventListener("click", logout);
 // Function to logout
 function logout() {
     window.localStorage.clear();
+    window.location.reload();
     history.replaceState(null, '', '../../shared/view/loginPage.html');
     window.location.replace('../../shared/view/loginPage.html');
 }

@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This file contains JS code for the saved address page.
  * Created on: 28/10/2024
- * Last Modified: 30/10/2024
+ * Last Modified: 07/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -58,11 +58,8 @@ async function fetchChart1Data() {
             revenurArray.push({ x: new Date(element.date), y: element.revenue });
             profitArray.push({ x: new Date(element.date), y: element.profit });
         });
-        console.log("Revenue array: ");
-        console.log(revenurArray);
-        console.log("Profit array: ");
-        console.log(profitArray);
-        return { revenurArray, profitArray };   
+
+        return { revenurArray, profitArray };
     } catch (error) {
         console.error('Error during Fetching Chart1 Data:', error);
     }
@@ -90,7 +87,7 @@ async function fetchChart2Data() {
             topSellers.push({ y: element.quantity, label: element.product_name });
         });
 
-        return topSellers;   
+        return topSellers;
     } catch (error) {
         console.error('Error during Fetching Chart2 Data:', error);
     }
@@ -154,12 +151,12 @@ async function fetchChart4Data() {
             onlineProfitArray.push({ x: new Date(element.date), y: element.profit });
         });
 
-        return { 
-            offlineRevenueArray, 
-            offlineProfitArray, 
-            onlineRevenueArray, 
-            onlineProfitArray 
-        };   
+        return {
+            offlineRevenueArray,
+            offlineProfitArray,
+            onlineRevenueArray,
+            onlineProfitArray
+        };
     } catch (error) {
         console.error('Error during Fetching Revenue Chart4 Data:', error);
     }
@@ -219,7 +216,6 @@ async function renderChart1() {
         }]
     });
     chart1.render();
-
 }
 
 async function renderChart2() {
@@ -266,9 +262,6 @@ async function renderChart3() {
             dataPoints: [
                 { y: pendingOrderCount, label: "Pending" },
                 { y: completeOrderCount, label: "Complete" }
-                // { y: 7.06, label: "Baidu" },
-                // { y: 4.91, label: "Yahoo" },
-                // { y: 1.26, label: "Others" }
             ]
         }]
     });
@@ -354,11 +347,8 @@ window.onload = async function () {
     fetchStatsData();
 
     await renderChart1();
-
     await renderChart2();
-
     await renderChart3();
-
     await renderChart4();
 }
 

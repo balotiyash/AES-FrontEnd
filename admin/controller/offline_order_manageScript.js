@@ -6,7 +6,7 @@
  * Last Modified: 07/11/2024
  */
 
-import { IP, PORT } from '../../config.js';
+import { IP, PORT, RAZORPAY_KEY } from '../../config.js';
 
 const token = window.localStorage.getItem('token');
 
@@ -263,7 +263,7 @@ const submitOrder = async () => {
 
     // Define Razorpay options with dynamic order_id
     var options = {
-        "key": "rzp_test_hD75gZIHGX2XGb", // Razorpay Key
+        "key": RAZORPAY_KEY, // Razorpay Key
         "amount": order.amount, // Amount in paise
         "currency": "INR",
         "name": "Analtical Equipment Solution",
@@ -280,7 +280,7 @@ const submitOrder = async () => {
         "prefill": {
             "name": userData.customer_name,
             "email": userData.customer_email,
-            "contact": window.localStorage.getItem('phoneNo')
+            "contact": parseInt(phone)
         },
         "notes": {
             "address": "Payment to AES"

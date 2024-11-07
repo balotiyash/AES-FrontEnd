@@ -1,9 +1,9 @@
 /** 
  * File: admin/controller/orderManageScript.js
- * Author: Atharv Mirgal
+ * Author: Yash Balotiya
  * Description: This file contains JS code for the order management page.
  * Created on: 04/11/2024
- * Last Modified: 04/11/2024
+ * Last Modified: 07/11/2024
  */
 
 import { IP, PORT } from '../../config.js';
@@ -131,7 +131,6 @@ async function fetchOrders(type) {
     }
 }
 
-
 // Function to update the accepted order status
 async function updateAcceptedOrderStatus(saleId, newStatus) {
     const token = window.localStorage.getItem("token");
@@ -215,4 +214,9 @@ document.querySelectorAll(".filterDropdown").forEach(dropdown => {
         // Call fetchOrders with the single type parameter
         fetchOrders(type);
     });
+});
+
+// new offline sale click event
+document.getElementById("addBtn").addEventListener("click", () => {
+    window.location.href = "./offline_order_manage.html";
 });

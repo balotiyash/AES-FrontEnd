@@ -3,12 +3,16 @@
  * Author: Yash Balotiya
  * Description: This page contains all the js code for the Reset Password page. It contains a function to reset password.
  * Created on: 28/10/2024
- * Last Modified: 05/11/2024
+ * Last Modified: 07/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
 
-const emailId = window.localStorage.getItem("email");
+const currentUrl = window.location.href;
+const url = new URL(currentUrl);
+const emailId = url.searchParams.get('email');
+
+// const emailId = window.localStorage.getItem("email");
 document.getElementById("emailTxt").value = emailId; // Fill email field with the stored email ID
 
 // Create and display the loading indicator
@@ -118,7 +122,7 @@ document.head.appendChild(style);
 if (window.localStorage.getItem('passwordResetComplete') === 'true') {
     // If password has already been reset, redirect to login page or dashboard
     alert("Your password has already been reset. Please login.");
-    
+
     // Clear flag after successful reset
     window.localStorage.removeItem('passwordResetComplete');
 

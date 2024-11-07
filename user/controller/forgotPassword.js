@@ -3,7 +3,7 @@
  * Author: Yash Balotiya
  * Description: This page contains all the js code for the Forgot Password page. It contains function to send reset link in mail
  * Created on: 28/10/2024
- * Last Modified: 05/11/2024
+ * Last Modified: 07/11/2024
 */
 
 import { IP, PORT } from '../../config.js';
@@ -18,7 +18,7 @@ document.getElementById("signinBtn").addEventListener("click", async () => {
         return;
     }
 
-    window.localStorage.setItem("email", emailId);
+    // window.localStorage.setItem("email", emailId);
 
     const formData = new FormData();
     formData.append('email', emailId);

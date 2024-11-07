@@ -1,9 +1,9 @@
 <!-- 
-    File: user/view/shipping-page.html
-    Author: Yash Balotiya
-    Description: This file contains all the HTML code for shipping page
+    File: admin/view/offline_order_manage.html
+    Author: Atharv Mirgal
+    Description: This file contains all the HTML code for offline sales management page
     Created on: 13/10/2024
-    Last Modified: 30/10/2024
+    Last Modified: 07/11/2024
 -->
 
 <!DOCTYPE html>
@@ -28,9 +28,8 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Navbar & footer -->
-    <link rel="stylesheet" href="../../shared/style/navbarStyle.css">
-    <link rel="stylesheet" href="../../shared/style/footerStyle.css">
+    <!-- Sidebar -->
+    <link rel="stylesheet" href="../../shared/style/sidebarStyle.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,6 +42,44 @@
 </head>
 
 <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <!-- 3 Bars Icon -->
+            <header class="sidebar-header">
+                <button type="button" class="sidebar-burger" onclick="toggleSidebar()"></button>
+                <div class="sidebar-logo">
+                    <p>Welcome, Admin!</p>
+                </div>
+            </header>
+
+            <nav class="sidebar-nav">
+                <!-- Analytics -->
+                <button type="button" onclick="window.location.href = './dashboard.html'">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Analytics</span>
+                </button>
+
+                <!-- Product Management -->
+                <button type="button" id="prodMangementBtn" onclick="window.location.href = './prod_manage.html'">
+                    <i class="fa-solid fa-box"></i>
+                    <span style="animation-delay: 0.1s">Product Management</span>
+                </button>
+
+                <!-- Order Management -->
+                <button type="button" onclick="window.location.href = './order_manage.html'">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span style="animation-delay: 0.2s">Order Management</span>
+                </button>
+
+                <!-- Logout -->
+                <button type="button" id="logoutBtn">
+                    <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 20px;"></i>
+                    <span style="animation-delay: 0.2s">Logout</span>
+                </button>
+            </nav>
+        </div>
+    </aside>
 
     <!-- Main section -->
     <main class="mainSection">
@@ -55,71 +92,67 @@
                     <label for="usernameTxt">Username</label>
                     <input type="text" name="username" id="usernameTxt">
                 </div>
-            
+
                 <div class="input-div">
                     <label for="nameTxt">Name</label>
                     <input type="text" name="name" id="nameTxt" disabled>
                 </div>
-            
+
                 <div class="input-div">
                     <label for="emailTxt">Email</label>
                     <input type="email" name="email" id="emailTxt" disabled>
                 </div>
-            
+
                 <div class="input-div">
                     <label for="phoneTxt">Contact Number</label>
                     <input type="number" name="phone" id="phoneTxt">
                 </div>
-            
+
                 <h5>Shipping Address</h5>
-            
+
                 <div class="input-div">
                     <select name="address" id="addressSelect">
                         <option value="">Select Address</option>
                     </select>
                 </div>
-            
+
                 <b style="margin: auto;">OR</b>
-            
+
                 <div class="input-div">
                     <label for="streetAdd1">Street Address</label>
                     <input type="text" name="street1" id="streetAdd1" placeholder="Address Line 1">
                     <input type="text" name="street2" id="streetAdd2" placeholder="Address Line 2">
                     <input type="text" name="street3" id="streetAdd3" placeholder="Address Line 3">
                 </div>
-            
+
                 <div class="input-div">
                     <label for="cityTxt">City</label>
                     <input type="text" name="city" id="cityTxt">
                 </div>
-            
+
                 <div class="input-div">
                     <label for="pinCode">Zip/Postal Code</label>
                     <input type="number" name="zip" id="pinCode">
                 </div>
-            
+
                 <div class="input-div">
                     <label for="stateTxt">State</label>
                     <input type="text" name="state" id="stateTxt">
                 </div>
-            
+
                 <div class="input-div">
                     <label for="landmarkTxt">Landmark</label>
                     <input type="text" name="landmark" id="landmarkTxt">
                 </div>
-            
+
                 <hr>
                 <div class="d-grid gap-2">
                     <div id="productFieldsContainer">
-                        
+
                     </div>
                     <button class="btn btn-secondary" id="addProductButton" type="button">Add Product</button>
                 </div>
                 <hr>
-            </form>
-            
-           
-            
             </section>
 
             <!-- Summary Section -->
@@ -155,77 +188,14 @@
         </section>
     </main>
 
-    <!-- footer -->
-    <footer>
-        <!-- Main footer -->
-        <div class="footer">
-
-            <!-- Company profile -->
-            <div class="footer-child-1">
-                <div class="footer-child-2">
-                    <img src="../../assets/images/AES Logo.jpg" alt="Analytical Equipment Solutions"
-                        class="footer-aes-logo">
-                    <h1>Analytical Equipment<br>Solutions</h1>
-                </div>
-                <p>We Provide Pan India Analytical Instruments Sales & Services</p>
-            </div>
-
-            <!-- quick links -->
-            <div class="footer-child-3">
-                <b>Quick Links</b>
-                <a href="../../">Home</a>
-                <a href="./products-page.html">Products</a>
-                <a href="./about-us.html">About Us</a>
-                <a href="./contact-us.html">Contact Us</a>
-            </div>
-
-            <!-- services -->
-            <div class="footer-child-3">
-                <b>Services</b>
-                <a href="../../assets/pdfs/AES_Catalogue_2024.pdf" target="_blank">Product Enquiry</a>
-                <a href="https://wa.me/919920780823?text=Test%20Service%20Request" target="_blank">Service Request</a>
-            </div>
-
-            <!-- contact us -->
-            <div class="footer-child-3">
-                <b>Contact Us</b>
-                <div>
-                    <i class="fa-solid fa-envelope"></i>
-                    <a
-                        href="mailto:official@analyticalequipmentsolutions.com">official@analyticalequipmentsolutions.com</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-envelope"></i>
-                    <a href="mailto:official@outlook.com">official@outlook.com</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-phone"></i>
-                    <a href="tel:8268393857">+91 8268393857</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-phone"></i>
-                    <a href="tel:8169060811">+91 8169060811</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-location-dot"></i>
-                    <a href="https://maps.app.goo.gl/hpf69LaY9kG6UTXM8" target="_blank">Jamil Nagar, Bhandup (W), Mumbai
-                        - 400078</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Copywrite section -->
-        <div class="copywrite-div">
-            <p>Copywrite</p>
-            <i class="fa-regular fa-copyright"></i>
-            <p>2024 Analytical Equipment Solutions | AES</p>
-        </div>
-    </footer>
-
     <!-- Scripts -->
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+     <!-- For Sidebar -->
+    <script>const toggleSidebar = () => document.body.classList.toggle("open");</script>
+
+    <!-- Main -->
     <script type="module" src="../../shared/controller/tokenVerification.js"></script>
-    <script src="../../shared/controller/sharedScript.js"></script>
+    <script type="module" src="../controller/sharedAdminScript.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script type="module" src="../controller/offline_order_manageScript.js"></script>
 </body>
 

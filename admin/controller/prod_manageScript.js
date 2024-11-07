@@ -3,7 +3,7 @@
  * Author: Atharv Mirgal
  * Description: This file contains JS code for the product management page.
  * Created on: 13/10/2024
- * Last Modified: 31/10/2024
+ * Last Modified: 07/11/2024
  */
 
 import { IP, PORT } from '../../config.js';
@@ -25,7 +25,6 @@ async function fetchProducts() {
         }
 
         allProducts = await response.json();
-        console.log('Fetched products:', allProducts);
 
         renderProducts(allProducts);
     } catch (error) {
@@ -67,6 +66,10 @@ function renderProducts(products) {
     });
 }
 
+// add btn click handler
+document.getElementById("addBtn").addEventListener("click", () => {
+    window.location.href = "./prod_info.html";
+});
 
 // Fetch and render products on page load
 fetchProducts();
